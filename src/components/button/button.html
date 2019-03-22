@@ -1,0 +1,9 @@
+<!-- Button template file -->
+<button 
+    :class="getClasses"
+    class="ltd-button-container" 
+    @click="onClick"
+>
+    <!-- @slot Use this slot to place the button content -->
+    <slot></slot>
+</button>

@@ -1,0 +1,21 @@
+/**
+ *  Button style file
+**/
+
+.ltd-button-container {
+    border: 1px solid;
+    border-radius: 4px;
+    cursor: pointer;
+
+    &.light {
+        background: #fff;
+        border-color:  #000;
+        color: #000;
+    }
+
+    &.dark {
+        background: #000;
+        border-color:  #fff;
+        color: #fff;
+    }
+}

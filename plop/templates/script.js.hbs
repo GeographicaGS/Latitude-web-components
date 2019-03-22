@@ -1,0 +1,46 @@
+/**
+ *  {{pascalCase name}} script file
+**/
+
+{{#if store}}
+import { mapState, mapActions, mapGetters } from 'vuex'
+
+import { MODULE_NAME, ACTIONS, GETTERS } from './constants'
+import rootStore from '@/store'
+import store from './store'
+
+{{/if}}
+
+export default {
+  name: 'Ltd{{pascalCase name}}', // web-component: ltd-{{camelCase name}}
+  mixins: [],
+  components: {},
+  props: {},
+  data: function () {
+    return {}
+  },
+  {{#if store}}
+  beforeCreate: function () {
+    if (!(rootStore && rootStore.state && rootStore.state[MODULE_NAME])) {
+      rootStore.registerModule(MODULE_NAME, store)
+    }
+  },
+  {{/if}}
+  computed: {
+    {{#if store}}
+    ...mapState(MODULE_NAME, {
+      stateDefault: state => state
+    }),
+    ...mapGetters(MODULE_NAME, {
+      gettersDefault: GETTERS.gettersDefault
+    })
+    {{/if}}
+  },
+  methods: {
+    {{#if store}}
+    ...mapActions(MODULE_NAME, {
+      actionsDefault: ACTIONS.actionsDefault
+    })
+    {{/if}}
+  }
+}
