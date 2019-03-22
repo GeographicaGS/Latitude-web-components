@@ -12,15 +12,15 @@ import store from './store'
 {{/if}}
 
 export default {
-  name: 'Ltd{{pascalCase name}}', // web-component: ltd-{{camelCase name}}
+  name: 'Ltd{{pascalCase name}}', // component: ltd-{{camelCase name}}
   mixins: [],
   components: {},
   props: {},
-  data: function () {
+  data () {
     return {}
   },
   {{#if store}}
-  beforeCreate: function () {
+  beforeCreate () {
     if (!(rootStore && rootStore.state && rootStore.state[MODULE_NAME])) {
       rootStore.registerModule(MODULE_NAME, store)
     }
