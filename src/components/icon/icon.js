@@ -38,17 +38,21 @@ export default {
   methods: {
     /**
      * Triggered when button is clicked
-     *
-     * TODO: check errors
      * */
     getSource() {
       const myRequest = new Request(this.icon);
-      window.fetch(myRequest).then(response => response.text()).then((svg) => {
-        const parser = new DOMParser();
-        const doc = parser.parseFromString(svg, 'image/svg+xml');
-        this.removeImage();
-        this.drawIcon(doc);
-      });
+      window.fetch(myRequest).then(response => response.text())
+        .then((svg) => {
+          const parser = new DOMParser();
+          const doc = parser.parseFromString(svg, 'image/svg+xml');
+          doc.documentElement.setAttribute('width', this.size);
+          doc.documentElement.setAttribute('height', this.size);
+          this.removeImage();
+          this.drawIcon(doc);
+        }).catch((error) => {
+          // TODO: handle error
+          console.error(error);
+        });
     },
     /**
      * Removes image element.
@@ -61,8 +65,6 @@ export default {
      * Appends the SVG.
      * */
     drawIcon(doc) {
-      doc.documentElement.setAttribute('width', this.size);
-      doc.documentElement.setAttribute('height', this.size);
       this.$el.appendChild(doc.documentElement);
     },
   },
