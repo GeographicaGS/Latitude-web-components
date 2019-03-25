@@ -63,8 +63,8 @@ storiesOf('Calendar', module)
     beforeDestroyed() {},
     methods: {
       onSetCalendarDate(value) {
-        console.log('set date!');
-        console.log(value);
+        console.log('The date selected is: ');
+        console.log(value.date);
       },
     },
   }));
