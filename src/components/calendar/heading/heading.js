@@ -44,14 +44,12 @@ export default {
     },
 
     nextMonth() {
-      console.log('sisisi');
-
       const month = this.date.month() + 1;
       this.$emit('changeMonth', month);
     },
 
     openMonths() {
-      this.$emit('changeMonth', this.date);
+      this.$emit('toggleMonths');
     },
   },
 };

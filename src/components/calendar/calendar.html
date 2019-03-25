@@ -16,4 +16,12 @@
     :future-selection="futureSelection"
     @change="changeDate">  
   </ltd-days>
+
+  <ltd-monthSelector v-if="isMonthSelectorOpen"
+    :date="current"
+    :locale="locale"
+    @year="setYear"
+    @month="setMonth"
+    @today="reset">
+  </ltd-monthSelector>
 </div>

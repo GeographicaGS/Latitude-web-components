@@ -1,6 +1,7 @@
 import moment from 'moment';
 import Days from './days/index';
 import Heading from './heading/index';
+import MonthSelector from './month-selector/index';
 
 /**
  *  Calendar script file
@@ -25,6 +26,7 @@ export default {
   components: {
     'ltd-heading': Heading,
     'ltd-days': Days,
+    'ltd-monthSelector': MonthSelector,
   },
   props: {
     /**
