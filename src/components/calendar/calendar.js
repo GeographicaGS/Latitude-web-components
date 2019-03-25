@@ -1,5 +1,6 @@
 import moment from 'moment';
 import Days from './days/index';
+import Heading from './heading/index';
 
 /**
  *  Calendar script file
@@ -22,6 +23,7 @@ export default {
   name: 'LtdCalendar', // component: ltd-calendar
   mixins: [],
   components: {
+    'ltd-heading': Heading,
     'ltd-days': Days,
   },
   props: {
@@ -158,15 +160,15 @@ export default {
     },
 
     changeMonth(month) {
-      this.current = this.current.month(month);
+      this.current = moment(this.current).month(month);
     },
 
     setYear(year) {
-      this.current = this.current.year(year);
+      this.current = moment(this.current).year(year);
     },
 
     setMonth(month) {
-      this.current = this.current.month(month);
+      this.current = moment(this.current).month(month);
       this.toggleMonths();
     },
 

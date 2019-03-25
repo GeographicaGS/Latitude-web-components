@@ -1,6 +1,12 @@
 <!-- Calendar template file -->
 <div class="ltd-calendar-container">
-  The Calendar component works
+  <ltd-heading 
+    :date="current"
+    :locale="locale"
+    @changeMonth="changeMonth"
+    @toggleMonths="toggleMonths">
+  </ltd-heading>
+  
   <ltd-days
     :date="current" 
     :start-date="start" 
