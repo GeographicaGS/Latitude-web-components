@@ -1,4 +1,4 @@
-import moment from 'moment';
+import moment from 'moment'
 
 /**
  *  MonthSelector script file
@@ -11,53 +11,53 @@ export default {
     date: {
       type: Object,
       default: undefined,
-      required: false,
+      required: false
     },
     locale: {
       type: String,
       default: 'en',
-      required: false,
+      required: false
     },
     buttonText: {
       type: String,
       default: 'Today',
-      required: false,
-    },
+      required: false
+    }
   },
-  data() {
-    return {};
+  data () {
+    return {}
   },
   computed: {
   },
   methods: {
-    getActiveClass(i) {
-      return this.date.locale(this.locale).month() === i && moment().year() === this.getYear();
+    getActiveClass (i) {
+      return this.date.locale(this.locale).month() === i && moment().year() === this.getYear()
     },
 
-    getMonth(i) {
-      return moment().locale(this.locale).month(i).format('MMM');
+    getMonth (i) {
+      return moment().locale(this.locale).month(i).format('MMM')
     },
 
-    setMonth(i) {
-      this.$emit('month', i);
+    setMonth (i) {
+      this.$emit('month', i)
     },
 
-    getYear() {
-      return this.date.year();
+    getYear () {
+      return this.date.year()
     },
 
-    previusYear() {
-      const year = this.date.year() - 1;
-      this.$emit('year', year);
+    previusYear () {
+      const year = this.date.year() - 1
+      this.$emit('year', year)
     },
 
-    nextYear() {
-      const year = this.date.year() + 1;
-      this.$emit('year', year);
+    nextYear () {
+      const year = this.date.year() + 1
+      this.$emit('year', year)
     },
 
-    goToToday() {
-      this.$emit('today');
-    },
-  },
-};
+    goToToday () {
+      this.$emit('today')
+    }
+  }
+}

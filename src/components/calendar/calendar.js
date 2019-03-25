@@ -1,7 +1,7 @@
-import moment from 'moment';
-import Days from './days/index';
-import Heading from './heading/index';
-import MonthSelector from './month-selector/index';
+import moment from 'moment'
+import Days from './days/index'
+import Heading from './heading/index'
+import MonthSelector from './month-selector/index'
 
 /**
  *  Calendar script file
@@ -26,7 +26,7 @@ export default {
   components: {
     'ltd-heading': Heading,
     'ltd-days': Days,
-    'ltd-monthSelector': MonthSelector,
+    'ltd-monthSelector': MonthSelector
   },
   props: {
     /**
@@ -35,7 +35,7 @@ export default {
     setDate: {
       type: Function,
       default: undefined,
-      required: false,
+      required: false
     },
     /**
      * Sets the selected date (no range type)
@@ -43,7 +43,7 @@ export default {
     selectedDate: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
     /**
      * Sets the start selected date (range type)
@@ -51,7 +51,7 @@ export default {
     startDate: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
     /**
      * Sets the end selected date (range type)
@@ -59,7 +59,7 @@ export default {
     endDate: {
       type: String,
       default: '',
-      required: false,
+      required: false
     },
     /**
      * Sets the calendar language
@@ -67,7 +67,7 @@ export default {
     locale: {
       type: String,
       default: 'en',
-      required: false,
+      required: false
     },
     /**
      * Day string format
@@ -75,7 +75,7 @@ export default {
     dayFormat: {
       type: String,
       default: 'ddd',
-      required: false,
+      required: false
     },
     /**
      * Month string format
@@ -83,7 +83,7 @@ export default {
     monthFormat: {
       type: String,
       default: 'MMM',
-      required: false,
+      required: false
     },
     /**
      * If specified, the calendar selection will be multiple, oherwise it will be simple.
@@ -91,7 +91,7 @@ export default {
     range: {
       type: Boolean,
       default: false,
-      required: false,
+      required: false
     },
     /**
      * If specified, future dates can be selected
@@ -99,89 +99,89 @@ export default {
     futureSelection: {
       type: Boolean,
       default: true,
-      required: false,
-    },
+      required: false
+    }
   },
-  data() {
+  data () {
     return {
       current: moment(),
       start: undefined,
       end: undefined,
-      isMonthSelectorOpen: false,
-    };
+      isMonthSelectorOpen: false
+    }
   },
-  mounted() {
-    this.setDateRanges();
+  mounted () {
+    this.setDateRanges()
   },
-  updated() {},
+  updated () {},
   computed: {},
   methods: {
-    setDateRanges() {
+    setDateRanges () {
       if (this.selectedDate) {
-        this.start = moment(this.selectedDate);
-        this.end = moment(this.selectedDate);
-        return;
+        this.start = moment(this.selectedDate)
+        this.end = moment(this.selectedDate)
+        return
       }
 
       if (this.startDate) {
-        this.start = moment(this.startDate);
+        this.start = moment(this.startDate)
       }
       if (this.endDate) {
-        this.end = moment(this.endDate);
+        this.end = moment(this.endDate)
       }
     },
 
-    changeDate(date) {
-      if (!this.futureSelection && date.isAfter(moment())) { return; }
+    changeDate (date) {
+      if (!this.futureSelection && date.isAfter(moment())) { return }
 
       if (
-        !this.start || date.isBefore(this.start, 'day')
-        || !this.start.isSame(this.end, 'day')
+        !this.start || date.isBefore(this.start, 'day') ||
+        !this.start.isSame(this.end, 'day')
       ) {
-        this.start = date;
-        this.end = date;
+        this.start = date
+        this.end = date
       } else if (date.isSame(this.start, 'day') && date.isSame(this.end, 'day')) {
-        this.start = null;
-        this.end = null;
+        this.start = null
+        this.end = null
       }
 
       if (!this.range) {
-        this.start = date;
-        this.end = date;
-        this.setDate({ date });
-        return;
+        this.start = date
+        this.end = date
+        this.setDate({ date })
+        return
       }
 
       if (date.isAfter(this.start, 'day')) {
-        this.end = date;
+        this.end = date
       }
 
-      const { start } = this;
-      const { end } = this;
-      this.setDate({ start, end });
+      const { start } = this
+      const { end } = this
+      this.setDate({ start, end })
     },
 
-    changeMonth(month) {
-      this.current = moment(this.current).month(month);
+    changeMonth (month) {
+      this.current = moment(this.current).month(month)
     },
 
-    setYear(year) {
-      this.current = moment(this.current).year(year);
+    setYear (year) {
+      this.current = moment(this.current).year(year)
     },
 
-    setMonth(month) {
-      this.current = moment(this.current).month(month);
-      this.toggleMonths();
+    setMonth (month) {
+      this.current = moment(this.current).month(month)
+      this.toggleMonths()
     },
 
-    toggleMonths() {
-      this.isMonthSelectorOpen = !this.isMonthSelectorOpen;
+    toggleMonths () {
+      this.isMonthSelectorOpen = !this.isMonthSelectorOpen
     },
 
-    reset() {
-      this.isMonthSelectorOpen = false;
-      this.current = moment();
-      this.setDateRanges();
-    },
-  },
-};
+    reset () {
+      this.isMonthSelectorOpen = false
+      this.current = moment()
+      this.setDateRanges()
+    }
+  }
+}

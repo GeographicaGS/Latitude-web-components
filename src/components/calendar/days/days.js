@@ -1,5 +1,5 @@
-import moment from 'moment';
-import Day from '../day/index';
+import moment from 'moment'
+import Day from '../day/index'
 
 /**
  *  Days script file
@@ -10,147 +10,147 @@ export default {
   name: 'LtdDays', // component: ltd-days
   mixins: [],
   components: {
-    'ltd-day': Day,
+    'ltd-day': Day
   },
   props: {
     date: {
       type: Object,
       default: undefined,
-      required: false,
+      required: false
     },
     startDate: {
       type: Object,
       default: undefined,
-      required: false,
+      required: false
     },
     endDate: {
       type: Object,
       default: undefined,
-      required: false,
+      required: false
     },
     dayFormat: {
       type: String,
       default: 'ddd',
-      required: false,
+      required: false
     },
     locale: {
       type: String,
       default: 'en',
-      required: false,
+      required: false
     },
     futureSelection: {
       type: Boolean,
       default: true,
-      required: false,
-    },
+      required: false
+    }
   },
-  data() {
+  data () {
     return {
       days: [],
       prevMonthItems: [],
       currMonthItems: [],
-      nextMonthItems: [],
-    };
+      nextMonthItems: []
+    }
   },
-  mounted() {
-    this.setMonthDays();
+  mounted () {
+    this.setMonthDays()
   },
-  updated() {},
+  updated () {},
   computed: {
-    thisDate() {
-      return moment(this.date);
+    thisDate () {
+      return moment(this.date)
     },
-    daysInMonth() {
-      return moment(this.date).daysInMonth();
+    daysInMonth () {
+      return moment(this.date).daysInMonth()
     },
-    firstDayDate() {
-      return moment(this.date).startOf('month');
+    firstDayDate () {
+      return moment(this.date).startOf('month')
     },
-    previousMonth() {
-      return moment(this.date).subtract(1, 'month');
+    previousMonth () {
+      return moment(this.date).subtract(1, 'month')
     },
-    previousMonthDays() {
-      return this.previousMonth.daysInMonth();
+    previousMonthDays () {
+      return this.previousMonth.daysInMonth()
     },
-    nextMonth() {
-      return moment(this.date).add(1, 'month');
-    },
+    nextMonth () {
+      return moment(this.date).add(1, 'month')
+    }
   },
   methods: {
-    setMonthDays() {
-      this.days = [];
-      this.prevMonthItems = this.pastMonthRange();
-      this.currMonthItems = this.currentMonthRange();
-      this.nextMonthItems = this.nextMonthRange();
+    setMonthDays () {
+      this.days = []
+      this.prevMonthItems = this.pastMonthRange()
+      this.currMonthItems = this.currentMonthRange()
+      this.nextMonthItems = this.nextMonthRange()
     },
 
-    getLabel(i) {
-      const day = this.locale === 'en' ? i + 1 : i; // NOTE: ugly and inconsistent
-      return moment().locale(this.locale).weekday(day).format(this.dayFormat);
+    getLabel (i) {
+      const day = this.locale === 'en' ? i + 1 : i // NOTE: ugly and inconsistent
+      return moment().locale(this.locale).weekday(day).format(this.dayFormat)
     },
 
-    pastMonthRange() {
-      const arr = [];
+    pastMonthRange () {
+      const arr = []
       for (let i = this.firstDayDate.day(); i > 1; i -= 1) {
-        this.previousMonth.date(this.previousMonthDays - i + 2);
+        this.previousMonth.date(this.previousMonthDays - i + 2)
         const props = {
           currentDate: this.date,
           date: moment(this.previousMonth),
           startDate: this.startDate,
-          endDate: this.endDate,
-        };
-        arr.push(props);
-        this.days.push(props);
+          endDate: this.endDate
+        }
+        arr.push(props)
+        this.days.push(props)
       }
-      return arr;
+      return arr
     },
 
-    currentMonthRange() {
-      const arr = [];
+    currentMonthRange () {
+      const arr = []
       for (let i = 1; i <= this.daysInMonth; i += 1) {
-        this.thisDate.date(i);
+        this.thisDate.date(i)
         const props = {
           currentDate: this.date,
           date: moment(this.thisDate),
           startDate: this.startDate,
-          endDate: this.endDate,
-        };
-        arr.push(props);
-        this.days.push(props);
+          endDate: this.endDate
+        }
+        arr.push(props)
+        this.days.push(props)
       }
-      return arr;
+      return arr
     },
 
-    nextMonthRange() {
-      const len = this.prevMonthItems.concat(this.currMonthItems).length;
-      const arr = [];
+    nextMonthRange () {
+      const len = this.prevMonthItems.concat(this.currMonthItems).length
+      const arr = []
       for (let i = 1; i <= (42 - len); i += 1) {
-        this.nextMonth.date(i);
+        this.nextMonth.date(i)
         const props = {
           currentDate: this.date,
           date: moment(this.nextMonth),
           startDate: this.startDate,
-          endDate: this.endDate,
-        };
-        arr.push(props);
-        this.days.push(props);
+          endDate: this.endDate
+        }
+        arr.push(props)
+        this.days.push(props)
       }
-      return arr;
+      return arr
     },
 
-    onDayClick(date) {
-      this.$emit('change', date);
-    },
+    onDayClick (date) {
+      this.$emit('change', date)
+    }
   },
   watch: {
-    date() {
-      this.setMonthDays();
+    date () {
+      this.setMonthDays()
     },
-    startDate() {
-      this.setMonthDays();
+    startDate () {
+      this.setMonthDays()
     },
-    endDate() {
-      this.setMonthDays();
-    },
-  },
-};
+    endDate () {
+      this.setMonthDays()
+    }
+  }
+}

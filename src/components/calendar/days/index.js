@@ -2,6 +2,6 @@
  *  Days index file
 * */
 
-import Days from './Days.vue';
+import Days from './Days.vue'
 
-export default Days;
+export default Days

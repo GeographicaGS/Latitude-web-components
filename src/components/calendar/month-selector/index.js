@@ -2,6 +2,6 @@
  *  MonthSelector index file
 * */
 
-import MonthSelector from './MonthSelector.vue';
+import MonthSelector from './MonthSelector.vue'
 
-export default MonthSelector;
+export default MonthSelector

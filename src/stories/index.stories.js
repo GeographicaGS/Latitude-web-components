@@ -1,14 +1,14 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from '@storybook/vue';
+import { storiesOf } from '@storybook/vue'
 
-import './main';
+import './main'
 
 storiesOf('Icon', module)
   .add('Simple icon', () => ({
-    data() {
+    data () {
       return {
-        el: undefined,
-      };
+        el: undefined
+      }
     },
     template: // html
     `
@@ -25,24 +25,23 @@ storiesOf('Icon', module)
         </ltd-icon>
       </div>
   `,
-    mounted() {},
-    beforeDestroyed() {},
+    mounted () {},
+    beforeDestroyed () {},
     methods: {
-      getSource(data) {
-        const context = require.context('@/assets/', true, /.svg/);
-        const icon = context(`./${data}`);
-        return icon;
-      },
-    },
-  }));
-
+      getSource (data) {
+        const context = require.context('@/assets/', true, /.svg/)
+        const icon = context(`./${data}`)
+        return icon
+      }
+    }
+  }))
 
 storiesOf('Calendar', module)
   .add('Simple calendar', () => ({
-    data() {
+    data () {
       return {
-        el: undefined,
-      };
+        el: undefined
+      }
     },
     template: // html
     `
@@ -56,15 +55,15 @@ storiesOf('Calendar', module)
         </ltd-calendar>
       </div>
   `,
-    mounted() {
-      [this.el] = document.getElementsByTagName('ltd-calendar');
-      this.el.setDate = this.onSetCalendarDate;
+    mounted () {
+      [this.el] = document.getElementsByTagName('ltd-calendar')
+      this.el.setDate = this.onSetCalendarDate
     },
-    beforeDestroyed() {},
+    beforeDestroyed () {},
     methods: {
-      onSetCalendarDate(value) {
-        console.log('The date selected is: ');
-        console.log(value.date);
-      },
-    },
-  }));
+      onSetCalendarDate (value) {
+        console.log('The date selected is: ')
+        console.log(value.date)
+      }
+    }
+  }))

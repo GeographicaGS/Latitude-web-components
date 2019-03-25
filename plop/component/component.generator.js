@@ -1,25 +1,25 @@
 const {
-  removeGitKeep,
-} = require('../utils/removeGitKeep');
+  removeGitKeep
+} = require('../utils/removeGitKeep')
 const {
-  getAddAction,
-} = require('../utils/actions.js');
+  getAddAction
+} = require('../utils/actions.js')
 const {
-  getNamePrompt,
+  getNamePrompt
   // getStorePrompt,
-} = require('../utils/prompts.js');
+} = require('../utils/prompts.js')
 
 const getPrompts = (plopConfig) => {
-  const prompts = [];
+  const prompts = []
 
-  prompts.push(getNamePrompt(plopConfig, 'component'));
+  prompts.push(getNamePrompt(plopConfig, 'component'))
   // prompts.push(getStorePrompt(plopConfig, 'store'));
 
-  return prompts;
-};
+  return prompts
+}
 
 const getActions = plopConfig => (data) => {
-  const actions = [];
+  const actions = []
   actions.push(
     getAddAction(
       plopConfig.path.component,
@@ -27,9 +27,9 @@ const getActions = plopConfig => (data) => {
       'index',
       'js',
       `${plopConfig.template}/index.js.hbs`,
-      null,
-    ),
-  );
+      null
+    )
+  )
   actions.push(
     getAddAction(
       plopConfig.path.component,
@@ -37,9 +37,9 @@ const getActions = plopConfig => (data) => {
       '{{pascalCase name}}',
       'vue',
       `${plopConfig.template}/vue.hbs`,
-      null,
-    ),
-  );
+      null
+    )
+  )
   actions.push(
     getAddAction(
       plopConfig.path.component,
@@ -47,9 +47,9 @@ const getActions = plopConfig => (data) => {
       '{{dashCase name}}',
       'html',
       `${plopConfig.template}/template.html.hbs`,
-      null,
-    ),
-  );
+      null
+    )
+  )
   actions.push(
     getAddAction(
       plopConfig.path.component,
@@ -57,9 +57,9 @@ const getActions = plopConfig => (data) => {
       '{{dashCase name}}',
       'scss',
       `${plopConfig.template}/style.scss.hbs`,
-      null,
-    ),
-  );
+      null
+    )
+  )
   actions.push(
     getAddAction(
       plopConfig.path.component,
@@ -67,9 +67,9 @@ const getActions = plopConfig => (data) => {
       '{{dashCase name}}',
       'js',
       `${plopConfig.template}/script.js.hbs`,
-      null,
-    ),
-  );
+      null
+    )
+  )
 
   if (data.store) {
     actions.push(
@@ -79,9 +79,9 @@ const getActions = plopConfig => (data) => {
         'index',
         'js',
         `${plopConfig.template}/store.js.hbs`,
-        null,
-      ),
-    );
+        null
+      )
+    )
     actions.push(
       getAddAction(
         plopConfig.path.component,
@@ -89,9 +89,9 @@ const getActions = plopConfig => (data) => {
         'state',
         'js',
         `${plopConfig.template}/state.js.hbs`,
-        null,
-      ),
-    );
+        null
+      )
+    )
     actions.push(
       getAddAction(
         plopConfig.path.component,
@@ -99,9 +99,9 @@ const getActions = plopConfig => (data) => {
         'mutations',
         'js',
         `${plopConfig.template}/mutations.js.hbs`,
-        null,
-      ),
-    );
+        null
+      )
+    )
     actions.push(
       getAddAction(
         plopConfig.path.component,
@@ -109,9 +109,9 @@ const getActions = plopConfig => (data) => {
         'getters',
         'js',
         `${plopConfig.template}/getters.js.hbs`,
-        null,
-      ),
-    );
+        null
+      )
+    )
     actions.push(
       getAddAction(
         plopConfig.path.component,
@@ -119,9 +119,9 @@ const getActions = plopConfig => (data) => {
         'actions',
         'js',
         `${plopConfig.template}/actions.js.hbs`,
-        null,
-      ),
-    );
+        null
+      )
+    )
     actions.push(
       getAddAction(
         plopConfig.path.component,
@@ -129,20 +129,31 @@ const getActions = plopConfig => (data) => {
         'constants',
         'js',
         `${plopConfig.template}/constants.js.hbs`,
-        null,
-      ),
-    );
+        null
+      )
+    )
   }
 
-  removeGitKeep(plopConfig.path.component);
+  actions.push(
+    getAddAction(
+      plopConfig.path.component,
+      '{{dashCase name}}',
+      '{{dashCase name}}',
+      'md',
+      `${plopConfig.template}/readme.md.hbs`,
+      null
+    )
+  )
 
-  return actions;
-};
+  removeGitKeep(plopConfig.path.component)
+
+  return actions
+}
 
 module.exports = (plop, config) => {
   plop.setGenerator('Component', {
     description: 'Vue Component',
     prompts: getPrompts(config),
-    actions: getActions(config),
-  });
-};
+    actions: getActions(config)
+  })
+}

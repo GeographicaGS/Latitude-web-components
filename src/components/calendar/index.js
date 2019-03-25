@@ -2,6 +2,6 @@
  *  Calendar index file
 * */
 
-import Calendar from './Calendar.vue';
+import Calendar from './Calendar.vue'
 
-export default Calendar;
+export default Calendar
