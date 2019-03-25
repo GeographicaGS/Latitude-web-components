@@ -1,16 +1,13 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/vue';
 
-import Icon from '@/components/icon/index';
-import Calendar from '@/components/calendar/index';
+import './main';
 
 storiesOf('Icon', module)
   .add('Simple icon', () => ({
-    components: {
-      'ltd-icon': Icon,
-    },
     data() {
       return {
+        el: undefined,
       };
     },
     template: // html
@@ -28,6 +25,13 @@ storiesOf('Icon', module)
         </ltd-icon>
       </div>
   `,
+    mounted() {
+      // [this.el] = document.getElementsByTagName('ltd-button');
+      // this.el.addEventListener('click', this.onClick);
+    },
+    beforeDestroyed() {
+      // this.el.removeEventListener('click', this.onClick);
+    },
     methods: {
       getSource(data) {
         const context = require.context('@/assets/', true, /.svg/);
@@ -40,17 +44,15 @@ storiesOf('Icon', module)
 
 storiesOf('Calendar', module)
   .add('Simple calendar', () => ({
-    components: {
-      'ltd-calendar': Calendar,
-    },
     data() {
       return {
+        el: undefined,
       };
     },
     template: // html
     `
       <div>
-        <ltd-calendar :set-date="onSetCalendarDate"
+        <ltd-calendar
           start-date="2019-03-02"
           end-date="2019-03-20"
           month-format="MMMM"
@@ -61,6 +63,14 @@ storiesOf('Calendar', module)
         </ltd-calendar>
       </div>
   `,
+    mounted() {
+      [this.el] = document.getElementsByTagName('ltd-calendar');
+      this.el.setDate = this.onSetCalendarDate;
+      // this.el.addEventListener('click', this.onClick);
+    },
+    beforeDestroyed() {
+      // this.el.removeEventListener('click', this.onClick);
+    },
     methods: {
       onSetCalendarDate(value) {
         console.log('set date!');

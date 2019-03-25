@@ -2,6 +2,20 @@
  *  Calendar style file
  **/
 
+ // Calendar
+$calendar-padding: var(--calendar-padding, 10px);
+$calendar-heading-height: var(--calendar-heading-height, 40px);
+$calendar-border: var(--calendar-border, 1px solid #FAF9F8);
+$calendar-border-radius: var(--calendar-border-radius, 4px);
+$calendar-header-height: var(--calendar-header-height, 20px);
+
+$calendar-header-font-size: var(--calendar-header-font-size, 12px);
+$calendar-header-font-weight: var(--calendar-header-font-weight, 400);
+
+$calendar-arrow-icon: var(--calendar-arrow-icon, 'icon-arrow');
+$calendar-arrow-icon-fill: var(--calendar-arrow-icon-fill, #53565A);
+$calendar-arrow-icon-fill-hover: var(--calendar-arrow-icon-fill-hover, #999999);
+
 .ltd-calendar-container {
   width: 100%;
   height: auto;
@@ -11,7 +25,7 @@
     width: 100%;
     height: auto;
     overflow: hidden;
-    // border: $calendar-border;
-    // border-radius: $calendar-border-radius;
+    border: $calendar-border;
+    border-radius: $calendar-border-radius;
   }
 }

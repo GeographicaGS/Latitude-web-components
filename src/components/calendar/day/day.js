@@ -1,8 +1,8 @@
+import moment from 'moment';
+
 /**
  *  Day script file
-* */
-
-
+ * */
 export default {
   name: 'LtdDay', // component: ltd-day
   mixins: [],
@@ -37,7 +37,23 @@ export default {
   data() {
     return {};
   },
+  mounted() {
+    // console.log(this);
+
+  },
   computed: {
+    getDayClasses() {
+      const today = this.today || moment();
+
+      return {
+        active: today.isSame(this.date, 'day'),
+        start: this.startDate && this.date.isSame(this.startDate, 'day'),
+        between: this.startDate && this.endDate && this.date.isBetween(this.startDate, this.endDate, 'day'),
+        end: this.endDate && this.date.isSame(this.endDate, 'day'),
+        muted: !this.date.isSame(this.currentDate, 'month'),
+        disabled: this.date.isAfter(today) && this.futureSelection === false,
+      };
+    },
   },
   methods: {
     getDate() {

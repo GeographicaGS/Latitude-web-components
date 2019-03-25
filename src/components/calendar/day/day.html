@@ -1,4 +1,6 @@
 <!-- Day template file -->
 <div class="ltd-day-container">
-  {{ getDate() }}
+  <div class="day" :class="getDayClasses">
+    {{ getDate() }}
+  </div>
 </div>

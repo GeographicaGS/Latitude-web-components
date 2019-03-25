@@ -58,6 +58,8 @@ export default {
   },
   mounted() {
     console.log(this);
+  },
+  updated() {
     this.setDate('hi bro!');
   },
   computed: {
