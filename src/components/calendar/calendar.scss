@@ -2,6 +2,8 @@
  *  Calendar style file
  **/
 
+@import '~@/styles/main.scss';
+
  // Calendar
 $calendar-padding: var(--calendar-padding, 10px);
 $calendar-heading-height: var(--calendar-heading-height, 40px);
