@@ -18,12 +18,12 @@ export default {
     },
     startDate: {
       type: Object,
-      default: '',
+      default: undefined,
       required: false,
     },
     endDate: {
       type: Object,
-      default: '',
+      default: undefined,
       required: false,
     },
     dayFormat: {
@@ -44,12 +44,6 @@ export default {
   },
   data() {
     return {
-      thisDate: null,
-      daysInMonth: null,
-      firstDayDate: null,
-      previousMonth: null,
-      previousMonthDays: null,
-      nextMonth: null,
       days: [],
       prevMonthItems: [],
       currMonthItems: [],
@@ -57,26 +51,36 @@ export default {
     };
   },
   mounted() {
-    console.log(this);
-    this.days = [];
-    this.thisDate = moment(this.date);
-    this.daysInMonth = moment(this.date).daysInMonth();
-    this.firstDayDate = moment(this.date).startOf('month');
-    this.previousMonth = moment(this.date).subtract(1, 'month');
-    this.previousMonthDays = this.previousMonth.daysInMonth();
-    this.nextMonth = moment(this.date).add(1, 'month');
-
-    try {
+    this.setMonthDays();
+  },
+  updated() {},
+  computed: {
+    thisDate() {
+      return moment(this.date);
+    },
+    daysInMonth() {
+      return moment(this.date).daysInMonth();
+    },
+    firstDayDate() {
+      return moment(this.date).startOf('month');
+    },
+    previousMonth() {
+      return moment(this.date).subtract(1, 'month');
+    },
+    previousMonthDays() {
+      return this.previousMonth.daysInMonth();
+    },
+    nextMonth() {
+      return moment(this.date).add(1, 'month');
+    },
+  },
+  methods: {
+    setMonthDays() {
+      this.days = [];
       this.prevMonthItems = this.pastMonthRange();
       this.currMonthItems = this.currentMonthRange();
       this.nextMonthItems = this.nextMonthRange();
-    } catch (error) {
-      // TODO: controlar esto
-    }
-  },
-  computed: {
-  },
-  methods: {
+    },
     /**
      * Get weekdays labels
      */
@@ -141,6 +145,20 @@ export default {
         this.days.push(props);
       }
       return arr;
+    },
+    onDayClick(date) {
+      this.$emit('change', date);
+    },
+  },
+  watch: {
+    date() {
+      this.setMonthDays();
+    },
+    startDate() {
+      this.setMonthDays();
+    },
+    endDate() {
+      this.setMonthDays();
     },
   },
 };

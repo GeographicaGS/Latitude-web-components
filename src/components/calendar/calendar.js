@@ -54,43 +54,69 @@ export default {
   },
   data() {
     return {
+      current: moment(),
+      start: undefined,
+      end: undefined,
+      isMonthSelectorOpen: false,
     };
   },
   mounted() {
-    console.log(this);
+    // NOTE: ref
+    if (this.startDate) {
+      this.start = moment(this.startDate);
+    }
+    if (this.endDate) {
+      this.end = moment(this.endDate);
+    }
   },
-  updated() {
-    this.setDate('hi bro!');
-  },
-  computed: {
-    current() {
-      return moment();
-    },
-    start() {
-      return moment(this.startDate);
-    },
-    end() {
-      return moment(this.endDate);
-    },
-  },
+  updated() {},
+  computed: {},
   methods: {
     changeDate(date) {
-      console.log(date);
+      if (!this.futureSelection && date.isAfter(moment())) { return; }
+
+      if (
+        !this.start || date.isBefore(this.start, 'day')
+        || !this.start.isSame(this.end, 'day')
+      ) {
+        this.start = date;
+        this.end = date;
+      } else if (date.isSame(this.start, 'day') && date.isSame(this.end, 'day')) {
+        this.start = null;
+        this.end = null;
+      }
+
+      if (!this.range) {
+        this.setDate({ date });
+        return;
+      }
+
+      if (date.isAfter(this.start, 'day')) {
+        this.end = date;
+      }
+
+      const { start } = this;
+      const { end } = this;
+      this.setDate({ start, end });
     },
     changeMonth(month) {
-      console.log(month);
+      this.current = this.current.month(month);
     },
     setYear(year) {
-      console.log(year);
+      this.current = this.current.year(year);
     },
     setMonth(month) {
-      console.log(month);
+      this.current = this.current.month(month);
+      this.toggleMonths();
     },
     toggleMonths() {
-
+      this.isMonthSelectorOpen = !this.isMonthSelectorOpen;
     },
     reset() {
-
+      this.isMonthSelectorOpen = false;
+      this.current = moment();
+      this.start = this.startDate;
+      this.end = this.endDate;
     },
   },
 };

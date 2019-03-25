@@ -20,12 +20,12 @@ export default {
     },
     startDate: {
       type: Object,
-      default: '',
+      default: undefined,
       required: false,
     },
     endDate: {
       type: Object,
-      default: '',
+      default: undefined,
       required: false,
     },
     futureSelection: {
@@ -37,14 +37,13 @@ export default {
   data() {
     return {};
   },
-  mounted() {
-    // console.log(this);
-
-  },
+  mounted() {},
   computed: {
+    getDate() {
+      return this.date.date();
+    },
     getDayClasses() {
-      const today = this.today || moment();
-
+      const today = moment();
       return {
         active: today.isSame(this.date, 'day'),
         start: this.startDate && this.date.isSame(this.startDate, 'day'),
@@ -56,8 +55,8 @@ export default {
     },
   },
   methods: {
-    getDate() {
-      return this.date.date();
+    onDayClick() {
+      this.$emit('change', this.date);
     },
   },
 };

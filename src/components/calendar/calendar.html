@@ -2,11 +2,12 @@
 <div class="ltd-calendar-container">
   The Calendar component works
   <ltd-days
-    v-bind:date="current" 
-    v-bind:start-date="start" 
-    v-bind:end-date="end"
-    v-bind:day-format="dayFormat"
-    v-bind:locale="locale"
-    v-bind:future-selection="futureSelection">  
+    :date="current" 
+    :start-date="start" 
+    :end-date="end"
+    :day-format="dayFormat"
+    :locale="locale"
+    :future-selection="futureSelection"
+    @change="changeDate">  
   </ltd-days>
 </div>

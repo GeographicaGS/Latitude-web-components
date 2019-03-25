@@ -2,47 +2,11 @@
  *  Day style file
  **/
 
-$colorAccent: var(--color-accent, #15b750);
-$colorAccentDark: var(--color-accent-dark, #FFCC33);
-$colorAccentLight: var(--color-accent-light, #FFDE00);
-$colorAccentDarkest: var(--color-accent-darkest, #e06e01);
-$colorComp: var(--color-comp,#007396);
-$colorCompDark: var(--color-comp-dark,#00546E);
-$colorDelete: var(--color-delete,#f86b5f);
-
-$colorMotrio: var(--color-motrio,#D93026);
-$colorCompetitor: var(--color-competitor,#A56CE9);
-
-$colorBlack: var(--color-black, #000);
-$colorN100: var(--color-n100, #222222);
-$colorN90: var(--color-n90, #333333);
-$colorN80: var(--color-n80, #53565A);
-$colorN60: var(--color-n60, #888B8D);
-$colorN50: var(--color-n50, #999999);
-$colorN30: var(--color-n30, #BBBCBC);
-$colorN15: var(--color-n15, #EEEEEE);
-$colorN10: var(--color-n10, #F1F1F2);
-$colorN05: var(--color-n05, #FAF9F8);
-$colorWhite: var(--color-white, #FFF);
-
-$colorIncrement: var(--color-increment,#39b185);
-$colorDecrement: var(--color-decrement,#cf597e);
-
-$calendar-padding: var(--calendar-padding, 10px);
-$calendar-heading-height: var(--calendar-heading-height, 40px);
-$calendar-border: var(--calendar-border, 1px solid #FAF9F8);
-$calendar-border-radius: var(--calendar-border-radius, 4px);
-$calendar-header-height: var(--calendar-header-height, 20px);
-
-$calendar-header-font-size: var(--calendar-header-font-size, 12px);
-$calendar-header-font-weight: var(--calendar-header-font-weight, 400);
-
-$calendar-arrow-icon: var(--calendar-arrow-icon, 'icon-arrow');
-$calendar-arrow-icon-fill: var(--calendar-arrow-icon-fill, #53565A);
-$calendar-arrow-icon-fill-hover: var(--calendar-arrow-icon-fill-hover, #999999);
+@import '~@/styles/main.scss';
 
 .ltd-day-container {
   padding: 1px;
+  box-sizing: border-box;
 
   div {
     position: relative;
@@ -58,6 +22,7 @@ $calendar-arrow-icon-fill-hover: var(--calendar-arrow-icon-fill-hover, #999999);
     border-radius: $calendar-border-radius;
     user-select: none;
     cursor: pointer;
+    box-sizing: border-box;
 
     &.label {
       text-transform: uppercase;
@@ -74,6 +39,7 @@ $calendar-arrow-icon-fill-hover: var(--calendar-arrow-icon-fill-hover, #999999);
       border: 2px solid #00c6d7;
       border-radius: $calendar-border-radius;
       font-weight: bold;
+      z-index: 9;
     }
 
     &.disabled { 
@@ -125,6 +91,7 @@ $calendar-arrow-icon-fill-hover: var(--calendar-arrow-icon-fill-hover, #999999);
     width: 2px;
     height: 100%;
     background-color: #00ff99;
+    box-sizing: border-box;
   }
 
   &:nth-child(7n) .between {

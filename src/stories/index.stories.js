@@ -25,13 +25,8 @@ storiesOf('Icon', module)
         </ltd-icon>
       </div>
   `,
-    mounted() {
-      // [this.el] = document.getElementsByTagName('ltd-button');
-      // this.el.addEventListener('click', this.onClick);
-    },
-    beforeDestroyed() {
-      // this.el.removeEventListener('click', this.onClick);
-    },
+    mounted() {},
+    beforeDestroyed() {},
     methods: {
       getSource(data) {
         const context = require.context('@/assets/', true, /.svg/);
@@ -53,8 +48,6 @@ storiesOf('Calendar', module)
     `
       <div>
         <ltd-calendar
-          start-date="2019-03-02"
-          end-date="2019-03-20"
           month-format="MMMM"
           day-format="ddd"
           locale="en"
@@ -66,11 +59,8 @@ storiesOf('Calendar', module)
     mounted() {
       [this.el] = document.getElementsByTagName('ltd-calendar');
       this.el.setDate = this.onSetCalendarDate;
-      // this.el.addEventListener('click', this.onClick);
     },
-    beforeDestroyed() {
-      // this.el.removeEventListener('click', this.onClick);
-    },
+    beforeDestroyed() {},
     methods: {
       onSetCalendarDate(value) {
         console.log('set date!');

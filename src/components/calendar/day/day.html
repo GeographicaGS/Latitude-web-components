@@ -1,6 +1,9 @@
 <!-- Day template file -->
 <div class="ltd-day-container">
-  <div class="day" :class="getDayClasses">
-    {{ getDate() }}
+  <div 
+    class="day" 
+    :class="getDayClasses"
+    @click="onDayClick">
+    {{ getDate }}
   </div>
 </div>
