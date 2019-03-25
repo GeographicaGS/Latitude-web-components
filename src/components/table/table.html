@@ -1,0 +1,29 @@
+<!-- Table template file -->
+<div class="ltd-table-container">
+  <div v-if="filter" class="filter">
+    <input type="text" name="filter" placeholder="Filter" @keyup="filterTable($event)">
+  </div>
+
+  <div class="table">
+    <div class="table-header">
+      <div v-for="col in columns" 
+        :class="[col, 'table-cell']"
+        @click="sortTable(col, $event)">
+        {{ col }}
+        <span class="arrow"></span>
+      </div>
+    </div>
+
+    <div class="table-body">
+      <div v-for="item in page"
+        :class="[getRowClass, 'table-row']"
+        @click="e => clickable && tableRowClick(item)">
+        <div v-for="col of columns"
+          :class="[col, 'table-cell']">
+          {{ item[col] }}
+        </div>
+      </div>
+      <div class="nodata" v-if="nodata">{{ nodataMessage }}</div>
+    </div>
+  </div>
+</div>
