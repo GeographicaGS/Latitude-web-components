@@ -4,6 +4,7 @@ import Days from './days/index';
 /**
  *  Calendar script file
  *
+ * @version 1.0.0
  *
  * <ltd-calendar
  *  selected-date="2019-03-02"
@@ -15,6 +16,7 @@ import Days from './days/index';
  *  range
  *  future-selection>
  * </ltd-calendar>
+ *
  * */
 export default {
   name: 'LtdCalendar', // component: ltd-calendar
@@ -23,46 +25,73 @@ export default {
     'ltd-days': Days,
   },
   props: {
+    /**
+     *
+     * */
     setDate: {
       type: Function,
       default: undefined,
       required: false,
     },
+    /**
+     * Sets the selected date (no range type)
+     * */
     selectedDate: {
       type: String,
       default: '',
       required: false,
     },
+    /**
+     * Sets the start selected date (range type)
+     * */
     startDate: {
       type: String,
       default: '',
       required: false,
     },
+    /**
+     * Sets the end selected date (range type)
+     * */
     endDate: {
       type: String,
       default: '',
       required: false,
     },
+    /**
+     * Sets the calendar language
+     * */
     locale: {
       type: String,
       default: 'en',
       required: false,
     },
+    /**
+     * Day string format
+     * */
     dayFormat: {
       type: String,
       default: 'ddd',
       required: false,
     },
+    /**
+     * Month string format
+     * */
     monthFormat: {
       type: String,
       default: 'MMM',
       required: false,
     },
+    /**
+     * If specified, the calendar selection will be multiple, oherwise it will be simple.
+     * */
     range: {
       type: Boolean,
       default: false,
       required: false,
     },
+    /**
+     * If specified, future dates can be selected
+     * */
     futureSelection: {
       type: Boolean,
       default: true,
@@ -127,19 +156,24 @@ export default {
       const { end } = this;
       this.setDate({ start, end });
     },
+
     changeMonth(month) {
       this.current = this.current.month(month);
     },
+
     setYear(year) {
       this.current = this.current.year(year);
     },
+
     setMonth(month) {
       this.current = this.current.month(month);
       this.toggleMonths();
     },
+
     toggleMonths() {
       this.isMonthSelectorOpen = !this.isMonthSelectorOpen;
     },
+
     reset() {
       this.isMonthSelectorOpen = false;
       this.current = moment();

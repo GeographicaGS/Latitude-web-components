@@ -3,6 +3,8 @@ import Day from '../day/index';
 
 /**
  *  Days script file
+ *
+ *  @version 1.0.0
  * */
 export default {
   name: 'LtdDays', // component: ltd-days
@@ -81,17 +83,12 @@ export default {
       this.currMonthItems = this.currentMonthRange();
       this.nextMonthItems = this.nextMonthRange();
     },
-    /**
-     * Get weekdays labels
-     */
+
     getLabel(i) {
       const day = this.locale === 'en' ? i + 1 : i; // NOTE: ugly and inconsistent
       return moment().locale(this.locale).weekday(day).format(this.dayFormat);
     },
 
-    /**
-     * Get past month days
-     */
     pastMonthRange() {
       const arr = [];
       for (let i = this.firstDayDate.day(); i > 1; i -= 1) {
@@ -108,9 +105,6 @@ export default {
       return arr;
     },
 
-    /**
-     * Get current month days
-     */
     currentMonthRange() {
       const arr = [];
       for (let i = 1; i <= this.daysInMonth; i += 1) {
@@ -127,9 +121,6 @@ export default {
       return arr;
     },
 
-    /**
-     * Get next month days
-     */
     nextMonthRange() {
       const len = this.prevMonthItems.concat(this.currMonthItems).length;
       const arr = [];
@@ -146,6 +137,7 @@ export default {
       }
       return arr;
     },
+
     onDayClick(date) {
       this.$emit('change', date);
     },

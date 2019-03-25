@@ -2,6 +2,8 @@ import moment from 'moment';
 
 /**
  *  Day script file
+ *
+ *  @version 1.0.0
  * */
 export default {
   name: 'LtdDay', // component: ltd-day
