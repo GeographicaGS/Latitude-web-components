@@ -16,19 +16,24 @@ storiesOf('Icon', module)
     template: // html
     `
       <div>
-        <ltd-icon icon="https://icomoon.io/icons9f9702a/7/47.svg" size="120px">
+        <ltd-icon :icon="getSource('icons/country.svg')" size="120px">
         </ltd-icon>
-        <ltd-icon icon="https://icomoon.io/icons9f9702a/7/47.svg" size="60px">
+        <ltd-icon :icon="getSource('icons/country.svg')" size="60px">
         </ltd-icon>
-        <ltd-icon icon="https://icomoon.io/icons9f9702a/7/47.svg" size="30px">
+        <ltd-icon :icon="getSource('icons/country.svg')" size="30px">
         </ltd-icon>
-        <ltd-icon icon="https://icomoon.io/icons9f9702a/7/47.svg" size="20px">
+        <ltd-icon :icon="getSource('icons/country.svg')" size="20px">
         </ltd-icon>
-        <ltd-icon icon="https://icomoon.io/icons9f9702a/7/47.svg" size="10px">
+        <ltd-icon :icon="getSource('icons/country.svg')" size="10px">
         </ltd-icon>
       </div>
   `,
     methods: {
+      getSource(data) {
+        const context = require.context('@/assets/', true, /.svg/);
+        const icon = context(`./${data}`);
+        return icon;
+      },
     },
   }));
 
@@ -51,8 +56,8 @@ storiesOf('Calendar', module)
           month-format="MMMM"
           day-format="ddd"
           locale="en"
-          :range="false"
-          :future-selection="false">
+          range
+          future-selection>
         </ltd-calendar>
       </div>
   `,

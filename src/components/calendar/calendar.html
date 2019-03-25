@@ -1,4 +1,12 @@
 <!-- Calendar template file -->
 <div class="ltd-calendar-container">
-    The component works
+  The Calendar component works
+  <ltd-days
+    v-bind:date="current" 
+    v-bind:start-date="start" 
+    v-bind:end-date="end"
+    v-bind:day-format="dayFormat"
+    v-bind:locale="locale"
+    v-bind:future-selection="futureSelection">  
+  </ltd-days>
 </div>

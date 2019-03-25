@@ -1,0 +1,17 @@
+<!-- Days template file -->
+<div class="ltd-days-container">
+  <div class="header">
+    <span v-for="n in 7" id="n" class="label">
+      {{ getLabel(n) }}
+    </span>
+  </div>
+  <div class="months">
+    <ltd-day v-for="day in days"
+      v-bind:current-date="day.currentDate"
+      v-bind:date="day.date"
+      v-bind:start-date="day.startDate"
+      v-bind:end-date="day.endDate"
+      v-bind:future-selection="futureSelection">
+    </ltd-day>
+  </div>
+</div>

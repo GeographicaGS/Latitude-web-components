@@ -1,7 +1,17 @@
 /**
  *  Calendar style file
-**/
+ **/
 
 .ltd-calendar-container {
-    
+  width: 100%;
+  height: auto;
+
+  .calendar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    // border: $calendar-border;
+    // border-radius: $calendar-border-radius;
+  }
 }
