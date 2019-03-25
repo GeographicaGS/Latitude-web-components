@@ -5,22 +5,16 @@
 @import '~@/styles/main.scss';
 
 .ltd-calendar-container {
+  box-sizing: border-box;
   font-family: 'Helvetica Nue', helvetica, sans-serif; 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   color: $colorN80;
-  box-sizing: border-box;
   
+  position: relative;
   width: 100%;
   height: auto;
-
-  .calendar {
-    position: relative;
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    border: $calendar-border;
-    border-radius: $calendar-border-radius;
-    box-sizing: border-box;
-  }
+  overflow: hidden;
+  border: $calendar-border;
+  border-radius: $calendar-border-radius;
 }

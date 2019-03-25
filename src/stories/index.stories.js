@@ -46,7 +46,7 @@ storiesOf('Calendar', module)
     },
     template: // html
     `
-      <div>
+      <div style="width: 320px;">
         <ltd-calendar
           selected-date="2019-03-02"
           month-format="MMMM"
