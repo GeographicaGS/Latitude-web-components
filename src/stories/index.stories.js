@@ -3,13 +3,10 @@ import { storiesOf } from '@storybook/vue';
 // import { action } from '@storybook/addon-actions';
 // import { linkTo } from '@storybook/addon-links';
 
-import { withKnobs } from '@storybook/addon-knobs';
-
 import './main';
 
 
 storiesOf('Button', module)
-  .addDecorator(withKnobs)
   .add('with text', () => ({
     data() {
       return {
