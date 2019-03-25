@@ -3,6 +3,18 @@ import Days from './days/index';
 
 /**
  *  Calendar script file
+ *
+ *
+ * <ltd-calendar
+ *  selected-date="2019-03-02"
+ *  start-date="2019-03-02"
+ *  end-date="2019-03-20"
+ *  month-format="MMMM"
+ *  day-format="ddd"
+ *  locale="en"
+ *  range
+ *  future-selection>
+ * </ltd-calendar>
  * */
 export default {
   name: 'LtdCalendar', // component: ltd-calendar
@@ -14,6 +26,11 @@ export default {
     setDate: {
       type: Function,
       default: undefined,
+      required: false,
+    },
+    selectedDate: {
+      type: String,
+      default: '',
       required: false,
     },
     startDate: {
@@ -61,17 +78,26 @@ export default {
     };
   },
   mounted() {
-    // NOTE: ref
-    if (this.startDate) {
-      this.start = moment(this.startDate);
-    }
-    if (this.endDate) {
-      this.end = moment(this.endDate);
-    }
+    this.setDateRanges();
   },
   updated() {},
   computed: {},
   methods: {
+    setDateRanges() {
+      if (this.selectedDate) {
+        this.start = moment(this.selectedDate);
+        this.end = moment(this.selectedDate);
+        return;
+      }
+
+      if (this.startDate) {
+        this.start = moment(this.startDate);
+      }
+      if (this.endDate) {
+        this.end = moment(this.endDate);
+      }
+    },
+
     changeDate(date) {
       if (!this.futureSelection && date.isAfter(moment())) { return; }
 
@@ -87,6 +113,8 @@ export default {
       }
 
       if (!this.range) {
+        this.start = date;
+        this.end = date;
         this.setDate({ date });
         return;
       }
@@ -115,8 +143,7 @@ export default {
     reset() {
       this.isMonthSelectorOpen = false;
       this.current = moment();
-      this.start = this.startDate;
-      this.end = this.endDate;
+      this.setDateRanges();
     },
   },
 };

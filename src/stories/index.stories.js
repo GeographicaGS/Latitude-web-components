@@ -48,10 +48,10 @@ storiesOf('Calendar', module)
     `
       <div>
         <ltd-calendar
+          selected-date="2019-03-02"
           month-format="MMMM"
           day-format="ddd"
           locale="en"
-          range
           future-selection>
         </ltd-calendar>
       </div>
