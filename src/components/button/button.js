@@ -17,21 +17,21 @@ export default {
    */
     theme: {
       type: String,
-      default: undefined,
-    },
+      default: undefined
+    }
   },
-  data() {
-    return {};
+  data () {
+    return {}
   },
   computed: {
     /**
      * Gets computed classes
      */
-    getClasses() {
+    getClasses () {
       return [
-        this.theme,
-      ];
-    },
+        this.theme
+      ]
+    }
   },
   methods: {
     /**
@@ -40,10 +40,10 @@ export default {
      * @type {Event}
      * @event click
      */
-    onClick(event) {
-      event.stopPropagation();
-      event.preventDefault();
-      this.$emit('click', event);
-    },
-  },
-};
+    onClick (event) {
+      event.stopPropagation()
+      event.preventDefault()
+      this.$emit('click', event)
+    }
+  }
+}

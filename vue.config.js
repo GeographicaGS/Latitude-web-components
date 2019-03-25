@@ -1,4 +1,4 @@
-function enableShadowCss(config) {
+function enableShadowCss (config) {
   const configs = [
     config.module.rule('vue').use('vue-loader'),
     config.module.rule('css').oneOf('vue-modules').use('vue-style-loader'),
@@ -24,23 +24,23 @@ function enableShadowCss(config) {
     config.module.rule('stylus').oneOf('vue-modules').use('vue-style-loader'),
     config.module.rule('stylus').oneOf('vue').use('vue-style-loader'),
     config.module.rule('stylus').oneOf('normal-modules').use('vue-style-loader'),
-    config.module.rule('stylus').oneOf('normal').use('vue-style-loader'),
-  ];
+    config.module.rule('stylus').oneOf('normal').use('vue-style-loader')
+  ]
 
   configs.forEach(c => c.tap((options) => {
-    const data = options;
+    const data = options
     if (data) {
-      data.shadowMode = !!process.env.SHADOW_CSS;
+      data.shadowMode = !!process.env.SHADOW_CSS
     }
 
-    return data;
-  }));
+    return data
+  }))
 }
 
 module.exports = {
   lintOnSave: false,
   // https://cli.vuejs.org/guide/webpack.html#chaining-advanced
   chainWebpack: (config) => {
-    enableShadowCss(config);
-  },
-};
+    enableShadowCss(config)
+  }
+}

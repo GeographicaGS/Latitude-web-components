@@ -1,59 +1,58 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from '@storybook/vue';
+import { storiesOf } from '@storybook/vue'
 // import { action } from '@storybook/addon-actions';
 // import { linkTo } from '@storybook/addon-links';
 
-import './main';
-
+import './main'
 
 storiesOf('Button', module)
   .add('with text', () => ({
-    data() {
+    data () {
       return {
-        el: undefined,
-      };
+        el: undefined
+      }
     },
     template: `
     <ltd-button theme='light'>
       <span>A Button with rounded edges</span>
     </ltd-button>
   `,
-    mounted() {
-      [this.el] = document.getElementsByTagName('ltd-button');
+    mounted () {
+      [this.el] = document.getElementsByTagName('ltd-button')
 
-      this.el.addEventListener('click', this.onClick);
+      this.el.addEventListener('click', this.onClick)
     },
-    beforeDestroyed() {
-      this.el.removeEventListener('click', this.onClick);
+    beforeDestroyed () {
+      this.el.removeEventListener('click', this.onClick)
     },
     methods: {
-      onClick(event) {
-        console.info('event', event);
-      },
-    },
+      onClick (event) {
+        console.info('event', event)
+      }
+    }
   }))
   .add('yellow', () => ({
-    data() {
+    data () {
       return {
-        el: undefined,
-      };
+        el: undefined
+      }
     },
     template: `
     <ltd-button-yellow>
       <span>A Button with rounded edges</span>
     </ltd-button-yellow>
   `,
-    mounted() {
-      [this.el] = document.getElementsByTagName('ltd-button-yellow');
+    mounted () {
+      [this.el] = document.getElementsByTagName('ltd-button-yellow')
 
-      this.el.addEventListener('click', this.onClick);
+      this.el.addEventListener('click', this.onClick)
     },
-    beforeDestroyed() {
-      this.el.removeEventListener('click', this.onClick);
+    beforeDestroyed () {
+      this.el.removeEventListener('click', this.onClick)
     },
     methods: {
-      onClick(event) {
-        console.info('event', event);
-      },
-    },
-  }));
+      onClick (event) {
+        console.info('event', event)
+      }
+    }
+  }))
