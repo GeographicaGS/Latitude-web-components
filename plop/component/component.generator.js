@@ -134,6 +134,17 @@ const getActions = plopConfig => (data) => {
     );
   }
 
+  actions.push(
+    getAddAction(
+      plopConfig.path.component,
+      '{{dashCase name}}',
+      '{{dashCase name}}',
+      'md',
+      `${plopConfig.template}/readme.md.hbs`,
+      null,
+    ),
+  );
+
   removeGitKeep(plopConfig.path.component);
 
   return actions;
