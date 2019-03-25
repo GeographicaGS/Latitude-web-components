@@ -2,6 +2,7 @@
 import { storiesOf } from '@storybook/vue';
 
 import Icon from '@/components/icon/index';
+import Calendar from '@/components/calendar/index';
 
 storiesOf('Icon', module)
   .add('Simple icon', () => ({
@@ -28,5 +29,37 @@ storiesOf('Icon', module)
       </div>
   `,
     methods: {
+    },
+  }));
+
+
+storiesOf('Calendar', module)
+  .add('Simple calendar', () => ({
+    components: {
+      'ltd-calendar': Calendar,
+    },
+    data() {
+      return {
+      };
+    },
+    template: // html
+    `
+      <div>
+        <ltd-calendar :set-date="onSetCalendarDate"
+          start-date="2019-03-02"
+          end-date="2019-03-20"
+          month-format="MMMM"
+          day-format="ddd"
+          locale="en"
+          :range="false"
+          :future-selection="false">
+        </ltd-calendar>
+      </div>
+  `,
+    methods: {
+      onSetCalendarDate(value) {
+        console.log('set date!');
+        console.log(value);
+      },
     },
   }));
