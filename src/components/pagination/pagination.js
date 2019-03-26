@@ -45,7 +45,8 @@ export default {
   data () {
     return {
       initialPage: 1, // NOTE: maybe as prop
-      pager: {}
+      pager: {},
+      input: false
     }
   },
   computed: {},
@@ -59,6 +60,19 @@ export default {
       this.pager = paginate(this.items.length, page, this.itemsPerPage)
       const items = this.items.slice(this.pager.startIndex, this.pager.endIndex + 1)
       this.$emit('change', items)
+      this.input = false
+    },
+
+    getInputValue () {
+      return `${this.pager.startIndex + 1} - ${this.pager.endIndex + 1}`
+    },
+
+    showInput () {
+      this.input = !this.input
+      this.$nextTick(() => {
+        this.$refs.inputElement.value = ''
+        this.$refs.inputElement.focus()
+      })
     }
   },
   mounted () {},

@@ -1,6 +1,6 @@
 /**
  *  Pagination style file
-**/
+ **/
 
 @import '~@/styles/main.scss';
 
@@ -27,6 +27,21 @@
       p {
         font-size: 12px;
         margin: 0;
+
+        .page {
+          width: 20px;
+
+          span.hidden {
+            display: none;
+          }
+
+          input {
+            width: 18px;
+            display: none;
+
+            &.visible { display: inline; }
+          }
+        }
       }
       
       button {

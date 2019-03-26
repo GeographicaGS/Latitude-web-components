@@ -9,10 +9,15 @@
     </li>
     <li>
       <p>
-        <span class="start-index">{{ pager.startIndex + 1 }}</span>
-          - 
-        <span class="end-index">{{ pager.endIndex + 1 }}</span>
-        de
+        <span class="page">
+          <span @click="showInput" :class="{ 'hidden': input }">{{ getInputValue() }}</span>
+          <input type="text" 
+            ref="inputElement"
+            :class="{ 'visible': input }"
+            @keyup.enter="setPage($event.target.value)"
+            @blur="input = false">
+        </span>
+        /
         <span class="total-items">{{ pager.totalItems }} {{ placeholder }}</span>
       </p>
     </li>
