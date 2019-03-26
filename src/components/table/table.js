@@ -1,3 +1,5 @@
+import Pagination from '../pagination/index'
+
 /**
  *  Table script file
  *
@@ -8,6 +10,7 @@
  *  visible-colummns="array"
  *  filter
  *  placeholder="string"
+ *  pagination
  *  items-per-page="number"
  *  clickable
  *  @select="function"
@@ -18,82 +21,17 @@
 export default {
   name: 'LtdTable', // web-component: ltd-table
   mixins: [],
-  components: {},
+  components: {
+    'ltd-pagination': Pagination
+  },
   props: {
     items: {
-      type: Array,
-      default: () => {
-        return [
-          {
-            name: 'Héctor García',
-            age: '10',
-            company: 'Geographica',
-            occupation: 'Co-CEO / Founder'
-          },
-          {
-            name: 'Paula Juliá',
-            age: '19',
-            company: 'Geographica',
-            occupation: 'COO'
-          },
-          {
-            name: 'Alberto Asuero',
-            age: '16',
-            company: 'Geographica',
-            occupation: 'Co-CEO / CTO'
-          },
-          {
-            name: 'Jose Gil',
-            age: '18',
-            company: 'Geographica',
-            occupation: 'Head of Design'
-          },
-          {
-            name: 'Isabel Pozuelo',
-            age: '22',
-            company: 'Geographica',
-            occupation: 'QA'
-          },
-          {
-            name: 'Cayetano Benavent',
-            age: '19',
-            company: 'Geographica',
-            occupation: 'Head of Data'
-          },
-          {
-            name: 'Javier Aragón',
-            age: '16',
-            company: 'Geographica',
-            occupation: 'Lead Engineer'
-          },
-          {
-            name: 'Raúl Yeguas',
-            age: '18',
-            company: 'Geographica',
-            occupation: 'Lead Engineer'
-          },
-          {
-            name: 'Javi Gil',
-            age: '18',
-            company: 'Geographica',
-            occupation: 'Designer'
-          },
-          {
-            name: 'Janto Lima',
-            age: '18',
-            company: 'Geographica',
-            occupation: 'Senior Engineer'
-          }
-        ]
-      }
+      type: Array
       // required: true
     },
     visibleColumns: {
-      type: Array
-      // default: () => {
-      //   return ['name', 'age', 'company', 'occupation']
-      // }
-      // required: false
+      type: Array,
+      required: false
     },
     filter: {
       type: Boolean,
@@ -129,13 +67,13 @@ export default {
     return {
       cached: [],
       page: [],
-      descendent: true, // Descendent order
+      descendent: true,
       nodata: false
     }
   },
   computed: {
     columns () {
-      return this.visibleColumns || Object.keys(this.items[0])
+      return this.visibleColumns ? this.visibleColumns : this.items ? Object.keys(this.items[0]) : []
     },
 
     getRowClass () {
@@ -146,8 +84,8 @@ export default {
   },
   methods: {
     tableRowClick (col) {
-      console.log('tablerow click!')
-      console.log(col)
+      const selected = Object.assign({}, col)
+      this.$emit('select', selected)
     },
 
     sortTable (column, event) {
@@ -201,12 +139,16 @@ export default {
       this.page = page
     }
   },
-  mounted () {
-    this.$el.style.setProperty('--table-columns', this.columns.length)
-    this.cached = this.items
+  mounted () {},
+  watch: {
+    items () {
+      this.cached = this.items
 
-    if (!this.pagination) {
-      this.page = this.items
+      if (!this.pagination) {
+        this.page = this.items
+      } else {
+        this.$refs.paginationComponent.setPage(1)
+      }
     }
   }
 }

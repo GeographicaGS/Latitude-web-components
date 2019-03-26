@@ -67,7 +67,8 @@ storiesOf('Table', module)
             company: 'Geographica',
             occupation: 'Senior Engineer'
           }
-        ]
+        ],
+        columns: ['name', 'age', 'occupation']
       }
     },
     template: // html
@@ -75,21 +76,25 @@ storiesOf('Table', module)
       <div>
         <ltd-table 
           placeholder="elements"
+          pagination
+          items-per-page="4"
           filter
           clickable
-          @select="onTableItemClick"
-          nodata-message="">
+          nodata-message="No hay datos">
         </ltd-table>
       </div>
-  `,
+    `,
     mounted () {
       [this.el] = document.getElementsByTagName('ltd-table')
-      this.el.onTableItemClick = this.onTableItemClick
+      this.el.items = this.tabledata
+      this.el.visibleColumns = this.columns
+      this.el.addEventListener('select', this.onTableItemClick, false)
     },
     beforeDestroyed () { },
     methods: {
-      onTableItemClick (item) {
-        console.log(item)
+      onTableItemClick (event) {
+        console.log('Click en el item:')
+        console.log(event.detail[0])
       }
     }
   }))

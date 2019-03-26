@@ -1,4 +1,26 @@
 <!-- Pagination template file -->
 <div class="ltd-pagination-container">
-    The component works
+  <ul class="pagination">
+    <li :class="{ 'disabled': pager.currentPage === 1 }">
+      <button @click="setPage(1, $event)">first</button>
+    </li>
+    <li :class="{ 'disabled': pager.currentPage === 1 }">
+      <button @click="setPage(pager.currentPage - 1, $event)">previous</button>
+    </li>
+    <li>
+      <p>
+        <span class="start-index">{{ pager.startIndex + 1 }}</span>
+          - 
+        <span class="end-index">{{ pager.endIndex + 1 }}</span>
+        de
+        <span class="total-items">{{ pager.totalItems }} {{ placeholder }}</span>
+      </p>
+    </li>
+    <li :class="{ 'disabled': pager.currentPage === pager.totalPages }">
+      <button @click="setPage(pager.currentPage + 1, $event)">next</button>
+    </li>
+    <li :class="{ 'disabled': pager.currentPage === pager.totalPages }">
+      <button @click="setPage(pager.totalPages, $event)">last</button>
+    </li>
+  </ul>
 </div>

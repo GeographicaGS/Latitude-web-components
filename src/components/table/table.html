@@ -6,7 +6,8 @@
 
   <div class="table">
     <div class="table-header">
-      <div v-for="col in columns" 
+      <div v-for="(col, index) in columns"
+        :key="index"
         :class="[col, 'table-cell']"
         @click="sortTable(col, $event)">
         {{ col }}
@@ -15,15 +16,25 @@
     </div>
 
     <div class="table-body">
-      <div v-for="item in page"
+      <div v-for="(item, index) in page"
+        :key="index"
         :class="[getRowClass, 'table-row']"
         @click="e => clickable && tableRowClick(item)">
-        <div v-for="col of columns"
+        <div v-for="(col, index) in columns"
+          :key="index"
           :class="[col, 'table-cell']">
           {{ item[col] }}
         </div>
       </div>
       <div class="nodata" v-if="nodata">{{ nodataMessage }}</div>
     </div>
+
+    <ltd-pagination v-if="pagination"
+      ref="paginationComponent"
+      :items="cached" 
+      :items-per-page="itemsPerPage" 
+      :placeholder="placeholder"
+      @change="onChangePage">
+    </ltd-pagination>
   </div>
 </div>
