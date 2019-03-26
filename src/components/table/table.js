@@ -9,9 +9,9 @@ import Pagination from '../pagination/index'
  *  items="array"
  *  visible-colummns="array"
  *  filter
- *  placeholder="string"
  *  pagination
  *  items-per-page="number"
+ *  pagination-placeholder="string"
  *  clickable
  *  @select="function"
  *  nodata-message="string">
@@ -25,38 +25,63 @@ export default {
     'ltd-pagination': Pagination
   },
   props: {
+    /**
+     * Items to show
+     */
     items: {
       type: Array
       // required: true
     },
+    /**
+     * Columns to show
+     */
     visibleColumns: {
       type: Array,
       required: false
     },
+    /**
+     * If specified, the table shows the filter input and can be filter by property
+     */
     filter: {
       type: Boolean,
       default: false,
       required: false
     },
+    /**
+     * If specified, the table shows the pagination component
+     */
     pagination: {
       type: Boolean,
       default: false,
       required: false
     },
-    placeholder: {
+    /**
+     * Number of elements to show on each page (if the page is true)
+     */
+    itemsPerPage: {
+      type: Number,
+      default: 10,
+      required: false
+    },
+    /**
+     * The text to show in the pagination component
+     */
+    paginationPlaceholder: {
       type: String,
       default: 'elements',
       required: false
     },
-    itemsPerPage: {
-      type: Number,
-      required: false
-    },
+    /**
+     * If specified, the table rows will be clickable
+     */
     clickable: {
       type: Boolean,
       default: true,
       required: false
     },
+    /**
+     * Message to display when table does not display data
+     */
     nodataMessage: {
       type: String,
       default: 'No data... Please, select other configuration.',
