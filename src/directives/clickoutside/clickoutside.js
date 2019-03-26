@@ -30,7 +30,7 @@ function isPopup (popupItem, elements) {
   return false
 }
 
-Vue.directive('click-outside', {
+const ClickOutside = Vue.directive('click-outside', {
   bind: function (el, binding, vNode) {
     if (!validate(binding)) return
 
@@ -65,3 +65,5 @@ Vue.directive('click-outside', {
     delete el.__vueClickOutside__
   }
 })
+
+export default ClickOutside
