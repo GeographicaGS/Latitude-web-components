@@ -7,7 +7,6 @@ import { paginate } from './paginate'
  *
  *
  * <ltd-pagination
- *  ref="paginationComponent"
  *  :items="array"
  *  :items-per-page="number"
  *  :placeholder="string"

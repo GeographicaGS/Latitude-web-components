@@ -16,7 +16,7 @@ import Pagination from '../pagination/index'
  *  @select="function"
  *  nodata-message="string">
  * </ltd-table>
- **/
+ */
 
 export default {
   name: 'LtdTable', // web-component: ltd-table
@@ -84,7 +84,7 @@ export default {
      */
     nodataMessage: {
       type: String,
-      default: 'No data... Please, select other configuration.',
+      default: 'No data.',
       required: false
     }
   },
