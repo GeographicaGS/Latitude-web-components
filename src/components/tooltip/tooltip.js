@@ -1,4 +1,4 @@
-import './tooltip.scss'
+// import styles from './tooltip.scss'
 
 /**
  *  Tooltip script file
@@ -12,15 +12,28 @@ export default {
       required: true
     }
   },
-  render (createElement, context) {
-    console.log(context)
-    console.log(this)
-
-    return createElement('p', { 'class': 'ltd-tooltip-container' }, this.text)
+  template: // html
+  `
+    <div :class="getClass">
+      <p>{{text}}</p>
+    </div>
+  `,
+  computed: {
+    getClass () {
+      return {
+        'ltd-tooltip-container': true,
+        'top': true,
+        'bottom': true,
+        'left': true,
+        'right': true
+      }
+    }
   }
-  // render: (h, { data }) => (
-  //   <p class="ltd-tooltip-container">
-  //     { data.text }
-  //   </p>
-  // )
+  // render (createElement, context) {
+  //   console.log(context)
+  //   console.log(this)
+  //   console.log(styles)
+
+  //   return createElement('p', { 'class': 'ltd-tooltip-container', 'style': styles }, this.text)
+  // }
 }
