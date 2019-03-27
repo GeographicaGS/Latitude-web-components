@@ -38,3 +38,15 @@ $calendar-header-font-weight: var(--calendar-header-font-weight, 400);
 $calendar-arrow-icon: var(--calendar-arrow-icon, 'icon-arrow');
 $calendar-arrow-icon-fill: var(--calendar-arrow-icon-fill, $colorN80);
 $calendar-arrow-icon-fill-hover: var(--calendar-arrow-icon-fill-hover, $colorN50);
+
+// Switch
+$switch-width: var(--switch-width, 44px);
+$switch-height: var(--switch-height, 22px);
+$switch-size: var(--switch-size, 18px);
+$switch-color: var(--switch-color, $colorWhite);
+$switch-content-color: var(--switch-content-color, $colorWhite);
+$switch-color-disabled: var(--switch-color-disabled, $colorWhite);
+$switch-content-font-size: var(--switch-content-font-size, 12px);
+$switch-background-color: var(--switch-background-color, $colorN30);
+$switch-background-color-checked: var(--switch-background-color-checked, $colorAccent);
+$switch-background-color-disabled: var(--switch-background-color-disabled, $colorN30);
