@@ -7,15 +7,18 @@ import Calendar from '@/components/calendar/index'
 import Table from '@/components/table/index'
 import Dropdown from '@/components/dropdown/index'
 import Switch from '@/components/switch/index'
+import Checkbox from '@/components/checkbox/index'
 
 const WrappedIcon = wrap(Vue, Icon)
 const WrappedCalendar = wrap(Vue, Calendar)
 const WrappedTable = wrap(Vue, Table)
 const WrappedDropdown = wrap(Vue, Dropdown)
 const WrappedSwitch = wrap(Vue, Switch)
+const WrappedCheckbox = wrap(Vue, Checkbox)
 
 window.customElements.define('ltd-icon', WrappedIcon)
 window.customElements.define('ltd-calendar', WrappedCalendar)
 window.customElements.define('ltd-table', WrappedTable)
 window.customElements.define('ltd-dropdown', WrappedDropdown)
 window.customElements.define('ltd-switch', WrappedSwitch)
+window.customElements.define('ltd-checkbox', WrappedCheckbox)
