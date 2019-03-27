@@ -12,19 +12,28 @@ storiesOf('Dropdown', module)
     template: // html
       `
       <div>
-        <ltd-dropdown>
+        <ltd-dropdown @select="selectItem">
           <div slot="trigger">trigger</div>
           <div slot="content">
             <ul>
-              <li><button @click="select">uno</button></li>
+              <li><button>uno</button></li>
               <li>dos</li>
               <li>tres</li>
             </ul>
           </div>
         </ltd-dropdown>
       </div>
-  `,
-    mounted () { },
+    `,
+    mounted () {
+      // this.el = document.querySelector('ltd-dropdown')
+      // console.log(this.el);
+
+      // this.el.addEventListener('click', this.selectItem, false)
+    },
     beforeDestroyed () { },
-    methods: { }
+    methods: {
+      selectItem () {
+        console.log('sisisi')
+      }
+    }
   }))

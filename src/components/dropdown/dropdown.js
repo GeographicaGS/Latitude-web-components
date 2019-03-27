@@ -6,26 +6,19 @@ export default {
   name: 'LtdDropdown', // web-component: ltd-dropdown
   mixins: [],
   components: {},
-  props: {},
+  props: {
+    select: {
+      type: Function
+    }
+  },
   data () {
     return {
       trigger: undefined,
       content: undefined
     }
   },
-  computed: {
-  },
+  computed: {},
   methods: {
-    handleTriggerClick (event) {
-      event.preventDefault()
-      event.stopPropagation()
-      this.toggle()
-    },
-
-    select () {
-      console.log('set')
-    },
-
     toggle () {
       this.content.classList.toggle('open')
     },
@@ -41,6 +34,11 @@ export default {
   mounted () {
     this.trigger = this.$el.querySelector('.dropdown-select-wrapper')
     this.content = this.$el.querySelector('.dropdown-content-wrapper')
-    this.trigger.addEventListener('click', this.handleTriggerClick, false)
+
+    console.log(this.$scopedSlots.trigger())
+
+    this.$on('select', () => {
+      console.log('sisisi en on')
+    })
   }
 }
