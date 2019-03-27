@@ -15,15 +15,19 @@ storiesOf('Checkbox', module)
         <ltd-checkbox @change="onCheckboxChange"></ltd-checkbox>
         <br/>
         <p>Checkbox with label</p>
-        <ltd-checkbox label="geo">Geographica</ltd-checkbox>
+        <ltd-checkbox label="geo">
+          <span>Geographica</span>
+        </ltd-checkbox>
         <br/>
         <p>Checkbox with icon</p>
-        <ltd-checkbox label="geo">
-          <ltd-icon :icon="getSource('icons/country.svg')" size="16px"></ltd-icon>
+        <ltd-checkbox label="geo" state="true">
+          <ltd-icon :icon="getSource('icons/country.svg')" size="14px"></ltd-icon>
         </ltd-checkbox>
         <br/>
         <p>Checkbox disabled</p>
-        <ltd-checkbox disabled="true">disabled</ltd-checkbox>
+        <ltd-checkbox disabled="true">
+          <span>disabled</span>
+        </ltd-checkbox>
       </div>
     `,
     mounted () { },

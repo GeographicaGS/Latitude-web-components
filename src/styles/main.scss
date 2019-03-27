@@ -24,6 +24,8 @@ $colorWhite: var(--color-white, #FFF);
 $colorIncrement: var(--color-increment,#39b185);
 $colorDecrement: var(--color-decrement,#cf597e);
 
+// TODO: font
+
 
 // Calendar
 $calendar-padding: var(--calendar-padding, 10px);
@@ -49,3 +51,14 @@ $switch-color-disabled: var(--switch-color-disabled, $colorWhite);
 $switch-content-font-size: var(--switch-content-font-size, 12px);
 $switch-background-color: var(--switch-background-color, $colorN30);
 $switch-background-color-checked: var(--switch-background-color-checked, $colorAccent);
+
+// Checkbox
+$checkbox-size: var(--checkbox-size, 12px);
+$checkbox-font-size: var(--checkbox-font-size, 12px);
+$checkbox-color: var(--checkbox-color, $colorWhite);
+$checkbox-border-color: var(--checkbox-border-color, $colorN60);
+$checkbox-border-color-hover: var(--checkbox-border-color-hover, $colorN80);
+$checkbox-color-checked: var(--checkbox-color-checked, $colorAccent);
+$checkbox-border-color-checked: var(--checkbox-border-color-checked, $colorN60);
+$checkbox-icon-size: var(--checkbox-icon-size, 6px);
+$checkbox-icon-color: var(--checkbox-icon-color, $colorWhite);

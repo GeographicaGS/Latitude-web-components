@@ -60,8 +60,8 @@ export default {
     }
   },
   mounted () {
-    this.updateState()
     this.showSlot = this.$slots.default !== undefined
+    this.updateState()
   },
   methods: {
     onChange (event) {
