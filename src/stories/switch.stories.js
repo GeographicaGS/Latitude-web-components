@@ -11,15 +11,16 @@ storiesOf('Switch', module)
     template: // html
       `
       <div>
-        <ltd-switch disabled></ltd-switch>
-        <br/>
+        <p>Simple switch</p>
         <ltd-switch state="true" @change="onSwitchChange"></ltd-switch>
         <br/>
+        <p>Switch with text</p>
         <ltd-switch>
           <span slot="open">O</span>
           <span slot="close">C</span>
         </ltd-switch>
         <br/>
+        <p>Switch with icons</p>
         <ltd-switch>
           <i slot="open">
             <ltd-icon :icon="getSource('icons/country.svg')" size="16px"></ltd-icon>
@@ -28,6 +29,10 @@ storiesOf('Switch', module)
             <ltd-icon :icon="getSource('icons/notification.svg')" size="16px"></ltd-icon>
           </i>
         </ltd-switch>
+        <br/>
+        <p>Disabled switchs</p>
+        <ltd-switch disabled></ltd-switch>
+        <ltd-switch state="true" disabled></ltd-switch>
       </div>
     `,
     mounted () {

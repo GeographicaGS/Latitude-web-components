@@ -50,8 +50,6 @@
   }
 
   &.disabled {
-    border-color: $switch-background-color-disabled;
-    background-color: $switch-background-color-disabled;
     opacity: .4;
     cursor: disabled;
 

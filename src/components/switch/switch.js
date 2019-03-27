@@ -1,20 +1,28 @@
 /**
  *  Switch script file
-**/
-
+ **/
 export default {
   name: 'LtdSwitch', // web-component: ltd-switch
   mixins: [],
   components: {},
   props: {
+    /**
+     * The initial state
+     */
     state: {
       type: Boolean,
       default: false
     },
+    /**
+     * If true, the switch is disabled
+     */
     disabled: {
       type: Boolean,
       default: false
     },
+    /**
+     * Name for input
+     */
     name: {
       type: String
     }
