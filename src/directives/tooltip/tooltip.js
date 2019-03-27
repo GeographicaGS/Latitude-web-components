@@ -6,8 +6,7 @@ const TooltipDirective = Vue.directive('tooltip', {
     el.style.position = 'relative'
     const Component = Vue.extend(Tooltip)
     const instance = new Component({
-      propsData: { text: 'primary' },
-      el
+      propsData: { text: 'primary' }
     })
     instance.$mount()
     console.log(instance)

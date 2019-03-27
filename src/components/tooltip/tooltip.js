@@ -12,15 +12,15 @@ export default {
       required: true
     }
   },
-  css: `
-    * {
-      color: blue;
-    }
-  `,
   render (createElement, context) {
     console.log(context)
     console.log(this)
 
-    return createElement('p', { class: 'ltd-tooltip-container' }, this.text)
+    return createElement('p', { 'class': 'ltd-tooltip-container' }, this.text)
   }
+  // render: (h, { data }) => (
+  //   <p class="ltd-tooltip-container">
+  //     { data.text }
+  //   </p>
+  // )
 }
