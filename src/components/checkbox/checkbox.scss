@@ -13,7 +13,7 @@
   cursor: pointer;
 
   &:hover {
-    .checkbox  .inner { border-color: $checkbox-border-color-hover; }
+    .checkbox .inner { border-color: $checkbox-border-color-hover; }
   }
 
   &.disabled { 
@@ -25,7 +25,7 @@
 
   &.checked {
     &:hover {
-      .inner { border-color: $checkbox-border-color-hover; }
+      .checkbox .inner { border-color: $checkbox-border-color-checked-hover; }
     }
 
     .checkbox {

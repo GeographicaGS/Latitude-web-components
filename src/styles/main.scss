@@ -59,6 +59,7 @@ $checkbox-color: var(--checkbox-color, $colorWhite);
 $checkbox-border-color: var(--checkbox-border-color, $colorN60);
 $checkbox-border-color-hover: var(--checkbox-border-color-hover, $colorN80);
 $checkbox-color-checked: var(--checkbox-color-checked, $colorAccent);
-$checkbox-border-color-checked: var(--checkbox-border-color-checked, $colorN60);
+$checkbox-border-color-checked: var(--checkbox-border-color-checked, $colorAccent);
+$checkbox-border-color-checked-hover: var(--checkbox-border-color-checked-hover, $colorIncrement);
 $checkbox-icon-size: var(--checkbox-icon-size, 6px);
 $checkbox-icon-color: var(--checkbox-icon-color, $colorWhite);
