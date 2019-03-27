@@ -1,0 +1,10 @@
+<!-- RadioGroup template file -->
+<div class="getClasses">
+<!-- <div :class="getClasses" :name="name"> -->
+  <template v-for="(label, id) in options">
+    <input type="radio" :value="id" v-model="model" :id="id">
+    <label class="btn btn-primary" :for="id">
+      {{label}}
+    </label>
+  </template>
+</div>
