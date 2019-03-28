@@ -8,6 +8,7 @@
       :label="option.label" 
       :rvalue="option.value"
       :value="selectedValue"
-      @change="onChange" />
+      :disabled="option.disabled"
+      @change="e => !option.disabled && onChange" />
   </span>
 </div>

@@ -33,7 +33,8 @@ storiesOf('radio', module)
         },
         {
           label: 'Show All',
-          value: 'all'
+          value: 'all',
+          disabled: true
         }
       ]
     },

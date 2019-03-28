@@ -25,21 +25,6 @@
     .radio .input { cursor: not-allowed; }
   }
 
-  &.checked {
-    &:hover {
-      .radio .inner { border-color: $radio-border-color-checked-hover; }
-    }
-
-    .radio {
-      .inner {
-        border-color: $radio-border-color-checked;
-        background-color: $radio-color-checked;
-
-        &:after { transform: translate3d(-50%, -50%, 0) scale(1); }
-      }
-    }
-  }
-
   .radio {
     outline: none;
     position: relative;
@@ -85,17 +70,28 @@
       top: 0;
       left: 0;
       z-index: 1;
-      // opacity: 0;
+      opacity: 0;
       cursor: pointer;
     }
 
-    input[type="radio"]:checked + span {
-      color: red;
+    .label {
+      line-height: calc(#{ $radio-size } + 2px);
+      padding-left: 4px;
     }
-  }
+    
+    // Checked
+    input[type="radio"]:checked {
 
-  .label {
-    line-height: calc(#{ $radio-size } + 2px);
-    padding-left: 4px;
+      &:hover + .inner {
+        background: $radio-border-color-checked-hover;
+      }
+
+      & + .inner {
+        border-color: $radio-border-color-checked;
+        background-color: $radio-color-checked;
+    
+        &:after { transform: translate3d(-50%, -50%, 0) scale(1); }
+      }
+    }
   }
 }

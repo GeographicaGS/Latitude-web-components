@@ -7,6 +7,7 @@ import Radio from '../index'
  *
  * TODO:
  * - Type button
+ * - Vertical
  **/
 export default {
   name: 'LtdRadioGroup', // web-component: ltd-radioGroup
@@ -15,14 +16,16 @@ export default {
     'ltd-radio': Radio
   },
   props: {
+    /**
+     * The options to draw radios
+     */
     options: {
       type: Array
     },
+    /**
+     * The group data model
+     */
     model: {
-      type: [String, Boolean, Number],
-      default: ''
-    },
-    label: {
       type: [String, Boolean, Number],
       default: ''
     }
