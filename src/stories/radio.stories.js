@@ -7,48 +7,51 @@ storiesOf('radio', module)
       return {
         els: undefined,
         group: undefined,
-        simple: true,
-        currentState: 'Show Active'
+        geo: true,
+        currentState: 'active'
       }
     },
     template: // html
       `
       <div>
-        <p>Simple radio with label</p>
-        <ltd-radio v-model="simple">
-          <span>Geographica</span>
-        </ltd-radio>
-        <p>{{ simple }}</p>
-        <br/>
-        <p>Radio disabled</p>
-        <ltd-radio @change="change" disabled>
-          <span>Geographica</span>
-        </ltd-radio>
-        <br/>
-        <br/>
-        <ltd-radio-group v-model="currentState"></ltd-radio-group>
+        <ltd-radio-group></ltd-radio-group>
+        <p>Radio button selection: {{ currentState }}</p>
       </div>
     `,
     mounted () {
       this.els = document.querySelectorAll('ltd-radio')
       this.els.forEach(el => {
-        el.change = this.changes
+        el.addEventListener('change', this.changeSimple, false)
       })
-      this.group = document.querySelector('ltd-radio-group')
-      console.log(this.group)
 
-      this.group.change = this.change
-      this.group.options = {
-        active: 'Show Active',
-        inactive: 'Show Inactive',
-        all: 'Show All'
-      }
+      this.group = document.querySelector('ltd-radio-group')
+      this.group.addEventListener('change', this.change, false)
+      this.group.model = this.currentState
+      this.group.options = [
+        {
+          label: 'Show Active',
+          value: 'active'
+        },
+        {
+          label: 'Show Inactive',
+          value: 'inactive'
+        },
+        {
+          label: 'Show All',
+          value: 'all'
+        }
+      ]
     },
     beforeDestroyed () { },
     methods: {
-      change (value) {
+      changeSimple (event) {
         console.log('sisisi')
-        console.log(value)
+        console.log(event)
+        this.simple = event.detail[0]
+      },
+
+      change (event) {
+        this.currentState = event.detail[0]
       }
     }
   }))

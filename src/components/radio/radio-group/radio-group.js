@@ -1,3 +1,4 @@
+import Radio from '../index'
 
 /**
  *  RadioGroup script file
@@ -10,21 +11,37 @@
 export default {
   name: 'LtdRadioGroup', // web-component: ltd-radioGroup
   mixins: [],
-  components: {},
-  props: [
-    'options',
-    'value'
-  ],
-  data () {
-    return {
-      model: this.value
+  components: {
+    'ltd-radio': Radio
+  },
+  props: {
+    options: {
+      type: Array
+    },
+    model: {
+      type: [String, Boolean, Number],
+      default: ''
+    },
+    label: {
+      type: [String, Boolean, Number],
+      default: ''
     }
   },
+  data () {
+    return {
+      selectedValue: this.model
+    }
+  },
+  computed: { },
   methods: {
+    onChange (value) {
+      this.selectedValue = value
+      this.$emit('change', value)
+    }
   },
   watch: {
-    model: function () {
-      this.$emit('change', this.model)
+    model (model) {
+      this.selectedValue = model
     }
   }
 }

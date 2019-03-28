@@ -1,17 +1,20 @@
 <!-- Radio template file -->
-<span :class="getClasses">
+<!-- <span :class="getClasses">
   <span :class="getRadioClasses">
     <span class="inner"></span>
     <input 
       type="radio" 
-      class="input" 
-      :disabled="disabled" 
-      :checked="currentState" 
-      :name="groupName"
-      @change="onChange">
+      class="input"
+      :value="name" 
+      :name="label" 
+      :id="name"
+      v-model="radioButtonValue">
       
-    <span class="label" v-if="showSlot">
-      <slot>{{ label }}</slot>
-    </span>
+    <span class="label" :for="name">{{ label }}</span>
   </span>
-</span>
+</span> -->
+
+<label class="radio">
+  <input type="radio" :value="rvalue" :name="name" v-model="radioButtonValue">
+  <span>{{ label }}</span>
+</label>
