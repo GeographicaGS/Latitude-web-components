@@ -14,7 +14,9 @@
   </span>
 </span> -->
 
-<label class="radio">
-  <input type="radio" :value="rvalue" :name="name" v-model="radioButtonValue">
-  <span>{{ label }}</span>
-</label>
+<span :class="getClasses">
+  <label :class="getRadioClasses">
+    <input type="radio" :value="rvalue" :name="name" v-model="radioButtonValue">
+    <span>{{ label }}</span>
+  </label>
+</span>

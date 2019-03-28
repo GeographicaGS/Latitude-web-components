@@ -89,7 +89,7 @@
       cursor: pointer;
     }
 
-    input[type="radio"]:checked + .label {
+    input[type="radio"]:checked + span {
       color: red;
     }
   }

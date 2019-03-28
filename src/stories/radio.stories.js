@@ -8,7 +8,7 @@ storiesOf('radio', module)
         els: undefined,
         group: undefined,
         geo: true,
-        currentState: 'active'
+        currentState: 'inactive'
       }
     },
     template: // html
@@ -19,11 +19,6 @@ storiesOf('radio', module)
       </div>
     `,
     mounted () {
-      this.els = document.querySelectorAll('ltd-radio')
-      this.els.forEach(el => {
-        el.addEventListener('change', this.changeSimple, false)
-      })
-
       this.group = document.querySelector('ltd-radio-group')
       this.group.addEventListener('change', this.change, false)
       this.group.model = this.currentState

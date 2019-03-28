@@ -18,6 +18,20 @@ export default {
       set (value) {
         this.$emit('change', value)
       }
+    },
+
+    getClasses () {
+      return {
+        'ltd-radio-container': true,
+        'disabled': this.disabled
+      }
+    },
+
+    getRadioClasses () {
+      return {
+        'radio': true,
+        'disabled': this.disabled
+      }
     }
   }
 }
