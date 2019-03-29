@@ -6,41 +6,37 @@ export default {
   name: 'LtdDropdown', // web-component: ltd-dropdown
   mixins: [],
   components: {},
-  props: {},
+  props: {
+    open: {
+      type: Boolean,
+      default: true
+    },
+    animation: {
+      type: String,
+      default: 'fade'
+    },
+    id: {
+      type: String,
+      default: ''
+    }
+  },
   data () {
     return {
-      trigger: undefined,
-      content: undefined
+      isOpen: this.open
     }
   },
   computed: {
   },
   methods: {
-    handleTriggerClick (event) {
-      event.preventDefault()
-      event.stopPropagation()
-      this.toggle()
-    },
-
-    select () {
-      console.log('set')
-    },
-
     toggle () {
-      this.content.classList.toggle('open')
-    },
-
-    open () {
-      this.content.classList.add('open')
-    },
-
-    close () {
-      this.content.classList.remove('open')
+      this.isOpen = !this.isOpen
+      this.$emit('update:open', this.isOpen)
+      this.$emit(this.isOpen ? 'open' : 'close')
     }
   },
-  mounted () {
-    this.trigger = this.$el.querySelector('.dropdown-select-wrapper')
-    this.content = this.$el.querySelector('.dropdown-content-wrapper')
-    this.trigger.addEventListener('click', this.handleTriggerClick, false)
+  watch: {
+    open (value) {
+      this.isOpen = value
+    }
   }
 }

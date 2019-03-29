@@ -15,16 +15,30 @@ storiesOf('Dropdown', module)
         <ltd-dropdown>
           <div slot="trigger">trigger</div>
           <div slot="content">
-            <ul>
-              <li><button @click="select">uno</button></li>
-              <li>dos</li>
-              <li>tres</li>
-            </ul>
+            content here
+            <button>b</button>
           </div>
         </ltd-dropdown>
       </div>
-  `,
-    mounted () { },
+    `,
+    mounted () {
+      this.el = document.getElementsByTagName('ltd-dropdown')[0]
+      console.log(this.el)
+      this.el.open = false
+      setTimeout(() => {
+        this.el.open = true
+      }, 2000)
+
+      const btn = this.el.querySelector('button')
+      console.log(btn)
+      btn.addEventListener('click', () => {
+        console.log('ñJZFBJS')
+      })
+    },
     beforeDestroyed () { },
-    methods: { }
+    methods: {
+      onChange () {
+        console.log('change')
+      }
+    }
   }))
