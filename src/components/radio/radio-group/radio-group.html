@@ -1,14 +1,12 @@
 <!-- RadioGroup template file -->
-<div class="ltd-radio-group-container">
-  <span>
-    <ltd-radio 
-      v-for="(option, id) in options" 
-      :key="id"
-      name="radios" 
-      :label="option.label" 
-      :rvalue="option.value"
-      :value="selectedValue"
-      :disabled="option.disabled"
-      @change="e => !option.disabled && onChange" />
-  </span>
+<div :class="getClasses">
+  <ltd-radio 
+    v-for="(option, id) in options" 
+    :key="id"
+    name="radios" 
+    :label="option.label" 
+    :rvalue="option.value"
+    :value="selectedValue"
+    :disabled="option.disabled"
+    @change="e => !option.disabled && onChange" />
 </div>

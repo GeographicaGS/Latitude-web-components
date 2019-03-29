@@ -14,7 +14,7 @@ storiesOf('radio', module)
     template: // html
       `
       <div>
-        <ltd-radio-group></ltd-radio-group>
+        <ltd-radio-group vertical="true"></ltd-radio-group>
         <p>Radio button selection: {{ currentState }}</p>
       </div>
     `,

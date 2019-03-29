@@ -64,6 +64,11 @@ $checkbox-border-color-checked-hover: var(--checkbox-border-color-checked-hover,
 $checkbox-icon-size: var(--checkbox-icon-size, 6px);
 $checkbox-icon-color: var(--checkbox-icon-color, $colorWhite);
 
+
+// Radio Group
+$horizontal-radio-margin: var(--horizontal-radio-margin, 10px);
+$vertical-radio-margin: var(--vertical-radio-margin, 10px);
+
 // Radio
 $radio-size: var(--radio-size, 12px);
 $radio-font-size: var(--radio-font-size, 12px);

@@ -5,9 +5,14 @@ import Radio from '../index'
  *
  * @version 1.0.0
  *
- * TODO:
- * - Type button
- * - Vertical
+ * @usage
+ *
+ * <ltd-radio-group
+ *  options="Array"
+ *  model="String, Boolean, Number"
+ *  @change="Funtion"
+ *  vertical="Boolean">
+ * </ltd-radio-group>
  **/
 export default {
   name: 'LtdRadioGroup', // web-component: ltd-radioGroup
@@ -28,6 +33,13 @@ export default {
     model: {
       type: [String, Boolean, Number],
       default: ''
+    },
+    /**
+     * The radio component alignment
+     */
+    vertical: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -35,7 +47,14 @@ export default {
       selectedValue: this.model
     }
   },
-  computed: { },
+  computed: {
+    getClasses () {
+      return {
+        'ltd-radio-group-container': true,
+        'vertical': this.vertical
+      }
+    }
+  },
   methods: {
     onChange (value) {
       this.selectedValue = value
