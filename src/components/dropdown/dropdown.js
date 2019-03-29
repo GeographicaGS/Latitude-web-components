@@ -25,8 +25,7 @@ export default {
       isOpen: this.open
     }
   },
-  computed: {
-  },
+  computed: {},
   methods: {
     toggle () {
       this.isOpen = !this.isOpen

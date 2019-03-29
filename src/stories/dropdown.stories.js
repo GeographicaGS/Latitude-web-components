@@ -12,7 +12,7 @@ storiesOf('Dropdown', module)
     template: // html
       `
       <div>
-        <ltd-dropdown>
+        <ltd-dropdown @select="selectItem">
           <div slot="trigger">trigger</div>
           <div slot="content">
             content here
