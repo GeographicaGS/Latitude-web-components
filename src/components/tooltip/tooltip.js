@@ -7,18 +7,32 @@
 export default {
   name: 'LtdTooltip', // web-component: ltd-tooltip
   props: {
+    /**
+     * Text to show in the tooltip
+     * TODO: icon
+     */
     text: {
       type: String,
       required: true
     },
+    /**
+     * Tooltip position
+     */
     position: {
       type: String,
       default: 'top'
+      // TODO: validate
     },
+    /**
+     * Delay to show tooltip (ms)
+     */
     showDelay: {
       type: Number,
       default: 1000
     },
+    /**
+     * Delay to hide tooltip (ms)
+     */
     hideDelay: {
       type: Number,
       default: 0
