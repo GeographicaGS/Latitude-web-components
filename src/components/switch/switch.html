@@ -1,0 +1,8 @@
+<!-- Switch template file -->
+<div :class="getClasses" tabindex="0" @click="toggle" @keydown.space="toggle">
+  <input type="hidden" :name="name" :value="currentState">
+  <span class="content-wrapper">
+    <slot name="open" v-if="currentState === true"></slot>
+    <slot name="close" v-if="currentState === false"></slot>
+  </span>
+</div>

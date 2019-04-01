@@ -24,6 +24,8 @@ $colorWhite: var(--color-white, #FFF);
 $colorIncrement: var(--color-increment,#39b185);
 $colorDecrement: var(--color-decrement,#cf597e);
 
+// TODO: font
+
 
 // Calendar
 $calendar-padding: var(--calendar-padding, 10px);
@@ -39,7 +41,6 @@ $calendar-arrow-icon: var(--calendar-arrow-icon, 'icon-arrow');
 $calendar-arrow-icon-fill: var(--calendar-arrow-icon-fill, $colorN80);
 $calendar-arrow-icon-fill-hover: var(--calendar-arrow-icon-fill-hover, $colorN50);
 
-
 // Tooltip
 $tooltip-font-size: var(--tooltip-font-size, 12px);
 $tooltip-font-weight: var(--tooltip-font-weight, 500);
@@ -48,3 +49,43 @@ $tooltip-background-color: var(--tooltip-background-color, #222222);
 $tooltip-border-radius: var(--tooltip-border-radius, 3px);
 $tooltip-arrow-icon-size: var(--tooltip-arrow-icon-size, 8px);
 $tooltip-marging: var(--tooltip-marging, 10px);
+
+// Switch
+$switch-width: var(--switch-width, 44px);
+$switch-height: var(--switch-height, 22px);
+$switch-size: var(--switch-size, 18px);
+$switch-color: var(--switch-color, $colorWhite);
+$switch-content-color: var(--switch-content-color, $colorWhite);
+$switch-color-disabled: var(--switch-color-disabled, $colorWhite);
+$switch-content-font-size: var(--switch-content-font-size, 12px);
+$switch-background-color: var(--switch-background-color, $colorN30);
+$switch-background-color-checked: var(--switch-background-color-checked, $colorAccent);
+
+// Checkbox
+$checkbox-size: var(--checkbox-size, 12px);
+$checkbox-font-size: var(--checkbox-font-size, 12px);
+$checkbox-color: var(--checkbox-color, $colorWhite);
+$checkbox-border-color: var(--checkbox-border-color, $colorN60);
+$checkbox-border-color-hover: var(--checkbox-border-color-hover, $colorN80);
+$checkbox-color-checked: var(--checkbox-color-checked, $colorAccent);
+$checkbox-border-color-checked: var(--checkbox-border-color-checked, $colorAccent);
+$checkbox-border-color-checked-hover: var(--checkbox-border-color-checked-hover, $colorIncrement);
+$checkbox-icon-size: var(--checkbox-icon-size, 6px);
+$checkbox-icon-color: var(--checkbox-icon-color, $colorWhite);
+
+
+// Radio Group
+$horizontal-radio-margin: var(--horizontal-radio-margin, 10px);
+$vertical-radio-margin: var(--vertical-radio-margin, 10px);
+
+// Radio
+$radio-size: var(--radio-size, 12px);
+$radio-font-size: var(--radio-font-size, 12px);
+$radio-color: var(--radio-color, $colorWhite);
+$radio-border-color: var(--radio-border-color, $colorN60);
+$radio-border-color-hover: var(--radio-border-color-hover, $colorN80);
+$radio-color-checked: var(--radio-color-checked, $colorAccent);
+$radio-border-color-checked: var(--radio-border-color-checked, $colorAccent);
+$radio-border-color-checked-hover: var(--radio-border-color-checked-hover, $colorIncrement);
+$radio-icon-size: var(--radio-icon-size, 6px);
+$radio-icon-color: var(--radio-icon-color, $colorWhite);

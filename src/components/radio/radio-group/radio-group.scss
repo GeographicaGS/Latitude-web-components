@@ -1,0 +1,19 @@
+/**
+ *  RadioGroup style file
+**/
+
+@import '~@/styles/main.scss';
+
+.ltd-radio-group-container {
+  display: flex;
+  flex-direction: row;
+  
+
+  .ltd-radio-container { margin-right: $horizontal-radio-margin; }
+  
+  &.vertical { 
+    flex-direction: column; 
+    
+    .ltd-radio-container { margin-bottom: $vertical-radio-margin; }
+  }
+}
