@@ -12,9 +12,9 @@ Things to know when using **Icon** component:
 
 ```js
 <div style="width: 300px;">
-  <ltd-icon icon="https://simpleicons.org/icons/webcomponents-dot-org.svg" size="120px"></ltd-icon>
-  <ltd-icon icon="https://simpleicons.org/icons/node-dot-js.svg" size="120px"></ltd-icon>
-  <ltd-icon icon="https://simpleicons.org/icons/vue-dot-js.svg" size="120px"></ltd-icon>
-  <ltd-icon icon="https://simpleicons.org/icons/javascript.svg" size="120px"></ltd-icon>
+  <ltd-icon icon="https://simpleicons.org/icons/webcomponents-dot-org.svg" size="120px" fill="#ff9600"></ltd-icon>
+  <ltd-icon icon="https://simpleicons.org/icons/node-dot-js.svg" size="120px" fill="#00ca1f"></ltd-icon>
+  <ltd-icon icon="https://simpleicons.org/icons/vue-dot-js.svg" size="120px" fill="#19928b"></ltd-icon>
+  <ltd-icon icon="https://simpleicons.org/icons/javascript.svg" size="120px" fill="#fbf11e"></ltd-icon>
 </div>
 ```

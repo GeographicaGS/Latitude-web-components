@@ -21,6 +21,10 @@ export default {
     size: {
       type: String,
       default: '20px'
+    },
+    fill: {
+      type: String,
+      default: '#000000'
     }
   },
   data () {
@@ -62,6 +66,8 @@ export default {
      * */
     drawIcon (doc) {
       this.$el.appendChild(doc.documentElement)
+      const svg = this.$el.querySelector('svg')
+      svg.style.fill = this.fill
     }
   }
 }

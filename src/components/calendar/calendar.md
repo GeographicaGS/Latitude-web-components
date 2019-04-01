@@ -12,21 +12,20 @@ Things to know when using **Calendar** component:
 
 ### Selected date
 
-This example shows a **Calendar** component whith a selected date.
-This example shows a **Calendar** component wrapped into a **300px** wide `div`.
+This example shows a **Calendar** component whith yesterday as a selected date.
 
-The output will be: 
+The output format will be: 
 ```json
-{ date: 'Sat Apr 27 2019 14:38:25 GMT+0200' }
+{ date: 'GMT date' }
 ```
 
 ```js
-var today = new Date().toISOString().slice(0,10)
-console.log(today)
+const today = new Date()
+const yesterday = new Date(today.setDate(today.getDate() - 1)).toISOString().slice(0, 10)
 
 <div style="width: 300px;">
   <ltd-calendar
-    selected-date="2019-03-06">
+    :selected-date="yesterday">
   </ltd-calendar>
 </div>
 ```
@@ -38,17 +37,22 @@ This example shows a **Calendar** component whith a selected range and restricte
 The output will be: 
 ```json
 { 
-  start: 'Sat Apr 06 2019 00:00:00 GMT+0200', 
-  end: 'Sat Apr 16 2019 00:00:00 GMT+0200' 
+  start: 'GMT date', 
+  end: 'GMT date' 
 }
 ```
 
 ```js
+const today = new Date()
+const yesterday = new Date(today.setDate(today.getDate() - 1)).toISOString().slice(0, 10)
+const someDay = new Date(today.setDate(today.getDate() - 10)).toISOString().slice(0, 10)
+
 <div style="width: 300px;">
   <ltd-calendar
-    start-date="2019-03-06"
-    end-date="2019-03-16"
-    range>
+    :start-date="someDay"
+    :end-date="yesterday"
+    range
+    :future-selection="false">
   </ltd-calendar>
 </div>
 ```
