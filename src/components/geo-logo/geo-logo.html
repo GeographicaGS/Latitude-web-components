@@ -1,0 +1,21 @@
+<!-- GeoLogo template file -->
+<div :class="getClasses">
+  <a href="https://carto.com/" target="_blank" class="carto" v-if="carto">
+    © CARTO · Powered by
+    <span class="carto-logo">
+      <img v-if="theme === 'light'" src="@/assets/logos/CARTO-logo-negative.svg" alt="">
+      <img v-else src="@/assets/logos/CARTO-logo.svg" alt="">
+    </span>
+  </a>
+  <a href="https://geographica.com/" target="_blank" class="geo">
+    Engineered by Geographica
+    <div class="logo">
+      <span class="geo-logo">
+        <img src="@/assets/logos/geographica-logo.svg" alt="">
+        <span class="comp">
+          <img src="@/assets/logos/geographica-compo.svg" alt="">
+        </span>
+      </span>
+    </div>
+  </a>
+</div>
