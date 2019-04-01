@@ -12,11 +12,11 @@ storiesOf('Dropdown', module)
     template: // html
       `
       <div>
-        <ltd-dropdown @select="selectItem">
+        <ltd-dropdown @select="onSelect">
           <div slot="trigger">trigger</div>
           <div slot="content">
             content here
-            <button>b</button>
+            <button @click="onSelect">b</button>
           </div>
         </ltd-dropdown>
       </div>
@@ -25,6 +25,7 @@ storiesOf('Dropdown', module)
       this.el = document.getElementsByTagName('ltd-dropdown')[0]
       console.log(this.el)
       this.el.open = false
+      this.el.select = this.onSelect
       setTimeout(() => {
         this.el.open = true
       }, 2000)
@@ -37,7 +38,7 @@ storiesOf('Dropdown', module)
     },
     beforeDestroyed () { },
     methods: {
-      onChange () {
+      onSelect () {
         console.log('change')
       }
     }

@@ -9,12 +9,12 @@
     </slot>
   </div> -->
   <div class="trigger" @click="toggle">
-    <slot name="trigger" :open="isOpen"></slot>
+    <slot name="trigger"></slot>
   </div>
   <div :id="id"
     class="collapse-content"
     v-show="isOpen">
-    <slot name="content"></slot>
+    <slot name="content" :select="select"></slot>
   </div>
 
 </div>

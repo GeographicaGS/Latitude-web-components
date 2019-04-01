@@ -18,6 +18,9 @@ export default {
     id: {
       type: String,
       default: ''
+    },
+    select: {
+      type: Function
     }
   },
   data () {
