@@ -133,9 +133,7 @@ export default {
 
     changeDate (date) {
       console.log(this.futureSelection)
-      if (!this.futureSelection && date.isAfter(moment())) {
-        console.log('sisisi')
-
+      if (this.futureSelection === false && date.isAfter(moment())) {
         return
       }
 

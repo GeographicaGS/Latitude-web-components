@@ -8,21 +8,12 @@ Things to know when using **Calendar** component:
 - By default, the component shows english language.
 
 
-## Simple example
-
-This example shows a **Calendar** component wrapped into a **300px** wide `div`.
-
-```js
-<div style="width: 300px;">
-  <ltd-calendar></ltd-calendar>
-</div>
-```
-
-## Complex examples
+## Examples
 
 ### Selected date
 
 This example shows a **Calendar** component whith a selected date.
+This example shows a **Calendar** component wrapped into a **300px** wide `div`.
 
 The output will be: 
 ```json
@@ -30,10 +21,12 @@ The output will be:
 ```
 
 ```js
+var today = new Date().toISOString().slice(0,10)
+console.log(today)
+
 <div style="width: 300px;">
   <ltd-calendar
-    selected-date="2019-04-06"
-    future-selection>
+    selected-date="2019-03-06">
   </ltd-calendar>
 </div>
 ```

@@ -50,9 +50,7 @@ storiesOf('Calendar', module)
           selected-date="2019-03-02"
           month-format="MMMM"
           day-format="ddd"
-          locale="en"
-
-          future-selection>
+          locale="en">
         </ltd-calendar>
       </div>
   `,
