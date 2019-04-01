@@ -30,7 +30,7 @@ export default {
   },
   props: {
     /**
-     *
+     * Output callback
      * */
     setDate: {
       type: Function,
@@ -132,7 +132,12 @@ export default {
     },
 
     changeDate (date) {
-      if (!this.futureSelection && date.isAfter(moment())) { return }
+      console.log(this.futureSelection)
+      if (!this.futureSelection && date.isAfter(moment())) {
+        console.log('sisisi')
+
+        return
+      }
 
       if (
         !this.start || date.isBefore(this.start, 'day') ||
@@ -148,7 +153,8 @@ export default {
       if (!this.range) {
         this.start = date
         this.end = date
-        this.setDate({ date })
+        const obj = { date: date.toDate() }
+        this.setDate && this.setDate(obj)
         return
       }
 
@@ -158,7 +164,11 @@ export default {
 
       const { start } = this
       const { end } = this
-      this.setDate({ start, end })
+      const obj = {
+        start: start.toDate(),
+        end: end.toDate()
+      }
+      this.setDate && this.setDate(obj)
     },
 
     changeMonth (month) {

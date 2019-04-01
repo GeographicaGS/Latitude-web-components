@@ -51,6 +51,7 @@ storiesOf('Calendar', module)
           month-format="MMMM"
           day-format="ddd"
           locale="en"
+
           future-selection>
         </ltd-calendar>
       </div>
@@ -63,6 +64,7 @@ storiesOf('Calendar', module)
     methods: {
       onSetCalendarDate (value) {
         console.log('The date selected is: ')
+        console.log(value)
         console.log(value.date)
       }
     }
