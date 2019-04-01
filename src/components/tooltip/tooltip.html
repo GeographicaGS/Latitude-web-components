@@ -1,4 +1,7 @@
 <!-- Tooltip template file -->
 <div class="ltd-tooltip-container">
-  hi
+  <span class="tooltip" :class="getClasses">
+    <p>{{ text }}</p>
+  </span>
+  <slot></slot>
 </div>
