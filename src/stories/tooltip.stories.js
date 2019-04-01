@@ -10,7 +10,7 @@ storiesOf('Tooltip', module)
     },
     template: // html
       `
-      <div style="margin-left: 100px;">
+      <div style="margin-left: 100px; font-family: 'Helvetica Nue', helvetica, sans-serif;">
         <br />
         <br />
         <ltd-tooltip text="Tooltip value agachupagüer gromenagüer">
@@ -22,13 +22,13 @@ storiesOf('Tooltip', module)
         <ltd-tooltip text="Tooltip value" position="bottom" show-delay="2000">
           <button>Bottom</button>
         </ltd-tooltip>
-        <p><small>With <strong>2s delay</strong> and <strong>bottom</strong> positioning</small></p>
+        <p><small>With <strong>2s show-delay</strong> and <strong>bottom</strong> positioning</small></p>
 
         <br />
-        <ltd-tooltip text="Tooltip value" position="left">
+        <ltd-tooltip text="Tooltip value" position="left" hide-delay="2000">
           <button>Left</button>
         </ltd-tooltip>
-        <p><small>With <strong>left</strong> positioning</small></p>
+        <p><small>With <strong>left</strong> positioning</small> with <strong>2s hide-delay</strong></p>
 
         <br />
         <ltd-tooltip text="Tooltip value" position="right">
