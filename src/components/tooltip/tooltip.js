@@ -35,7 +35,11 @@ export default {
       return {
         'tooltip': true,
         'top': this.position === 'top',
+        'top-left': this.position === 'top-left',
+        'top-right': this.position === 'top-right',
         'bottom': this.position === 'bottom',
+        'bottom-left': this.position === 'bottom-left',
+        'bottom-right': this.position === 'bottom-right',
         'left': this.position === 'left',
         'right': this.position === 'right'
       }
