@@ -1,9 +1,5 @@
 /**
- *  Icon script file
- * */
-
-/**
- * For our icons we use this custom component called LtdIcon. Render the icon paths inline.
+ * Icon
  * @version 1.0.0
  * */
 export default {
