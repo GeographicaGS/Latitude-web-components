@@ -22,6 +22,9 @@ export default {
       type: String,
       default: '20px'
     },
+    /**
+     * Sets the fill color for the SVG
+     * */
     fill: {
       type: String,
       default: '#000000'
