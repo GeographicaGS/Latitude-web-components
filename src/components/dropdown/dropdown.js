@@ -37,11 +37,12 @@ export default {
       element.style.position = 'absolute'
       element.style.visibility = 'hidden'
       element.style.height = 'auto'
-      let height = window.getComputedStyle(element).height
+      const height = window.getComputedStyle(element).height
       element.style.width = null
       element.style.position = null
       element.style.visibility = null
       element.style.height = 0
+      // To make sure the animation is triggered correctly.
       // eslint-disable-next-line no-unused-expressions
       window.getComputedStyle(element).height
 
@@ -56,7 +57,7 @@ export default {
     },
 
     leave (element) {
-      let height = window.getComputedStyle(element).height
+      const height = window.getComputedStyle(element).height
       element.style.height = height
       // eslint-disable-next-line no-unused-expressions
       window.getComputedStyle(element).height
