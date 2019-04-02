@@ -1,8 +1,6 @@
 import Icon from '../icon/index'
 
 /**
- *  GeoLogo script file
- *
  * @version 1.0.0
  **/
 export default {
