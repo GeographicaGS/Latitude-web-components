@@ -1,0 +1,105 @@
+/**
+ *  Day style file
+ **/
+
+@import '~@/styles/main.scss';
+
+.ltd-day-container {
+  padding: 1px;
+  box-sizing: border-box;
+
+  div {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-size: 14px;
+    line-height: 16px;
+    text-align: center;
+    border: 1px solid $colorWhite;
+    border-radius: $calendar-border-radius;
+    user-select: none;
+    cursor: pointer;
+    box-sizing: border-box;
+
+    &.label {
+      text-transform: uppercase;
+      color: $colorN50;
+      font-size: 14px;
+      cursor: initial;
+    }
+
+    &.muted { color: $colorN30; }
+
+    &:not(.muted) { background-color: $colorN05; }
+
+    &.active {
+      border: 2px solid #00c6d7;
+      border-radius: $calendar-border-radius;
+      font-weight: bold;
+    }
+
+    &.disabled { 
+      opacity: 0.5; 
+      cursor: default;
+    }
+
+    &.start, 
+    &.between, 
+    &.end {
+      border: none;
+      color: $colorN90;
+      border-radius: $calendar-border-radius;
+    }
+
+    &.between { 
+      background-color: #00ff99;
+      border-left: none;
+      border-right: none;
+      border-radius: 0; 
+    }
+
+    &.start { 
+      background-color: darken(#00ff99, 5%);
+      border-right: none;
+      border-radius: $calendar-border-radius 0 0 $calendar-border-radius; 
+    }
+
+    &.end { 
+      background-color: darken(#00ff99, 5%);
+      border-left: none;
+      border-radius: 0 $calendar-border-radius $calendar-border-radius 0; 
+    }
+
+    &.start.end { 
+      border-radius: $calendar-border-radius;
+      font-weight: bold;
+
+      &:before { display: none; }
+    }
+  }
+
+  &:not(:last-child) .between:before,
+  .start:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100%;
+    width: 2px;
+    height: 100%;
+    background-color: #00ff99;
+    box-sizing: border-box;
+  }
+
+  &:nth-child(7n) .between {
+    border-radius: 0 $calendar-border-radius $calendar-border-radius 0; 
+
+    &:before { display: none; }
+  }
+
+  &:nth-child(7n + 1) .between {
+    border-radius: $calendar-border-radius 0 0 $calendar-border-radius;
+  }
+}

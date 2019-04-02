@@ -1,58 +1,77 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/vue'
-// import { action } from '@storybook/addon-actions';
-// import { linkTo } from '@storybook/addon-links';
 
 import './main'
 
-storiesOf('Button', module)
-  .add('with text', () => ({
+storiesOf('Icon', module)
+  .add('Simple icon', () => ({
     data () {
       return {
         el: undefined
       }
     },
-    template: `
-    <ltd-button theme='light'>
-      <span>A Button with rounded edges</span>
-    </ltd-button>
+    template: // html
+    `
+      <div>
+        <ltd-icon :icon="getSource('icons/country.svg')" size="120px">
+        </ltd-icon>
+        <ltd-icon :icon="getSource('icons/country.svg')" size="60px">
+        </ltd-icon>
+        <ltd-icon :icon="getSource('icons/country.svg')" size="30px">
+        </ltd-icon>
+        <ltd-icon :icon="getSource('icons/country.svg')" size="20px">
+        </ltd-icon>
+        <ltd-icon :icon="getSource('icons/country.svg')" size="10px">
+        </ltd-icon>
+      </div>
   `,
-    mounted () {
-      [this.el] = document.getElementsByTagName('ltd-button')
-
-      this.el.addEventListener('click', this.onClick)
-    },
-    beforeDestroyed () {
-      this.el.removeEventListener('click', this.onClick)
-    },
+    mounted () {},
+    beforeDestroyed () {},
     methods: {
-      onClick (event) {
-        console.info('event', event)
+      getSource (data) {
+        const context = require.context('@/assets/', true, /.svg/)
+        const icon = context(`./${data}`)
+        return icon
       }
     }
   }))
-  .add('yellow', () => ({
+
+storiesOf('Calendar', module)
+  .add('Simple calendar', () => ({
     data () {
       return {
         el: undefined
       }
     },
-    template: `
-    <ltd-button-yellow>
-      <span>A Button with rounded edges</span>
-    </ltd-button-yellow>
+    template: // html
+    `
+      <div style="width: 320px;">
+        <ltd-calendar
+          selected-date="2019-04-02"
+          month-format="MMMM"
+          day-format="ddd"
+          locale="en"
+          future-selection>
+        </ltd-calendar>
+      </div>
   `,
     mounted () {
-      [this.el] = document.getElementsByTagName('ltd-button-yellow')
+      [this.el] = document.getElementsByTagName('ltd-calendar')
+      this.el.dateChanged = this.onSetCalendarDate
+      this.el.selectableRange = ['2019-04-01', '2019-04-03']
 
-      this.el.addEventListener('click', this.onClick)
+      setTimeout(() => {
+        console.log('cambia!')
+
+        this.el.selectedDate = '2019-04-03'
+      }, 3000)
     },
-    beforeDestroyed () {
-      this.el.removeEventListener('click', this.onClick)
-    },
+    beforeDestroyed () {},
     methods: {
-      onClick (event) {
-        console.info('event', event)
+      onSetCalendarDate (value) {
+        // console.log('The date selected is: ')
+        // console.log(value)
+        // console.log(value.date)
       }
     }
   }))

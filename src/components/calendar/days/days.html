@@ -1,0 +1,21 @@
+<!-- Days template file -->
+<div class="ltd-days-container">
+  <div class="header">
+    <span v-for="n in 7" id="n" class="label">
+      {{ getLabel(n) }}
+    </span>
+  </div>
+  <div class="months">
+    <ltd-day v-for="day in days" 
+      :key="day.date.unix()"
+      :current-date="day.currentDate"
+      :date="day.date"
+      :start-date="day.startDate"
+      :end-date="day.endDate"
+      :future-selection="futureSelection"
+      :min-selectable-date="minSelectableDate"
+      :max-selectable-date="maxSelectableDate"
+      @change="onDayClick">
+    </ltd-day>
+  </div>
+</div>

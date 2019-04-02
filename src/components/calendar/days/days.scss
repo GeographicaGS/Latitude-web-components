@@ -1,0 +1,43 @@
+/**
+ *  Days style file
+**/
+
+@import '~@/styles/main.scss';
+
+.ltd-days-container {
+  .header {
+    height: $calendar-header-height;
+    margin-bottom: $calendar-padding;
+    padding: 0 $calendar-padding 0 $calendar-padding;
+    background-color: white;
+
+    .label {
+      position: relative;
+      display: inline-block;
+      width: calc(100% / 7);
+      font-size: $calendar-header-font-size;
+      font-weight: $calendar-header-font-weight;
+      text-align: center;
+    }
+  }
+
+  .months {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(calc(100% / 7), 1fr));
+    grid-auto-rows: 1fr;
+    padding: 0 $calendar-padding $calendar-padding $calendar-padding;
+
+    &:before {
+      content: '';
+      width: 0;
+      padding-bottom: 100%;
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+    }
+
+    & > *:first-child {
+      grid-row: 1 / 1;
+      grid-column: 1 / 1;
+    }
+  }
+}
