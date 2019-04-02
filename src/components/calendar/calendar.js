@@ -30,6 +30,12 @@ export default {
   },
   props: {
     /**
+    * Sets style
+    * */
+    customStyle: {
+      type: Object
+    },
+    /**
      * Output callback
      * */
     setDate: {
@@ -190,6 +196,35 @@ export default {
       this.isMonthSelectorOpen = false
       this.current = moment()
       this.setDateRanges()
+    },
+
+    /**
+     * Gets custom styles
+     * */
+    getStyle () {
+      const style = `
+        ${Object.entries(this.customStyle).map(values => {
+    const [key, value] = values
+    return `.${key} {${this.generateStyle(value)}}`
+  }).join('\n')}`
+
+      const el = document.createElement('style')
+      el.innerHTML = style
+      this.$el.parentNode.insertBefore(el, null)
+    },
+
+    /**
+     * Generate style by object
+     *
+     * @property {Object}
+     * @type {String}
+     * */
+    generateStyle (data) {
+      return `
+        ${Object.entries(data).map(values => {
+    const [key, value] = values
+    return `${key}: ${value}`
+  }).join(';')};`
     }
   }
 }
