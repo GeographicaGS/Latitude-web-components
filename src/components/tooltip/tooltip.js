@@ -10,6 +10,13 @@ export default {
     /**
      * Text to show in the tooltip
      * TODO: icon
+     * Sets style
+     */
+    customStyle: {
+      type: Object
+    },
+    /**
+     * Text to show in the tooltip
      */
     text: {
       type: String,
@@ -74,6 +81,36 @@ export default {
         this.tooltip.classList.remove('visible')
         window.clearTimeout(this.sto)
       }, this.hideDelay)
+    },
+
+    /**
+     * Gets custom styles
+     */
+    getStyle () {
+      const style = `${
+        Object.entries(this.customStyle).map(values => {
+          const [key, value] = values
+          return `.${key} {${this.generateStyle(value)}}`
+        }).join('\n')
+      }`
+      const el = document.createElement('style')
+      el.innerHTML = style
+      this.$el.parentNode.insertBefore(el, null)
+    },
+
+    /**
+     * Generate style by object
+     *
+     * @property {Object}
+     * @type {String}
+     */
+    generateStyle (data) {
+      return `${
+        Object.entries(data).map(values => {
+          const [key, value] = values
+          return `${key}: ${value}`
+        }).join(';')
+      }`
     }
   },
   mounted () {

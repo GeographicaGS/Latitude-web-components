@@ -42,6 +42,16 @@ export default {
       type: Boolean,
       default: true,
       required: false
+    },
+    minSelectableDate: {
+      type: Object,
+      default: undefined,
+      required: false
+    },
+    maxSelectableDate: {
+      type: Object,
+      default: undefined,
+      required: false
     }
   },
   data () {
@@ -60,18 +70,23 @@ export default {
     thisDate () {
       return moment(this.date)
     },
+
     daysInMonth () {
       return moment(this.date).daysInMonth()
     },
+
     firstDayDate () {
       return moment(this.date).startOf('month')
     },
+
     previousMonth () {
       return moment(this.date).subtract(1, 'month')
     },
+
     previousMonthDays () {
       return this.previousMonth.daysInMonth()
     },
+
     nextMonth () {
       return moment(this.date).add(1, 'month')
     }

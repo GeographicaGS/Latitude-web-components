@@ -1,4 +1,4 @@
-import Radio from '../index'
+import Radio from './radio/index'
 
 /**
  *  RadioGroup script file
@@ -21,6 +21,12 @@ export default {
     'ltd-radio': Radio
   },
   props: {
+    /**
+     * Sets style
+     */
+    customStyle: {
+      type: Object
+    },
     /**
      * The options to draw radios
      */
@@ -59,6 +65,36 @@ export default {
     onChange (value) {
       this.selectedValue = value
       this.$emit('change', value)
+    },
+
+    /**
+     * Gets custom styles
+     */
+    getStyle () {
+      const style = `${
+        Object.entries(this.customStyle).map(values => {
+          const [key, value] = values
+          return `.${key} {${this.generateStyle(value)}}`
+        }).join('\n')
+      }`
+      const el = document.createElement('style')
+      el.innerHTML = style
+      this.$el.parentNode.insertBefore(el, null)
+    },
+
+    /**
+     * Generate style by object
+     *
+     * @property {Object}
+     * @type {String}
+     */
+    generateStyle (data) {
+      return `${
+        Object.entries(data).map(values => {
+          const [key, value] = values
+          return `${key}: ${value}`
+        }).join(';')
+      }`
     }
   },
   watch: {
