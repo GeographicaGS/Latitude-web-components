@@ -27,6 +27,7 @@ const options = [
 let state = 'inactive'
 
 <ltd-radioGroup
+  name="one"
   :options="options"
   :model="state">
 </ltd-radioGroup>
@@ -48,6 +49,7 @@ const options2 = [
 let state2 = 'light'
 
 <ltd-radioGroup
+  name="two"
   :options="options2"
   :model="state2"
   :vertical="true">
