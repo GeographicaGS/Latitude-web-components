@@ -31,20 +31,32 @@ export default {
      */
     state: {
       type: Boolean,
-      default: false
+      default: false,
+      required: false
     },
     /**
      * If true, the switch is disabled
      */
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
+      required: false
     },
     /**
      * Name for input
      */
     name: {
-      type: String
+      type: String,
+      default: '',
+      required: false
+    },
+    /**
+     * Name for input
+     */
+    label: {
+      type: String,
+      default: '',
+      required: false
     }
   },
   data () {

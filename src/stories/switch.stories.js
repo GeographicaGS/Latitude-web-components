@@ -12,7 +12,7 @@ storiesOf('Switch', module)
       `
       <div>
         <p>Simple switch</p>
-        <ltd-switch name="simple" @change="onSwitchChange"></ltd-switch>
+        <ltd-switch name="simple" @change="onSwitchChange" label="label"></ltd-switch>
         <br/>
         <p>Switch with text</p>
         <ltd-switch name="text" @change="onSwitchChange">
