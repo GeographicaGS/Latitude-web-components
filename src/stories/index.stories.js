@@ -64,7 +64,7 @@ storiesOf('Calendar', module)
         console.log('cambia!')
 
         this.el.selectedDate = '2019-04-03'
-      }, 2000)
+      }, 3000)
     },
     beforeDestroyed () {},
     methods: {

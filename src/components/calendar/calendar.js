@@ -247,6 +247,21 @@ export default {
     }
   },
   watch: {
+    selectedDate (date) {
+      this.selectedDate = date
+      this.setDateRanges()
+    },
+
+    startDate (date) {
+      this.startDate = date
+      this.setDateRanges()
+    },
+
+    endDate (date) {
+      this.endDate = date
+      this.setDateRanges()
+    },
+
     selectableRange (dates) {
       this.selectableRange = dates
       this.minSelectableDate = moment(this.selectableRange[0])
