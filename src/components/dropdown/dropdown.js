@@ -7,16 +7,21 @@ export default {
   mixins: [],
   components: {},
   props: {
+    /**
+     * The dropdown state
+     */
     open: {
       type: Boolean,
-      default: true
+      default: true,
+      required: false
     },
+    /**
+     * Dropdown id
+     */
     id: {
       type: String,
-      default: ''
-    },
-    select: {
-      type: Function
+      default: '',
+      required: false
     }
   },
   data () {
