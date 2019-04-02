@@ -62,7 +62,6 @@ export default {
   mounted () {
     this.showSlot = this.$slots.default !== undefined
     this.updateState()
-    console.log(this)
   },
   methods: {
     onChange (event) {
