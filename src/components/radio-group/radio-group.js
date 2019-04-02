@@ -34,6 +34,14 @@ export default {
       type: Array
     },
     /**
+     * The radio group name.
+     * Required if you use several groups on the same page.
+     */
+    name: {
+      type: String,
+      default: 'radios'
+    },
+    /**
      * The group data model
      */
     model: {
@@ -62,11 +70,6 @@ export default {
     }
   },
   methods: {
-    onChange (value) {
-      this.selectedValue = value
-      this.$emit('change', value)
-    },
-
     /**
      * Gets custom styles
      */
