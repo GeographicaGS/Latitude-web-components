@@ -7,18 +7,36 @@
 export default {
   name: 'LtdTooltip', // web-component: ltd-tooltip
   props: {
+    /**
+     * Sets style
+     */
+    customStyle: {
+      type: Object
+    },
+    /**
+     * Text to show in the tooltip
+     */
     text: {
       type: String,
       required: true
     },
+    /**
+     * Tooltip position
+     */
     position: {
       type: String,
       default: 'top'
     },
+    /**
+     * Delay to show tooltip (ms)
+     */
     showDelay: {
       type: Number,
       default: 1000
     },
+    /**
+     * Delay to hide tooltip (ms)
+     */
     hideDelay: {
       type: Number,
       default: 0
@@ -60,6 +78,36 @@ export default {
         this.tooltip.classList.remove('visible')
         window.clearTimeout(this.sto)
       }, this.hideDelay)
+    },
+
+    /**
+     * Gets custom styles
+     */
+    getStyle () {
+      const style = `${
+        Object.entries(this.customStyle).map(values => {
+          const [key, value] = values
+          return `.${key} {${this.generateStyle(value)}}`
+        }).join('\n')
+      }`
+      const el = document.createElement('style')
+      el.innerHTML = style
+      this.$el.parentNode.insertBefore(el, null)
+    },
+
+    /**
+     * Generate style by object
+     *
+     * @property {Object}
+     * @type {String}
+     */
+    generateStyle (data) {
+      return `${
+        Object.entries(data).map(values => {
+          const [key, value] = values
+          return `${key}: ${value}`
+        }).join(';')
+      }`
     }
   },
   mounted () {
