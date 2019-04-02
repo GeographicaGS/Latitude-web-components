@@ -1,8 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from '@storybook/vue'
 
-storiesOf('radio', module)
-  .add('Simple radio', () => ({
+storiesOf('Radio group', module)
+  .add('Simple radio group', () => ({
     data () {
       return {
         els: undefined,

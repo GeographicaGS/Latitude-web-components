@@ -26,6 +26,12 @@ export default {
   },
   props: {
     /**
+    * Sets style
+    */
+    customStyle: {
+      type: Object
+    },
+    /**
      * Items to show
      */
     items: {
@@ -108,6 +114,16 @@ export default {
     }
   },
   methods: {
+    setItems () {
+      this.cached = this.items
+
+      if (!this.pagination) {
+        this.page = this.items
+      } else {
+        this.$refs.paginationComponent.setPage(1)
+      }
+    },
+
     tableRowClick (col) {
       const selected = Object.assign({}, col)
       this.$emit('select', selected)
@@ -162,18 +178,44 @@ export default {
 
     onChangePage (page) {
       this.page = page
+    },
+
+    /**
+     * Gets custom styles
+     * */
+    getStyle () {
+      const style = `${
+        Object.entries(this.customStyle).map(values => {
+          const [key, value] = values
+          return `.${key} {${this.generateStyle(value)}}`
+        }).join('\n')
+      }`
+      const el = document.createElement('style')
+      el.innerHTML = style
+      this.$el.parentNode.insertBefore(el, null)
+    },
+
+    /**
+     * Generate style by object
+     *
+     * @property {Object}
+     * @type {String}
+     * */
+    generateStyle (data) {
+      return `${
+        Object.entries(data).map(values => {
+          const [key, value] = values
+          return `${key}: ${value}`
+        }).join(';')
+      }`
     }
   },
-  mounted () {},
+  mounted () {
+    this.setItems()
+  },
   watch: {
     items () {
-      this.cached = this.items
-
-      if (!this.pagination) {
-        this.page = this.items
-      } else {
-        this.$refs.paginationComponent.setPage(1)
-      }
+      this.setItems()
     }
   }
 }

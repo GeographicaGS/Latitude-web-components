@@ -21,24 +21,42 @@ export default {
   components: {},
   props: {
     /**
+     * Sets style
+     */
+    customStyle: {
+      type: Object
+    },
+    /**
      * The initial state
      */
     state: {
       type: Boolean,
-      default: false
+      default: false,
+      required: false
     },
     /**
      * If true, the switch is disabled
      */
     disabled: {
       type: Boolean,
-      default: false
+      default: false,
+      required: false
     },
     /**
      * Name for input
      */
     name: {
-      type: String
+      type: String,
+      default: '',
+      required: false
+    },
+    /**
+     * Name for input
+     */
+    label: {
+      type: String,
+      default: '',
+      required: false
     }
   },
   data () {
@@ -63,13 +81,48 @@ export default {
       const checked = this.currentState !== true
       this.currentState = checked
 
-      this.$emit('change', checked)
+      const obj = {
+        name: this.name,
+        state: checked
+      }
+
+      this.$emit('change', obj)
+    },
+
+    /**
+     * Gets custom styles
+     */
+    getStyle () {
+      const style = `${
+        Object.entries(this.customStyle).map(values => {
+          const [key, value] = values
+          return `.${key} {${this.generateStyle(value)}}`
+        }).join('\n')
+      }`
+      const el = document.createElement('style')
+      el.innerHTML = style
+      this.$el.parentNode.insertBefore(el, null)
+    },
+
+    /**
+     * Generate style by object
+     *
+     * @property {Object}
+     * @type {String}
+     */
+    generateStyle (data) {
+      return `${
+        Object.entries(data).map(values => {
+          const [key, value] = values
+          return `${key}: ${value}`
+        }).join(';')
+      }`
     }
   },
   watch: {
     state (val) {
-      if (val !== true || val !== false) {
-        throw new Error('Value should be true or false.')
+      if (typeof val !== 'boolean') {
+        throw new Error('[ltd-switch] Error: The value should be true or false.')
       }
       this.currentState = val
     }
