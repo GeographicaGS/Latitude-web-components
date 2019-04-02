@@ -5,14 +5,27 @@
 @import '~@/styles/main.scss';
 
 .ltd-dropdown-container {
-  
-  .dropdown-select-wrapper {
-    cursor: pointer;
+  // force the browser optimizing the animation of the component itself
+  * {
+    will-change: height, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
   }
 
-  .dropdown-content-wrapper {
-    display: none;
+  .trigger { cursor: pointer; }
 
-    &.open { display: inline; }
+  .expand-enter-active,
+  .expand-leave-active {
+    opacity: 1;
+    overflow: hidden;
+    transition: height 0.25s ease-in-out,
+                opacity 0.25s 0.05s ease-in-out;
+  }
+
+  .expand-enter,
+  .expand-leave-to {
+    height: 0;
+    opacity: 0;
   }
 }

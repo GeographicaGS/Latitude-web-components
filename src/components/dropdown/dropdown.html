@@ -1,20 +1,18 @@
 <!-- Dropdown template file -->
 <div class="ltd-dropdown-container">
-  <!-- <div class="dropdown-select-wrapper">
-    <slot name="trigger"></slot>
-  </div>
-  <div class="dropdown-content-wrapper">
-    <slot name="content">
-      <button @click="select"></button>
-    </slot>
-  </div> -->
   <div class="trigger" @click="toggle">
     <slot name="trigger"></slot>
   </div>
-  <div :id="id"
-    class="collapse-content"
-    v-show="isOpen">
-    <slot name="content" :select="select"></slot>
-  </div>
+  <transition
+      name="expand"
+      @enter="enter"
+      @after-enter="afterEnter"
+      @leave="leave">
+    <div :id="id"
+      class="collapse-content"
+      v-if="isOpen">
+        <slot name="content"></slot>
+    </div>
+  </transition>
 
 </div>
