@@ -38,7 +38,7 @@ export default {
     /**
      * Output callback
      * */
-    setDate: {
+    dateChange: {
       type: Function,
       default: undefined,
       required: false
@@ -92,7 +92,7 @@ export default {
       required: false
     },
     /**
-     * If specified, the calendar selection will be multiple, oherwise it will be simple.
+     * If specified, the calendar selection will be multiple, oherwise it will be simple
      * */
     range: {
       type: Boolean,
@@ -106,6 +106,14 @@ export default {
       type: Boolean,
       default: true,
       required: false
+    },
+    /**
+     * Specifies the range of dates over which you can make a selection
+     * */
+    selectableRange: {
+      type: Array,
+      default: undefined,
+      required: false
     }
   },
   data () {
@@ -113,6 +121,8 @@ export default {
       current: moment(),
       start: undefined,
       end: undefined,
+      minSelectableDate: this.selectableRange ? moment(this.selectableRange[0]) : undefined,
+      maxSelectableDate: this.selectableRange ? moment(this.selectableRange[1]) : undefined,
       isMonthSelectorOpen: false
     }
   },
@@ -138,8 +148,16 @@ export default {
     },
 
     changeDate (date) {
-      console.log(this.futureSelection)
       if (this.futureSelection === false && date.isAfter(moment())) {
+        console.warn(`[ltd-calendar] Warning: The chosen date can't be selected`)
+        return
+      }
+
+      if (
+        (this.minSelectableDate && date.isBefore(moment(this.minSelectableDate, 'day'))) ||
+        (this.maxSelectableDate && date.isAfter(moment(this.maxSelectableDate, 'day').add(1, 'days')))
+      ) {
+        console.warn(`[ltd-calendar] Warning: The chosen date can't be selected`)
         return
       }
 
@@ -158,7 +176,7 @@ export default {
         this.start = date
         this.end = date
         const obj = { date: date.toDate() }
-        this.setDate && this.setDate(obj)
+        this.dateChange && this.dateChange(obj)
         return
       }
 
@@ -172,7 +190,7 @@ export default {
         start: start.toDate(),
         end: end.toDate()
       }
-      this.setDate && this.setDate(obj)
+      this.dateChange && this.dateChange(obj)
     },
 
     changeMonth (month) {
@@ -202,12 +220,12 @@ export default {
      * Gets custom styles
      * */
     getStyle () {
-      const style = `
-        ${Object.entries(this.customStyle).map(values => {
-    const [key, value] = values
-    return `.${key} {${this.generateStyle(value)}}`
-  }).join('\n')}`
-
+      const style = `${
+        Object.entries(this.customStyle).map(values => {
+          const [key, value] = values
+          return `.${key} {${this.generateStyle(value)}}`
+        }).join('\n')
+      }`
       const el = document.createElement('style')
       el.innerHTML = style
       this.$el.parentNode.insertBefore(el, null)
@@ -220,11 +238,19 @@ export default {
      * @type {String}
      * */
     generateStyle (data) {
-      return `
-        ${Object.entries(data).map(values => {
-    const [key, value] = values
-    return `${key}: ${value}`
-  }).join(';')};`
+      return `${
+        Object.entries(data).map(values => {
+          const [key, value] = values
+          return `${key}: ${value}`
+        }).join(';')
+      }`
+    }
+  },
+  watch: {
+    selectableRange (dates) {
+      this.selectableRange = dates
+      this.minSelectableDate = moment(this.selectableRange[0])
+      this.maxSelectableDate = moment(this.selectableRange[1])
     }
   }
 }

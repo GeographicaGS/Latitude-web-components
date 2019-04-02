@@ -34,6 +34,16 @@ export default {
       type: Boolean,
       default: true,
       required: false
+    },
+    minSelectableDate: {
+      type: Object,
+      default: undefined,
+      required: false
+    },
+    maxSelectableDate: {
+      type: Object,
+      default: undefined,
+      required: false
     }
   },
   data () {
@@ -52,7 +62,9 @@ export default {
         between: this.startDate && this.endDate && this.date.isBetween(this.startDate, this.endDate, 'day'),
         end: this.endDate && this.date.isSame(this.endDate, 'day'),
         muted: !this.date.isSame(this.currentDate, 'month'),
-        disabled: this.date.isAfter(today) && this.futureSelection === false
+        disabled: (this.date.isAfter(today) && this.futureSelection === false) ||
+                  (this.minSelectableDate && this.date.isBefore(this.minSelectableDate, 'day')) ||
+                  (this.maxSelectableDate && this.date.isAfter(this.maxSelectableDate, 'day'))
       }
     }
   },
