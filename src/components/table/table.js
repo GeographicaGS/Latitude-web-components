@@ -108,6 +108,16 @@ export default {
     }
   },
   methods: {
+    setItems () {
+      this.cached = this.items
+
+      if (!this.pagination) {
+        this.page = this.items
+      } else {
+        this.$refs.paginationComponent.setPage(1)
+      }
+    },
+
     tableRowClick (col) {
       const selected = Object.assign({}, col)
       this.$emit('select', selected)
@@ -164,16 +174,12 @@ export default {
       this.page = page
     }
   },
-  mounted () {},
+  mounted () {
+    this.setItems()
+  },
   watch: {
     items () {
-      this.cached = this.items
-
-      if (!this.pagination) {
-        this.page = this.items
-      } else {
-        this.$refs.paginationComponent.setPage(1)
-      }
+      this.setItems()
     }
   }
 }
