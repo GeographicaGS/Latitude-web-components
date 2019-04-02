@@ -8,21 +8,42 @@ storiesOf('Radio group', module)
         els: undefined,
         group: undefined,
         geo: true,
-        currentState: 'inactive'
+        currentState: 'inactive',
+        currentStateG: 'active'
       }
     },
     template: // html
       `
       <div>
-        <ltd-radio-group vertical="true"></ltd-radio-group>
+        <ltd-radio-group vertical="true" name="ones"></ltd-radio-group>
         <p>Radio button selection: {{ currentState }}</p>
+        <ltd-radio-group name="two"></ltd-radio-group>
+        <p>Radio button selection: {{ currentStateG }}</p>
       </div>
     `,
     mounted () {
-      this.group = document.querySelector('ltd-radio-group')
+      this.group = document.querySelectorAll('ltd-radio-group')[0]
       this.group.addEventListener('change', this.change, false)
       this.group.model = this.currentState
       this.group.options = [
+        {
+          label: 'Show Active',
+          value: 'active'
+        },
+        {
+          label: 'Show Inactive',
+          value: 'inactive'
+        },
+        {
+          label: 'Show All',
+          value: 'all'
+        }
+      ]
+
+      const g = document.querySelectorAll('ltd-radio-group')[1]
+      g.addEventListener('change', this.changeG, false)
+      g.model = this.currentStateG
+      g.options = [
         {
           label: 'Show Active',
           value: 'active'
@@ -48,6 +69,10 @@ storiesOf('Radio group', module)
 
       change (event) {
         this.currentState = event.detail[0]
+      },
+
+      changeG (event) {
+        this.currentStateG = event.detail[0]
       }
     }
   }))
