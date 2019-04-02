@@ -1,0 +1,97 @@
+/**
+ *  Radio style file
+**/
+
+@import '~@/styles/main.scss';
+
+.ltd-radio-container {
+  position: relative;
+  display: inline-flex;
+  font-family: 'Helvetica Nue', helvetica, sans-serif; 
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-size: $radio-font-size;
+  white-space: nowrap;
+  cursor: pointer;
+
+  &:hover {
+    .radio .inner { border-color: $radio-border-color-hover; }
+  }
+  
+  &.disabled { 
+    opacity: 0.4;
+    cursor: not-allowed; 
+    
+    .radio .input { cursor: not-allowed; }
+  }
+
+  .radio {
+    outline: none;
+    position: relative;
+    display: inline-flex;
+    vertical-align: middle;
+    white-space: nowrap;
+    line-height: 1;
+
+    .inner {
+      position: relative;
+      display: inline-flex;
+      width: $radio-size;
+      height: $radio-size;
+      position: relative;
+      top: 0;
+      left: 0;
+      border: 1px solid $radio-border-color;
+      border-radius: 50%;
+      background-color: $radio-color;
+      transition: border-color 0.2s ease-in-out, 
+                  background-color 0.2s ease-in-out, 
+                  box-shadow 0.2s ease-in-out;
+
+      &:after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        display: inline-block;
+        width: $radio-icon-size;
+        height: $radio-icon-size;
+        background-color: $radio-icon-color;
+        transform: translate3d(-50%, -50%, 0) scale(0);
+        border-radius: 50%;
+        transition: transform 0.2s ease-in-out;
+      }
+    }
+
+    .input {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .label {
+      line-height: calc(#{ $radio-size } + 2px);
+      padding-left: 4px;
+    }
+    
+    // Checked
+    input[type="radio"]:checked {
+
+      &:hover + .inner {
+        background: $radio-border-color-checked-hover;
+      }
+
+      & + .inner {
+        border-color: $radio-border-color-checked;
+        background-color: $radio-color-checked;
+    
+        &:after { transform: translate3d(-50%, -50%, 0) scale(1); }
+      }
+    }
+  }
+}
