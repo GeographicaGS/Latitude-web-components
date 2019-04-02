@@ -1,9 +1,5 @@
 /**
- *  Icon script file
- * */
-
-/**
- * For our icons we use this custom component called LtdIcon. Render the icon paths inline.
+ * Icon
  * @version 1.0.0
  * */
 export default {
@@ -25,6 +21,13 @@ export default {
     size: {
       type: String,
       default: '20px'
+    },
+    /**
+     * Sets the fill color for the SVG
+     * */
+    fill: {
+      type: String,
+      default: '#000000'
     }
   },
   data () {
@@ -66,6 +69,8 @@ export default {
      * */
     drawIcon (doc) {
       this.$el.appendChild(doc.documentElement)
+      const svg = this.$el.querySelector('svg')
+      svg.style.fill = this.fill
     }
   }
 }
