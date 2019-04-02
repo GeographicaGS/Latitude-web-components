@@ -38,7 +38,7 @@ export default {
     /**
      * Output callback
      * */
-    dateChange: {
+    dateChanged: {
       type: Function,
       default: undefined,
       required: false
