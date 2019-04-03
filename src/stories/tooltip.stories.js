@@ -66,10 +66,15 @@ storiesOf('Tooltip', module)
       console.log(this.el)
       const style = {
         'tooltip': {
-          'background-color': 'blue !important'
+          'background-color': 'whitesmoke !important',
+          'width': '80px !important',
+          'border-radius': '13px !important'
         },
         'tooltip:after': {
-          'border-color': 'blue transparent transparent transparent !important'
+          'border-color': 'whitesmoke transparent transparent transparent !important'
+        },
+        'tooltip p': {
+          'color': 'green !important'
         }
       }
       this.el.customStyle = style
