@@ -176,7 +176,7 @@ export default {
         this.start = date
         this.end = date
         const obj = { date: date.toDate() }
-        this.dateChange && this.dateChange(obj)
+        this.dateChanged && this.dateChanged(obj)
         return
       }
 
@@ -190,7 +190,7 @@ export default {
         start: start.toDate(),
         end: end.toDate()
       }
-      this.dateChange && this.dateChange(obj)
+      this.dateChanged && this.dateChanged(obj)
     },
 
     changeMonth (month) {

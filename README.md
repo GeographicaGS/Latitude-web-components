@@ -73,6 +73,56 @@ To execute it.
 npm run plop
 ```
 
+When the process finished, generate 5 files in the folder `components/<component_name>`.
+
+```
+.
+├── example.html
+├── example.js
+├── example.md
+├── example.scss
+├── Example.vue
+└── index.js
+```
+
+* `<component_name>.vue`: File mandatory for link other files. **(No modify)**.
+* `index.js`: This file is used to import the component from out.
+* `<component_name>.scss`: File to style.
+* `<component_name>.hmtl`: File to template.
+* `<component_name>.js`: File to write the logic in JS.
+
+To test the new component it's necessary added to `stories/main.js` with `wrap` function to generate a temporal web-component.
+
+```js
+const WrappedExample = wrap(Vue, Example)
+window.customElements.define('ltd-example', WrappedExample)
+```
+
+Later we go to add a new component in storybook or craete a new story if was necessary.
+
+*In the example is created a new story.*
+
+> To call the web-component only add the tag
+
+```js
+storiesOf('Example', module)
+  .add('Example1', () => ({
+    data () {
+      return {
+        el: undefined
+      }
+    },
+    template: `
+    <ltd-example theme='light'>
+      <span>Example text</span>
+    </ltd-example>
+  `,
+    mounted () {
+      [this.el] = document.getElementsByTagName('ltd-example')
+    }
+  }))
+```
+
 #### Compiles and hot-reloads for development
 The styleguide find all components of first level in `components` folder and read all comments in `.js` files and `.md` files. every components.
 
