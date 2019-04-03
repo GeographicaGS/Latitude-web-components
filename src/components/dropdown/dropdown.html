@@ -8,10 +8,8 @@
       @enter="enter"
       @after-enter="afterEnter"
       @leave="leave">
-    <div :id="id"
-      class="collapse-content"
-      v-if="isOpen">
-        <slot name="content"></slot>
+    <div :id="id" class="collapse-content" v-show="isOpen">
+      <slot name="content"></slot>
     </div>
   </transition>
 

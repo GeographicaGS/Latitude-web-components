@@ -19,7 +19,7 @@ storiesOf('Dropdown', module)
     template: // html
       `
       <div>
-        <ltd-dropdown @select="onSelect">
+        <ltd-dropdown>
           <button slot="trigger">dropdown</button>
           <div slot="content">
             <div style="width: 200px; height: auto; border: 1px solid grey; border-radius: 3px; padding: 10px;">
@@ -47,8 +47,9 @@ storiesOf('Dropdown', module)
     },
     beforeDestroyed () { },
     methods: {
-      onSelect () {
-        console.log('change')
+      onSetCalendarDate (value) {
+        console.log('The date selected is: ')
+        console.log(value.date)
       }
     }
   }))
