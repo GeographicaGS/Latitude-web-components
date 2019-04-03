@@ -19,13 +19,13 @@ storiesOf('Tooltip', module)
         <p><small>Default. With <strong>1s delay</strong> and <strong>top</strong> positioning</small></p>
 
         <br />
-        <ltd-tooltip text="Tooltip value" position="bottom" show-delay="2000">
+        <ltd-tooltip text="Tooltip value" position="bottom" show-delay="2s">
           <button>Bottom</button>
         </ltd-tooltip>
         <p><small>With <strong>2s show-delay</strong> and <strong>bottom</strong> positioning</small></p>
 
         <br />
-        <ltd-tooltip text="Tooltip value" position="left" hide-delay="2000">
+        <ltd-tooltip text="Tooltip value" position="left" hide-delay="2s">
           <button>Left</button>
         </ltd-tooltip>
         <p><small>With <strong>left</strong> positioning</small> with <strong>2s hide-delay</strong></p>
@@ -60,7 +60,7 @@ storiesOf('Tooltip', module)
         </ltd-tooltip>
         <p><small>With <strong>bottom-right</strong> positioning</small></p>
       </div>
-  `,
+    `,
     mounted () { },
     beforeDestroyed () { },
     methods: { }
