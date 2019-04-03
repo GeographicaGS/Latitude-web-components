@@ -23,10 +23,10 @@ storiesOf('Switch', module)
         <p>Switch with icons</p>
         <ltd-switch name="icons" @change="onSwitchChange">
           <i slot="open">
-            <ltd-icon :icon="getSource('icons/country.svg')" size="16px"></ltd-icon>
+            <ltd-icon icon="https://simpleicons.org/icons/node-dot-js.svg" fill="#ff0000" size="16px"></ltd-icon>
           </i>
           <i slot="close">
-            <ltd-icon :icon="getSource('icons/notification.svg')" size="16px"></ltd-icon>
+            <ltd-icon icon="https://simpleicons.org/icons/node-dot-js.svg" fill="#006666" size="16px"></ltd-icon>
           </i>
         </ltd-switch>
         <br/>
@@ -45,6 +45,11 @@ storiesOf('Switch', module)
         console.log(value.detail[0])
       },
 
+      /**
+       * @param {*} data
+       *
+       * @use getSource('icons/country.svg')
+       */
       getSource (data) {
         const context = require.context('@/assets/', true, /.svg/)
         const icon = context(`./${data}`)
