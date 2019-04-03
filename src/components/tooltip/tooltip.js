@@ -105,6 +105,8 @@ export default {
      * @type {String}
      */
     generateStyle (data) {
+      console.log('generate')
+      console.log(data)
       return `${
         Object.entries(data).map(values => {
           const [key, value] = values
@@ -122,5 +124,10 @@ export default {
     this.tooltip = undefined
     this.$el.removeEventListener('mouseover', this.show)
     this.$el.removeEventListener('mouseout', this.hide)
+  },
+  watch: {
+    customStyle () {
+      this.getStyle()
+    }
   }
 }

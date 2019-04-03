@@ -61,7 +61,19 @@ storiesOf('Tooltip', module)
         <p><small>With <strong>bottom-right</strong> positioning</small></p>
       </div>
   `,
-    mounted () { },
+    mounted () {
+      [this.el] = document.getElementsByTagName('ltd-tooltip')
+      console.log(this.el)
+      const style = {
+        'tooltip': {
+          'background-color': 'blue !important'
+        },
+        'tooltip:after': {
+          'border-color': 'blue transparent transparent transparent !important'
+        }
+      }
+      this.el.customStyle = style
+    },
     beforeDestroyed () { },
     methods: { }
   }))
