@@ -125,6 +125,10 @@ export default {
         throw new Error('[ltd-switch] Error: The value should be true or false.')
       }
       this.currentState = val
+    },
+
+    customStyle () {
+      this.getStyle()
     }
   }
 }
