@@ -53,7 +53,7 @@
 
   &.disabled {
     opacity: .4;
-    cursor: disabled;
+    cursor: not-allowed;
 
     &:after {
       background: $switch-color-disabled;

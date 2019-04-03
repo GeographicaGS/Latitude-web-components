@@ -1,0 +1,19 @@
+<!-- Checkbox template file -->
+<label :class="getClasses">
+  <span :class="getCheckboxClasses">
+    <span class="inner">
+      <i class="checkmark"></i>
+    </span>
+    <input 
+      type="checkbox" 
+      class="input" 
+      :disabled="disabled" 
+      :checked="currentState" 
+      :name="name"
+      @change="onChange">
+  </span>
+  
+  <span class="label" v-if="showSlot">
+    <slot>{{ label }}</slot>
+  </span>
+</label>

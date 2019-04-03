@@ -1,0 +1,105 @@
+/**
+ *  Checkbox style file
+**/
+
+@import '~@/styles/main.scss';
+
+.ltd-checkbox-container {
+  display: inline-flex;
+  font-family: 'Helvetica Nue', helvetica, sans-serif; 
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  font-size: $checkbox-font-size;
+  cursor: pointer;
+
+  &:hover {
+    .checkbox .inner { border-color: $checkbox-border-color-hover; }
+  }
+
+  &.disabled { 
+    opacity: .4;
+    cursor: not-allowed; 
+
+    .checkbox .input { cursor: not-allowed; }
+  }
+
+  &.checked {
+    &:hover {
+      .checkbox .inner { border-color: $checkbox-border-color-checked-hover; }
+    }
+
+    .checkbox {
+      .inner {
+        border-color: $checkbox-border-color-checked;
+        background-color: $checkbox-color-checked;
+  
+        .checkmark { transform: scale(1); }
+      }
+    }
+  }
+  
+  .checkbox {
+    outline: none;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: nowrap;
+    line-height: 1;
+
+    .inner {
+      position: relative;
+      display: inline-block;
+      width: $checkbox-size;
+      height: $checkbox-size;
+      position: relative;
+      top: 0;
+      left: 0;
+      border: 1px solid $checkbox-border-color;
+      border-radius: 2px;
+      background-color: $checkbox-color;
+      transition: border-color 0.2s ease-in-out, 
+                  background-color 0.2s ease-in-out, 
+                  box-shadow 0.2s ease-in-out;
+
+      .checkmark {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        transform: scale(0);
+        transition: transform 0.2s ease-in-out;
+
+        &:after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          display: inline-block;
+          width: calc(#{ $checkbox-icon-size } / 2);
+          height: $checkbox-icon-size;
+          border-bottom: 2px solid $checkbox-icon-color;
+          border-right: 2px solid $checkbox-icon-color;
+          transform: rotate(45deg) translate3d(-100%, -25%, 0);
+        }
+      }
+
+    }
+
+    .input {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 1;
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+
+  .label {
+    line-height: 16px;
+    padding-left: 4px;
+  }
+}
