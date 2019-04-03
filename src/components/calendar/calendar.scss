@@ -1,0 +1,21 @@
+/**
+ *  Calendar style file
+ **/
+
+@import '~@/styles/main.scss';
+
+.ltd-calendar-container {
+  box-sizing: border-box;
+  font-family: 'Helvetica Nue', helvetica, sans-serif; 
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  color: $colorN80;
+  
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  background-color: $colorWhite;
+  border: $calendar-border;
+  border-radius: $calendar-border-radius;
+}

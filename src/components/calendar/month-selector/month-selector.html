@@ -1,0 +1,20 @@
+<!-- MonthSelector template file -->
+<div class="ltd-month-selector-container">
+  <div class="heading">
+    <button class="prev" @click="previusYear">
+      <!-- <app-icon icon="assets/img/icon-arrow" size="20px"></app-icon> -->
+    </button>
+    <span>{{ getYear() }}</span>
+    <button class="next" @click="nextYear">
+      <!-- <app-icon icon="assets/img/icon-arrow" size="20px"></app-icon> -->
+    </button>
+  </div>
+  <div class="months">
+    <div class="month" v-for="n in 12">
+      <button @click="setMonth(n)">{{ getMonth(n) }}</button>
+    </div>
+  </div>
+  <div class="footer">
+    <button class="go-to" @click="goToToday">{{ buttonText }}</button>
+  </div>
+</div>

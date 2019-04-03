@@ -1,0 +1,29 @@
+<!-- Calendar template file -->
+<div class="ltd-calendar-container">
+  <ltd-heading 
+    :date="current"
+    :locale="locale"
+    @changeMonth="changeMonth"
+    @toggleMonths="toggleMonths">
+  </ltd-heading>
+  
+  <ltd-days
+    :date="current" 
+    :start-date="start" 
+    :end-date="end"
+    :day-format="dayFormat"
+    :locale="locale"
+    :future-selection="futureSelection"
+    :min-selectable-date="minSelectableDate"
+    :max-selectable-date="maxSelectableDate"
+    @change="changeDate">  
+  </ltd-days>
+
+  <ltd-monthSelector v-if="isMonthSelectorOpen"
+    :date="current"
+    :locale="locale"
+    @year="setYear"
+    @month="setMonth"
+    @today="reset">
+  </ltd-monthSelector>
+</div>

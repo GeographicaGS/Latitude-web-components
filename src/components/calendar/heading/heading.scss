@@ -1,0 +1,32 @@
+/**
+ *  Heading style file
+**/
+
+@import '~@/styles/main.scss';
+
+.ltd-heading-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  height: $calendar-heading-height;
+  margin-bottom: $calendar-padding;
+  padding: $calendar-padding $calendar-padding 0 $calendar-padding;
+
+  button.prev app-icon { transform: rotate(180deg); }
+  button.prev,
+  button.next {
+    display: inline-flex;
+
+    &:hover app-icon {
+      fill: $calendar-arrow-icon-fill;
+    }
+  }
+
+  button.controls {  margin: 0 2px; }
+
+  app-icon { 
+    fill: $calendar-arrow-icon-fill-hover; 
+    transition: fill 0.25s ease;
+  }
+}
