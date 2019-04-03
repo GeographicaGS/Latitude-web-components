@@ -1,0 +1,9 @@
+<!-- Dropdown template file -->
+<div class="ltd-dropdown-container">
+  <div class="dropdown-select-wrapper">
+    <slot name="trigger"></slot>
+  </div>
+  <div class="dropdown-content-wrapper">
+    <slot name="content" :select="select"></slot>
+  </div>
+</div>

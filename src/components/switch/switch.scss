@@ -1,0 +1,88 @@
+/**
+ * Switch style file
+ *
+ * TODO: font style
+ */
+
+@import '~@/styles/main.scss';
+
+.ltd-switch-container {
+  outline: none;
+  width: $switch-width;
+  height: $switch-height;
+  line-height: $switch-height;
+  border-radius: $switch-width;
+  vertical-align: middle;
+  background-color: $switch-background-color;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.2s ease-in-out,
+              border-color 0.2s ease-in-out;
+
+  &:after {
+    content: '';
+    width: $switch-size;
+    height: $switch-size;
+    border-radius: $switch-size;
+    background-color: $switch-color;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    cursor: pointer;
+    transition: left 0.2s ease-in-out, 
+                width 0.2s ease-in-out;
+  }
+
+  &:active:after { width: calc(#{ $switch-size } * 1.3); }
+
+  &.checked {
+    border-color: $switch-background-color-checked;
+    background-color: $switch-background-color-checked;
+
+    .content-wrapper { 
+
+      span { left: calc(#{ $switch-width } / 5); }
+      i { left: 5px; }
+    }
+
+    &:after { left: calc(#{ $switch-width } - #{ $switch-size } - 2px); }
+
+    &:active:after { left: calc(#{ $switch-size } + 1px); }
+  }
+
+  &.disabled {
+    opacity: .4;
+    cursor: disabled;
+
+    &:after {
+      background: $switch-color-disabled;
+      cursor: not-allowed;
+    }
+  }
+  
+  .content-wrapper {
+    position: absolute;
+    color: $switch-content-color;
+    font-size: $switch-content-font-size;
+    
+    span {
+      position: relative;
+      top: 0;
+      left: calc(#{ $switch-width } - #{ $switch-size } - 2px);
+    }
+
+    i {
+      display: inline-flex;
+      position: relative;
+      top: 3px;
+      left: calc(#{ $switch-width } - #{ $switch-size } - 4px);
+    }
+  }
+
+  .label {
+    position: relative;
+    left: calc(#{ $switch-width } + #{ $switch-label-margin });
+    // TODO: font
+  }
+}

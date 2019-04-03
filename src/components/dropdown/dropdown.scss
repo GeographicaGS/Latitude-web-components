@@ -1,0 +1,18 @@
+/**
+ *  Dropdown style file
+**/
+
+@import '~@/styles/main.scss';
+
+.ltd-dropdown-container {
+  
+  .dropdown-select-wrapper {
+    cursor: pointer;
+  }
+
+  .dropdown-content-wrapper {
+    display: none;
+
+    &.open { display: inline; }
+  }
+}
