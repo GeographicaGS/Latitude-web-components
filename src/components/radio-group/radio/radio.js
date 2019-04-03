@@ -7,6 +7,9 @@ export default {
   mixins: [],
   components: { },
   props: {
+    customStyle: {
+      type: Object
+    },
     name: {
       type: String,
       default: ''
@@ -53,6 +56,37 @@ export default {
         'radio': true,
         'disabled': this.disabled
       }
+    }
+  },
+  methods: {
+    /**
+     * Gets custom styles
+     */
+    getStyle () {
+      const style = `${
+        Object.entries(this.customStyle).map(values => {
+          const [key, value] = values
+          return `.${key} {${this.generateStyle(value)}}`
+        }).join('\n')
+      }`
+      const el = document.createElement('style')
+      el.innerHTML = style
+      this.$el.parentNode.insertBefore(el, null)
+    },
+
+    /**
+     * Generate style by object
+     *
+     * @property {Object}
+     * @type {String}
+     */
+    generateStyle (data) {
+      return `${
+        Object.entries(data).map(values => {
+          const [key, value] = values
+          return `${key}: ${value}`
+        }).join(';')
+      }`
     }
   }
 }

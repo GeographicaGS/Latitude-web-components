@@ -12,16 +12,16 @@ storiesOf('Switch', module)
       `
       <div>
         <p>Simple switch</p>
-        <ltd-switch state="true" @change="onSwitchChange"></ltd-switch>
+        <ltd-switch name="simple" @change="onSwitchChange" label="label"></ltd-switch>
         <br/>
         <p>Switch with text</p>
-        <ltd-switch>
+        <ltd-switch name="text" @change="onSwitchChange">
           <span slot="open">O</span>
           <span slot="close">C</span>
         </ltd-switch>
         <br/>
         <p>Switch with icons</p>
-        <ltd-switch>
+        <ltd-switch name="icons" @change="onSwitchChange">
           <i slot="open">
             <ltd-icon :icon="getSource('icons/country.svg')" size="16px"></ltd-icon>
           </i>
@@ -36,13 +36,8 @@ storiesOf('Switch', module)
       </div>
     `,
     mounted () {
-      const els = document.querySelectorAll('ltd-switch')
-      console.log(els)
-
-      els.forEach(el => {
-        console.log(el)
-        el.change = this.onSwitchChange
-      })
+      const el = document.querySelectorAll('ltd-switch')[0]
+      setTimeout(() => { el.state = true }, 2000)
     },
     beforeDestroyed () { },
     methods: {

@@ -16,7 +16,7 @@ storiesOf('Tooltip', module)
         <ltd-tooltip text="Tooltip value agachupagüer gromenagüer">
           <button>Default</button>
         </ltd-tooltip>
-        <p><small>Default. With <strong>0.3s delay</strong> and <strong>top</strong> positioning</small></p>
+        <p><small>Default. With <strong>1s delay</strong> and <strong>top</strong> positioning</small></p>
 
         <br />
         <ltd-tooltip text="Tooltip value" position="bottom" show-delay="2000">

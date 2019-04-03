@@ -8,10 +8,10 @@ import Table from '@/components/table/index'
 import Dropdown from '@/components/dropdown/index'
 import Switch from '@/components/switch/index'
 import Checkbox from '@/components/checkbox/index'
-import Radio from '@/components/radio/index'
-import RadioGroup from '@/components/radio/radio-group/index'
 import Tooltip from '@/components/tooltip/index'
 import GeoLogo from '@/components/geo-logo/index'
+import RadioGroup from '@/components/radio-group/index'
+import Radio from '@/components/radio-group/radio/index'
 
 const WrappedIcon = wrap(Vue, Icon)
 const WrappedCalendar = wrap(Vue, Calendar)

@@ -5,7 +5,8 @@ storiesOf('Dropdown', module)
   .add('Simple dropdown', () => ({
     data () {
       return {
-        el: undefined
+        el: undefined,
+        selectedDate: '2019-04-01'
       }
     },
     directives: { },
@@ -13,18 +14,43 @@ storiesOf('Dropdown', module)
       `
       <div>
         <ltd-dropdown>
-          <div slot="trigger">trigger</div>
+          <button slot="trigger">dropdown</button>
           <div slot="content">
             <ul>
-              <li><button @click="select">uno</button></li>
+              <li><button>uno</button></li>
               <li>dos</li>
               <li>tres</li>
             </ul>
           </div>
         </ltd-dropdown>
+        <br />
+        <br />
+        <br />
+        <ltd-dropdown>
+          <div slot="trigger">{{ this.selectedDate || 'Not selected date' }}</div>
+          <div slot="content">
+            <div style="width: 320px;">
+              <ltd-calendar
+                :selected-date="selectedDate"
+                month-format="MMMM"
+                day-format="ddd"
+                locale="en"
+                future-selection>
+              </ltd-calendar>
+            </div>
+          </div>
+        </ltd-dropdown>
       </div>
   `,
-    mounted () { },
+    mounted () {
+      [this.el] = document.getElementsByTagName('ltd-calendar')
+      this.el.dateChanged = this.onSetCalendarDate
+    },
     beforeDestroyed () { },
-    methods: { }
+    methods: {
+      onSetCalendarDate (value) {
+        console.log('The date selected is: ')
+        console.log(value.date)
+      }
+    }
   }))

@@ -1,6 +1,8 @@
 /**
- *  Switch style file
-**/
+ * Switch style file
+ *
+ * TODO: font style
+ */
 
 @import '~@/styles/main.scss';
 
@@ -76,5 +78,11 @@
       top: 3px;
       left: calc(#{ $switch-width } - #{ $switch-size } - 4px);
     }
+  }
+
+  .label {
+    position: relative;
+    left: calc(#{ $switch-width } + #{ $switch-label-margin });
+    // TODO: font
   }
 }

@@ -16,7 +16,7 @@ Simple switch
 Switch with text
 
 ```js
-<ltd-switch>
+<ltd-switch label="open/close">
   <span slot="open">O</span>
   <span slot="close">C</span>
 </ltd-switch>

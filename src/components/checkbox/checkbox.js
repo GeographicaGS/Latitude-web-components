@@ -9,6 +9,12 @@ export default {
   components: {},
   props: {
     /**
+     * Sets style
+     */
+    customStyle: {
+      type: Object
+    },
+    /**
      * The initial state
      */
     state: {
@@ -78,6 +84,36 @@ export default {
 
     updateState () {
       this.currentState = this.state === true
+    },
+
+    /**
+     * Gets custom styles
+     */
+    getStyle () {
+      const style = `${
+        Object.entries(this.customStyle).map(values => {
+          const [key, value] = values
+          return `.${key} {${this.generateStyle(value)}}`
+        }).join('\n')
+      }`
+      const el = document.createElement('style')
+      el.innerHTML = style
+      this.$el.parentNode.insertBefore(el, null)
+    },
+
+    /**
+     * Generate style by object
+     *
+     * @property {Object}
+     * @type {String}
+     */
+    generateStyle (data) {
+      return `${
+        Object.entries(data).map(values => {
+          const [key, value] = values
+          return `${key}: ${value}`
+        }).join(';')
+      }`
     }
   },
   watch: {

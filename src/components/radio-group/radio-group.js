@@ -1,4 +1,4 @@
-import Radio from '../index'
+import Radio from './radio/index'
 
 /**
  *  RadioGroup script file
@@ -22,10 +22,24 @@ export default {
   },
   props: {
     /**
+     * Sets style
+     */
+    customStyle: {
+      type: Object
+    },
+    /**
      * The options to draw radios
      */
     options: {
       type: Array
+    },
+    /**
+     * The radio group name.
+     * Required if you use several groups on the same page.
+     */
+    name: {
+      type: String,
+      default: 'radios'
     },
     /**
      * The group data model
@@ -56,9 +70,34 @@ export default {
     }
   },
   methods: {
-    onChange (value) {
-      this.selectedValue = value
-      this.$emit('change', value)
+    /**
+     * Gets custom styles
+     */
+    getStyle () {
+      const style = `${
+        Object.entries(this.customStyle).map(values => {
+          const [key, value] = values
+          return `.${key} {${this.generateStyle(value)}}`
+        }).join('\n')
+      }`
+      const el = document.createElement('style')
+      el.innerHTML = style
+      this.$el.parentNode.insertBefore(el, null)
+    },
+
+    /**
+     * Generate style by object
+     *
+     * @property {Object}
+     * @type {String}
+     */
+    generateStyle (data) {
+      return `${
+        Object.entries(data).map(values => {
+          const [key, value] = values
+          return `${key}: ${value}`
+        }).join(';')
+      }`
     }
   },
   watch: {
