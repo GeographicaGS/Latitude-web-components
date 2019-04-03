@@ -63,7 +63,6 @@ storiesOf('Tooltip', module)
   `,
     mounted () {
       [this.el] = document.getElementsByTagName('ltd-tooltip')
-      console.log(this.el)
       const style = {
         'tooltip': {
           'background-color': 'whitesmoke !important',
