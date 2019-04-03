@@ -12,11 +12,13 @@ import Tooltip from '@/components/tooltip/index'
 import GeoLogo from '@/components/geo-logo/index'
 import RadioGroup from '@/components/radio-group/index'
 import Radio from '@/components/radio-group/radio/index'
+import DropdownTransition from '@/components/dropdown-transition/index'
 
 const WrappedIcon = wrap(Vue, Icon)
 const WrappedCalendar = wrap(Vue, Calendar)
 const WrappedTable = wrap(Vue, Table)
 const WrappedDropdown = wrap(Vue, Dropdown)
+const WrappedDropdownTransition = wrap(Vue, DropdownTransition)
 const WrappedSwitch = wrap(Vue, Switch)
 const WrappedCheckbox = wrap(Vue, Checkbox)
 const WrappedRadioGroup = wrap(Vue, RadioGroup)
@@ -28,6 +30,7 @@ window.customElements.define('ltd-icon', WrappedIcon)
 window.customElements.define('ltd-calendar', WrappedCalendar)
 window.customElements.define('ltd-table', WrappedTable)
 window.customElements.define('ltd-dropdown', WrappedDropdown)
+window.customElements.define('ltd-dropdown-transition', WrappedDropdownTransition)
 window.customElements.define('ltd-switch', WrappedSwitch)
 window.customElements.define('ltd-checkbox', WrappedCheckbox)
 window.customElements.define('ltd-radio', WrappedRadio)

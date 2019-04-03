@@ -1,0 +1,8 @@
+<!-- DropdownTransition template file -->
+<div class="ltd-dropdown-transition-container">
+  <transition name="expand" @enter="enter" @after-enter="afterEnter" @leave="leave">
+    <div class="collapse-content" v-show="open">
+      <slot></slot>
+    </div>
+  </transition>
+</div>

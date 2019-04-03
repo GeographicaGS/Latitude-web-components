@@ -1,0 +1,28 @@
+/**
+ *  DropdownTransition style file
+**/
+
+@import '~@/styles/main.scss';
+
+.ltd-dropdown-transition-container {
+  * {
+    will-change: height, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  .expand-enter-active,
+  .expand-leave-active {
+    opacity: 1;
+    overflow: hidden;
+    transition: height 0.25s ease-in-out,
+                opacity 0.25s 0.05s ease-in-out;
+  }
+
+  .expand-enter,
+  .expand-leave-to {
+    height: 0;
+    opacity: 0;
+  }
+}
