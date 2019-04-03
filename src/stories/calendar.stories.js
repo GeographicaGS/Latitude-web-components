@@ -22,7 +22,7 @@ storiesOf('Calendar', module)
   `,
     mounted () {
       [this.el] = document.getElementsByTagName('ltd-calendar')
-      this.el.setDate = this.onSetCalendarDate
+      this.el.dateChanged = this.onSetCalendarDate
       this.el.selectableRange = ['2019-04-01', '2019-04-03']
 
       setTimeout(() => {
