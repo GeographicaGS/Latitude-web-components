@@ -1,15 +1,25 @@
 /**
  * Switch style file
- *
- * TODO: font style
  */
-
-@import '~@/styles/main.scss';
+$font-family: var(--font-family, 'Helvetica Nue', helvetica, sans-serif);
+$switch-width: var(--switch-width, 44px);
+$switch-height: var(--switch-height, 22px);
+$switch-size: var(--switch-size, 18px);
+$switch-color: var(--switch-color, white);
+$switch-content-color: var(--switch-content-color, white);
+$switch-color-disabled: var(--switch-color-disabled, white);
+$switch-content-font-size: var(--switch-content-font-size, 12px);
+$switch-background-color: var(--switch-background-color, #BBBCBC);
+$switch-background-color-checked: var(--switch-background-color-checked, #15b750);
+$switch-label-font-size: var(--switch-label-font-size, 12px);
+$switch-label-color: var(--switch-label-color, #222222);
+$switch-label-margin: var(--switch-label-margin, 4px);
 
 .ltd-switch-container {
   outline: none;
   width: $switch-width;
   height: $switch-height;
+  font-family: $font-family;
   line-height: $switch-height;
   border-radius: $switch-width;
   vertical-align: middle;
@@ -67,22 +77,30 @@
     font-size: $switch-content-font-size;
     
     span {
-      position: relative;
+      position: absolute;
       top: 0;
       left: calc(#{ $switch-width } - #{ $switch-size } - 2px);
     }
 
     i {
       display: inline-flex;
-      position: relative;
+      position: absolute;
       top: 3px;
       left: calc(#{ $switch-width } - #{ $switch-size } - 4px);
+    }
+
+    .fade-enter-active, .fade-leave-active {
+      transition: opacity 0.15s ease;
+    }
+    .fade-enter, .fade-leave-to {
+      opacity: 0;
     }
   }
 
   .label {
     position: relative;
     left: calc(#{ $switch-width } + #{ $switch-label-margin });
-    // TODO: font
+    font-size: $switch-label-font-size;
+    color: $switch-label-color;
   }
 }
