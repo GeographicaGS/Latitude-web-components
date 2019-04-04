@@ -61,17 +61,13 @@ storiesOf('Radio group', module)
     },
     beforeDestroyed () { },
     methods: {
-      changeSimple (event) {
-        console.log('sisisi')
-        console.log(event)
-        this.simple = event.detail[0]
-      },
-
       change (event) {
+        console.log(event)
         this.currentState = event.detail[0]
       },
 
       changeG (event) {
+        console.log(event)
         this.currentStateG = event.detail[0]
       }
     }
