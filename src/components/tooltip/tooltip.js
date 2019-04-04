@@ -31,15 +31,15 @@ export default {
      * Delay to show tooltip (ms)
      */
     showDelay: {
-      type: Number,
-      default: 1000
+      type: String,
+      default: '1s'
     },
     /**
      * Delay to hide tooltip (ms)
      */
     hideDelay: {
-      type: Number,
-      default: 0
+      type: String,
+      default: '0s'
     }
   },
   data () {
@@ -65,19 +65,13 @@ export default {
   },
   methods: {
     show () {
-      window.clearTimeout(this.sto)
-      this.sto = window.setTimeout(() => {
-        this.tooltip.classList.add('visible')
-        window.clearTimeout(this.sto)
-      }, this.showDelay)
+      this.tooltip.style.transitionDelay = this.showDelay
+      this.tooltip.classList.add('visible')
     },
 
     hide () {
-      window.clearTimeout(this.sto)
-      this.sto = window.setTimeout(() => {
-        this.tooltip.classList.remove('visible')
-        window.clearTimeout(this.sto)
-      }, this.hideDelay)
+      this.tooltip.style.transitionDelay = this.hideDelay
+      this.tooltip.classList.remove('visible')
     },
 
     /**
@@ -119,5 +113,10 @@ export default {
     this.tooltip = undefined
     this.$el.removeEventListener('mouseover', this.show)
     this.$el.removeEventListener('mouseout', this.hide)
+  },
+  watch: {
+    customStyle () {
+      this.getStyle()
+    }
   }
 }
