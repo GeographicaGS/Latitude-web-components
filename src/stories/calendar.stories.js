@@ -12,28 +12,29 @@ storiesOf('Calendar', module)
       `
       <div style="width: 320px;">
         <ltd-calendar
-          selected-date="2019-04-02"
           month-format="MMMM"
           day-format="ddd"
           locale="en"
+          range
           future-selection>
         </ltd-calendar>
       </div>
   `,
     mounted () {
       [this.el] = document.getElementsByTagName('ltd-calendar')
-      this.el.dateChanged = this.onSetCalendarDate
-      this.el.selectableRange = ['2019-04-01', '2019-04-03']
+      this.el.addEventListener('dateChanged', this.onSetCalendarDate, false)
+      // const today = new Date()
+      // const to = today.toISOString().slice(0, 10)
+      // const from = new Date(today.setDate(today.getDate() - 6)).toISOString().slice(0, 10)
+      // this.el.selectableRange = [from, to]
 
-      setTimeout(() => {
-        this.el.selectedDate = '2019-04-03'
-      }, 2000)
+      // setTimeout(() => { this.el.selectedDate = to }, 5000)
     },
     beforeDestroyed () { },
     methods: {
-      onSetCalendarDate (value) {
+      onSetCalendarDate (event) {
         console.log('The date selected is: ')
-        console.log(value.date)
+        console.log(event.detail[0])
       }
     }
   }))

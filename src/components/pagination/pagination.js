@@ -4,20 +4,18 @@ import { paginate } from './paginate'
  * Pagination script file
  *
  * @version 1.0.0
- *
- *
- * <ltd-pagination
- *  :items="array"
- *  :items-per-page="number"
- *  :placeholder="string"
- *  @change="function">
- * </ltd-pagination>
  */
 export default {
   name: 'LtdPagination', // web-component: ltd-pagination
   mixins: [],
   components: {},
   props: {
+    /**
+     * Sets style
+     */
+    customStyle: {
+      type: Object
+    },
     /**
      * Total Items
      */
@@ -73,12 +71,46 @@ export default {
         this.$refs.inputElement.value = ''
         this.$refs.inputElement.focus()
       })
+    },
+
+    /**
+     * Gets custom styles
+     */
+    getStyle () {
+      const style = `${
+        Object.entries(this.customStyle).map(values => {
+          const [key, value] = values
+          return `.${key} {${this.generateStyle(value)}}`
+        }).join('\n')
+      }`
+      const el = document.createElement('style')
+      el.innerHTML = style
+      this.$el.parentNode.insertBefore(el, null)
+    },
+
+    /**
+     * Generate style by object
+     *
+     * @property {Object}
+     * @type {String}
+     */
+    generateStyle (data) {
+      return `${
+        Object.entries(data).map(values => {
+          const [key, value] = values
+          return `${key}: ${value}`
+        }).join(';')
+      }`
     }
   },
   mounted () {},
   watch: {
     items () {
       this.setPage(this.initialPage)
+    },
+
+    customStyle () {
+      this.getStyle()
     }
   }
 }

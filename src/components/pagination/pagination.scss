@@ -2,8 +2,6 @@
  *  Pagination style file
  **/
 
-@import '~@/styles/main.scss';
-
 .ltd-pagination-container {
   width: 100%;
   
@@ -17,7 +15,7 @@
     height: 60px;
     margin: 0;
     padding: 0;
-    border-top: 1px solid $colorN30;
+    border-top: 1px solid #BBBCBC;
     box-sizing: border-box;
       
     li {
@@ -45,8 +43,8 @@
       }
       
       button {
-        color: $colorN80;
-        background-color: $colorN15;
+        color: #53565A;
+        background-color: #EEEEEE;
         cursor: pointer;
       }
 

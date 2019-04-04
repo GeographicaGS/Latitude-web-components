@@ -2,18 +2,6 @@
  * Switch script file
  *
  * @version 1.0.0
- *
- * @usage
- *
- * <ltd-switch state="Boolean" @change="Function">
- *  <span slot="open">O</span>
- *  <span slot="close">C</span>
- * </ltd-switch>
- *
- * <ltd-switch>
- *  <i slot="open">Icon here (16px size)</i>
- *  <i slot="close">Icon here (16px size)</i>
- * </ltd-switch>
  **/
 export default {
   name: 'LtdSwitch', // web-component: ltd-switch

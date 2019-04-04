@@ -1,8 +1,8 @@
 /**
  *  RadioGroup style file
-**/
-
-@import '~@/styles/main.scss';
+ **/
+$horizontal-radio-margin: var(--horizontal-radio-margin, 10px);
+$vertical-radio-margin: var(--vertical-radio-margin, 10px);
 
 .ltd-radio-group-container {
   display: flex;

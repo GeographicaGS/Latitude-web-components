@@ -1,4 +1,3 @@
-
 /**
  *  Tooltip script file
  *
@@ -25,7 +24,21 @@ export default {
      */
     position: {
       type: String,
-      default: 'top'
+      default: 'top',
+      // The value must match one of these
+      validator (value) {
+        const positions = [
+          'top',
+          'bottom',
+          'left',
+          'right',
+          'top-left',
+          'top-right',
+          'bottom-left',
+          'bottom-right'
+        ]
+        return positions.indexOf(value) !== -1
+      }
     },
     /**
      * Delay to show tooltip (ms)
@@ -40,6 +53,10 @@ export default {
     hideDelay: {
       type: String,
       default: '0s'
+    },
+    multiline: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -59,7 +76,8 @@ export default {
         'bottom-left': this.position === 'bottom-left',
         'bottom-right': this.position === 'bottom-right',
         'left': this.position === 'left',
-        'right': this.position === 'right'
+        'right': this.position === 'right',
+        'multiline': this.multiline
       }
     }
   },

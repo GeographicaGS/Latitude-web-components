@@ -11,15 +11,15 @@ storiesOf('Icon', module)
     template: // html
       `
       <div>
-        <ltd-icon :icon="getSource('icons/country.svg')" size="120px">
+        <ltd-icon :icon="getSource('icons/country.svg')" fill="#e000ff" size="120px">
         </ltd-icon>
-        <ltd-icon :icon="getSource('icons/country.svg')" size="60px">
+        <ltd-icon :icon="getSource('icons/country.svg')" fill="#00fff0" size="60px">
         </ltd-icon>
-        <ltd-icon :icon="getSource('icons/country.svg')" size="30px">
+        <ltd-icon :icon="getSource('icons/country.svg')" fill="#5af380" size="30px">
         </ltd-icon>
-        <ltd-icon :icon="getSource('icons/country.svg')" size="20px">
+        <ltd-icon :icon="getSource('icons/country.svg')" fill="#feff00" size="20px">
         </ltd-icon>
-        <ltd-icon :icon="getSource('icons/country.svg')" size="10px">
+        <ltd-icon :icon="getSource('icons/country.svg')" fill="#ff0000" size="10px">
         </ltd-icon>
       </div>
   `,

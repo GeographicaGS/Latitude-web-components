@@ -4,18 +4,6 @@ import Pagination from '../pagination/index'
  *  Table script file
  *
  *  @version 1.0.0
- *
- * <ltd-table
- *  items="array"
- *  visible-colummns="array"
- *  filter
- *  pagination
- *  items-per-page="number"
- *  pagination-placeholder="string"
- *  clickable
- *  @select="function"
- *  nodata-message="string">
- * </ltd-table>
  */
 
 export default {
@@ -216,6 +204,10 @@ export default {
   watch: {
     items () {
       this.setItems()
+    },
+
+    customStyle () {
+      this.getStyle()
     }
   }
 }

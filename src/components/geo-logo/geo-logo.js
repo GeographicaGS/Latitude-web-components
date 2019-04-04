@@ -82,5 +82,10 @@ export default {
         }).join(';')
       }`
     }
+  },
+  watch: {
+    customStyle () {
+      this.getStyle()
+    }
   }
 }

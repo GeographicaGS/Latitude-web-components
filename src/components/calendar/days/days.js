@@ -161,9 +161,11 @@ export default {
     date () {
       this.setMonthDays()
     },
+
     startDate () {
       this.setMonthDays()
     },
+
     endDate () {
       this.setMonthDays()
     }

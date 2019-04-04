@@ -19,10 +19,10 @@ storiesOf('Tooltip', module)
         <p><small>Default. With <strong>1s delay</strong> and <strong>top</strong> positioning</small></p>
 
         <br />
-        <ltd-tooltip text="Tooltip value" position="bottom" show-delay="2s">
+        <ltd-tooltip text="Tooltip too long text to show here" position="bottom" show-delay="2s" multiline>
           <button>Bottom</button>
         </ltd-tooltip>
-        <p><small>With <strong>2s show-delay</strong> and <strong>bottom</strong> positioning</small></p>
+        <p><small>With <strong>2s show-delay</strong> and <strong>bottom</strong> positioning and <strong>multiline</strong></small></p>
 
         <br />
         <ltd-tooltip text="Tooltip value" position="left" hide-delay="2s">
