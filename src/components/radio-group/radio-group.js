@@ -103,6 +103,10 @@ export default {
   watch: {
     model (model) {
       this.selectedValue = model
+    },
+
+    customStyle () {
+      this.getStyle()
     }
   }
 }

@@ -119,6 +119,10 @@ export default {
   watch: {
     state (val) {
       this.updateState()
+    },
+
+    customStyle () {
+      this.getStyle()
     }
   }
 }

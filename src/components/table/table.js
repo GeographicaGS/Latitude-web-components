@@ -216,6 +216,10 @@ export default {
   watch: {
     items () {
       this.setItems()
+    },
+
+    customStyle () {
+      this.getStyle()
     }
   }
 }

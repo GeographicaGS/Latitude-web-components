@@ -266,6 +266,10 @@ export default {
       this.selectableRange = dates
       this.minSelectableDate = moment(this.selectableRange[0])
       this.maxSelectableDate = moment(this.selectableRange[1])
+    },
+
+    customStyle () {
+      this.getStyle()
     }
   }
 }
