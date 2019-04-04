@@ -12,6 +12,7 @@ $checkbox-border-color-checked: var(--checkbox-border-color-checked, #15b750);
 $checkbox-border-color-checked-hover: var(--checkbox-border-color-checked-hover, #39b185);
 $checkbox-icon-size: var(--checkbox-icon-size, 6px);
 $checkbox-icon-color: var(--checkbox-icon-color, white);
+$checkbox-label-width: var(--checkbox-label-width, auto);
 $checkbox-label-margin: var(--checkbox-label-margin, 4px);
 
 .ltd-checkbox-container {
@@ -117,6 +118,9 @@ $checkbox-label-margin: var(--checkbox-label-margin, 4px);
     p {
       margin: 0;
       padding: 0;
+      width: $checkbox-label-width;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
     ltd-icon { display: flex; }
