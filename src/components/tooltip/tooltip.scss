@@ -9,6 +9,10 @@ $tooltip-background-color: var(--tooltip-background-color, #222222);
 $tooltip-border-radius: var(--tooltip-border-radius, 3px);
 $tooltip-arrow-icon-size: var(--tooltip-arrow-icon-size, 8px);
 $tooltip-marging: var(--tooltip-marging, 10px);
+$tooltip-padding: var(--tooltip-padding, 6px 10px);
+$tooltip-multiline-width: var(--tooltip-multiline-width, 100px);
+$tooltip-multiline-text-align: var(--tooltip-multiline-text-align, center);
+$tooltip-multiline-line-height: var(--tooltip-multiline-line-height, 1.5);
 
 .ltd-tooltip-container {
   position: relative;
@@ -18,7 +22,7 @@ $tooltip-marging: var(--tooltip-marging, 10px);
     position: absolute;
     width: auto;
     height: auto;
-    padding: 6px 10px;
+    padding: $tooltip-padding;
     background-color: $tooltip-background-color;
     border-radius: $tooltip-border-radius;
     opacity: 0;
@@ -43,6 +47,7 @@ $tooltip-marging: var(--tooltip-marging, 10px);
       color: $tooltip-color;
       font-size: $tooltip-font-size;
       font-weight: $tooltip-font-weight;
+      line-height: 1;
       letter-spacing: normal;
       white-space: nowrap;
       overflow: hidden;
@@ -50,6 +55,19 @@ $tooltip-marging: var(--tooltip-marging, 10px);
     }
 
     &.visible { opacity: 1; }
+
+    &.multiline {
+      width: $tooltip-multiline-width;
+
+      p {
+        width: 100%;
+        text-align: $tooltip-multiline-text-align;
+        line-height: $tooltip-multiline-line-height;
+        white-space: normal;
+        overflow: hidden;
+        text-overflow: unset;
+      }
+    }
 
     &.top {
       top: 0;

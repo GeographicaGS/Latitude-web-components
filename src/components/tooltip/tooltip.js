@@ -53,6 +53,10 @@ export default {
     hideDelay: {
       type: String,
       default: '0s'
+    },
+    multiline: {
+      type: Boolean,
+      default: false
     }
   },
   data () {
@@ -72,7 +76,8 @@ export default {
         'bottom-left': this.position === 'bottom-left',
         'bottom-right': this.position === 'bottom-right',
         'left': this.position === 'left',
-        'right': this.position === 'right'
+        'right': this.position === 'right',
+        'multiline': this.multiline
       }
     }
   },
