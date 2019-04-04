@@ -2,12 +2,10 @@
  * Switch style file
  */
 $font-family: var(--font-family, 'Helvetica Nue', helvetica, sans-serif);
-$switch-width: var(--switch-width, 44px);
-$switch-height: var(--switch-height, 22px);
-$switch-size: var(--switch-size, 18px);
-$switch-color: var(--switch-color, white);
+$switch-width: var(--switch-width, 40px);
+$switch-dragger-size: calc((#{ $switch-width } / 2) - 4px);
+$switch-dragger-color: var(--switch-dragger-color, white);
 $switch-content-color: var(--switch-content-color, white);
-$switch-color-disabled: var(--switch-color-disabled, white);
 $switch-content-font-size: var(--switch-content-font-size, 12px);
 $switch-background-color: var(--switch-background-color, #BBBCBC);
 $switch-background-color-checked: var(--switch-background-color-checked, #15b750);
@@ -18,10 +16,10 @@ $switch-label-margin: var(--switch-label-margin, 4px);
 .ltd-switch-container {
   outline: none;
   width: $switch-width;
-  height: $switch-height;
+  height: calc(#{ $switch-width } / 2);
   font-family: $font-family;
-  line-height: $switch-height;
-  border-radius: $switch-width;
+  line-height: calc(#{ $switch-width } / 2);
+  border-radius: calc(#{ $switch-width } / 2);
   vertical-align: middle;
   background-color: $switch-background-color;
   position: relative;
@@ -32,10 +30,10 @@ $switch-label-margin: var(--switch-label-margin, 4px);
 
   &:after {
     content: '';
-    width: $switch-size;
-    height: $switch-size;
-    border-radius: $switch-size;
-    background-color: $switch-color;
+    width: $switch-dragger-size;
+    height: $switch-dragger-size;
+    border-radius: $switch-dragger-size;
+    background-color: $switch-dragger-color;
     position: absolute;
     left: 2px;
     top: 2px;
@@ -44,7 +42,7 @@ $switch-label-margin: var(--switch-label-margin, 4px);
                 width 0.2s ease-in-out;
   }
 
-  &:active:after { width: calc(#{ $switch-size } * 1.3); }
+  &:active:after { width: calc(#{ $switch-dragger-size } * 1.3); }
 
   &.checked {
     border-color: $switch-background-color-checked;
@@ -56,9 +54,9 @@ $switch-label-margin: var(--switch-label-margin, 4px);
       i { left: 5px; }
     }
 
-    &:after { left: calc(#{ $switch-width } - #{ $switch-size } - 2px); }
+    &:after { left: calc(#{ $switch-width } - #{ $switch-dragger-size } - 2px); }
 
-    &:active:after { left: calc(#{ $switch-size } + 1px); }
+    &:active:after { left: calc(#{ $switch-dragger-size } + 1px); }
   }
 
   &.disabled {
@@ -66,7 +64,6 @@ $switch-label-margin: var(--switch-label-margin, 4px);
     cursor: not-allowed;
 
     &:after {
-      background: $switch-color-disabled;
       cursor: not-allowed;
     }
   }
@@ -79,14 +76,14 @@ $switch-label-margin: var(--switch-label-margin, 4px);
     span {
       position: absolute;
       top: 0;
-      left: calc(#{ $switch-width } - #{ $switch-size } - 2px);
+      left: calc(#{ $switch-width } - #{ $switch-dragger-size } - 2px);
     }
 
     i {
       display: inline-flex;
       position: absolute;
       top: 3px;
-      left: calc(#{ $switch-width } - #{ $switch-size } - 4px);
+      left: calc(#{ $switch-width } - #{ $switch-dragger-size } - 4px);
     }
 
     .fade-enter-active, .fade-leave-active {
