@@ -4,14 +4,6 @@ import { paginate } from './paginate'
  * Pagination script file
  *
  * @version 1.0.0
- *
- *
- * <ltd-pagination
- *  :items="array"
- *  :items-per-page="number"
- *  :placeholder="string"
- *  @change="function">
- * </ltd-pagination>
  */
 export default {
   name: 'LtdPagination', // web-component: ltd-pagination
