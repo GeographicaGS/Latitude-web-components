@@ -87,7 +87,6 @@ storiesOf('Table', module)
     mounted () {
       [this.el] = document.getElementsByTagName('ltd-table')
       this.el.items = this.tabledata
-      // this.el.visibleColumns = this.columns
       this.el.addEventListener('select', this.onTableItemClick, false)
 
       setTimeout(() => {
