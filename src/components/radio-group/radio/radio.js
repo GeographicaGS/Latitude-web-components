@@ -1,4 +1,3 @@
-
 /**
  *  Radio script file
  **/
@@ -87,6 +86,11 @@ export default {
           return `${key}: ${value}`
         }).join(';')
       }`
+    }
+  },
+  watch: {
+    customStyle () {
+      this.getStyle()
     }
   }
 }

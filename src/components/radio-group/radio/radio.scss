@@ -1,13 +1,22 @@
 /**
  *  Radio style file
 **/
-
-@import '~@/styles/main.scss';
+$font-family: var(--font-family, 'Helvetica Nue', helvetica, sans-serif);
+$radio-size: var(--radio-size, 12px);
+$radio-font-size: var(--radio-font-size, 12px);
+$radio-color: var(--radio-color, white);
+$radio-border-color: var(--radio-border-color, #888B8D);
+$radio-border-color-hover: var(--radio-border-color-hover, #53565A);
+$radio-color-checked: var(--radio-color-checked, #15b750);
+$radio-border-color-checked: var(--radio-border-color-checked, #15b750);
+$radio-border-color-checked-hover: var(--radio-border-color-checked-hover, #39b185);
+$radio-icon-size: var(--radio-icon-size, 6px);
+$radio-icon-color: var(--radio-icon-color, white);
 
 .ltd-radio-container {
   position: relative;
   display: inline-flex;
-  font-family: 'Helvetica Nue', helvetica, sans-serif; 
+  font-family: $font-family; 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   font-size: $radio-font-size;

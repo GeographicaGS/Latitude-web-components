@@ -50,19 +50,3 @@ $switch-background-color-checked: var(--switch-background-color-checked, $colorA
 $switch-label-margin: var(--switch-label-margin, 4px);
 
 
-// Radio Group
-$horizontal-radio-margin: var(--horizontal-radio-margin, 10px);
-$vertical-radio-margin: var(--vertical-radio-margin, 10px);
-
-// Radio
-$radio-size: var(--radio-size, 12px);
-$radio-font-size: var(--radio-font-size, 12px);
-$radio-color: var(--radio-color, $colorWhite);
-$radio-border-color: var(--radio-border-color, $colorN60);
-$radio-border-color-hover: var(--radio-border-color-hover, #53565A);
-$radio-color-checked: var(--radio-color-checked, $colorAccent);
-$radio-border-color-checked: var(--radio-border-color-checked, $colorAccent);
-$radio-border-color-checked-hover: var(--radio-border-color-checked-hover, $colorIncrement);
-$radio-icon-size: var(--radio-icon-size, 6px);
-$radio-icon-color: var(--radio-icon-color, $colorWhite);
-
