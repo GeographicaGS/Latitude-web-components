@@ -1,4 +1,3 @@
-
 /**
  *  Tooltip script file
  *
@@ -25,7 +24,21 @@ export default {
      */
     position: {
       type: String,
-      default: 'top'
+      default: 'top',
+      // The value must match one of these
+      validator (value) {
+        const positions = [
+          'top',
+          'bottom',
+          'left',
+          'right',
+          'top-left',
+          'top-right',
+          'bottom-left',
+          'bottom-right'
+        ]
+        return positions.indexOf(value) !== -1
+      }
     },
     /**
      * Delay to show tooltip (ms)
