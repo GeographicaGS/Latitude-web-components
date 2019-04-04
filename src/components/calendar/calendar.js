@@ -7,18 +7,6 @@ import MonthSelector from './month-selector/index'
  *  Calendar script file
  *
  * @version 1.0.0
- *
- * <ltd-calendar
- *  selected-date="2019-03-02"
- *  start-date="2019-03-02"
- *  end-date="2019-03-20"
- *  month-format="MMMM"
- *  day-format="ddd"
- *  locale="en"
- *  range
- *  future-selection>
- * </ltd-calendar>
- *
  * */
 export default {
   name: 'LtdCalendar', // component: ltd-calendar
@@ -104,8 +92,7 @@ export default {
      * */
     futureSelection: {
       type: Boolean,
-      default: true,
-      required: false
+      default: true
     },
     /**
      * Specifies the range of dates over which you can make a selection
@@ -161,36 +148,28 @@ export default {
         return
       }
 
-      if (
-        !this.start || date.isBefore(this.start, 'day') ||
-        !this.start.isSame(this.end, 'day')
-      ) {
-        this.start = date
-        this.end = date
-      } else if (date.isSame(this.start, 'day') && date.isSame(this.end, 'day')) {
-        this.start = null
-        this.end = null
-      }
-
       if (!this.range) {
         this.start = date
         this.end = date
         const obj = { date: date.toDate() }
-        this.dateChanged && this.dateChanged(obj)
+        this.$emit('dateChanged', obj)
         return
+      }
+
+      if (!this.start || date.isBefore(this.start, 'day') || !this.start.isSame(this.end, 'day')) {
+        this.start = date
+        this.end = date
       }
 
       if (date.isAfter(this.start, 'day')) {
         this.end = date
       }
 
-      const { start } = this
-      const { end } = this
-      const obj = {
-        start: start.toDate(),
-        end: end.toDate()
+      const { start, end } = this
+      if (this.range && start !== end) {
+        const obj = { start: start.toDate(), end: end.toDate() }
+        this.$emit('dateChanged', obj)
       }
-      this.dateChanged && this.dateChanged(obj)
     },
 
     changeMonth (month) {

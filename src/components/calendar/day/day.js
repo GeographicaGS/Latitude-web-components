@@ -54,6 +54,7 @@ export default {
     getDate () {
       return this.date.date()
     },
+
     getDayClasses () {
       const today = moment()
       return {

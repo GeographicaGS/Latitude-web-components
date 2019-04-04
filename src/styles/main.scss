@@ -28,20 +28,6 @@ $colorDecrement: var(--color-decrement,#cf597e);
 $font-family: var(--font-family, 'Helvetica Nue', helvetica, sans-serif);
 
 
-// Calendar
-$calendar-padding: var(--calendar-padding, 10px);
-$calendar-heading-height: var(--calendar-heading-height, 40px);
-$calendar-border: var(--calendar-border, 1px solid $colorN05);
-$calendar-border-radius: var(--calendar-border-radius, 4px);
-$calendar-header-height: var(--calendar-header-height, 20px);
-
-$calendar-header-font-size: var(--calendar-header-font-size, 12px);
-$calendar-header-font-weight: var(--calendar-header-font-weight, 400);
-
-$calendar-arrow-icon: var(--calendar-arrow-icon, 'icon-arrow');
-$calendar-arrow-icon-fill: var(--calendar-arrow-icon-fill, $colorN80);
-$calendar-arrow-icon-fill-hover: var(--calendar-arrow-icon-fill-hover, $colorN50);
-
 // Tooltip
 $tooltip-font-size: var(--tooltip-font-size, 12px);
 $tooltip-font-weight: var(--tooltip-font-weight, 500);
@@ -68,7 +54,7 @@ $checkbox-size: var(--checkbox-size, 12px);
 $checkbox-font-size: var(--checkbox-font-size, 12px);
 $checkbox-color: var(--checkbox-color, $colorWhite);
 $checkbox-border-color: var(--checkbox-border-color, $colorN60);
-$checkbox-border-color-hover: var(--checkbox-border-color-hover, $colorN80);
+$checkbox-border-color-hover: var(--checkbox-border-color-hover, #53565A);
 $checkbox-color-checked: var(--checkbox-color-checked, $colorAccent);
 $checkbox-border-color-checked: var(--checkbox-border-color-checked, $colorAccent);
 $checkbox-border-color-checked-hover: var(--checkbox-border-color-checked-hover, $colorIncrement);
@@ -85,7 +71,7 @@ $radio-size: var(--radio-size, 12px);
 $radio-font-size: var(--radio-font-size, 12px);
 $radio-color: var(--radio-color, $colorWhite);
 $radio-border-color: var(--radio-border-color, $colorN60);
-$radio-border-color-hover: var(--radio-border-color-hover, $colorN80);
+$radio-border-color-hover: var(--radio-border-color-hover, #53565A);
 $radio-color-checked: var(--radio-color-checked, $colorAccent);
 $radio-border-color-checked: var(--radio-border-color-checked, $colorAccent);
 $radio-border-color-checked-hover: var(--radio-border-color-checked-hover, $colorIncrement);

@@ -2,7 +2,7 @@
  *  Day style file
  **/
 
-@import '~@/styles/main.scss';
+ @import '../calendar.scss';
 
 .ltd-day-container {
   padding: 1px;
@@ -18,7 +18,7 @@
     font-size: 14px;
     line-height: 16px;
     text-align: center;
-    border: 1px solid $colorWhite;
+    border: 1px solid $calendar-background-color;
     border-radius: $calendar-border-radius;
     user-select: none;
     cursor: pointer;
@@ -26,19 +26,20 @@
 
     &.label {
       text-transform: uppercase;
-      color: $colorN50;
-      font-size: 14px;
+      color: $calendar-day-color;
+      font-size: $calendar-day-font-size;
       cursor: initial;
     }
 
-    &.muted { color: $colorN30; }
+    &.muted { color: $calendar-day-muted-background-color; }
 
-    &:not(.muted) { background-color: $colorN05; }
+    &:not(.muted) { background-color: $calendar-day-background-color; }
 
     &.active {
-      border: 2px solid #00c6d7;
+      border: 2px solid $calendar-day-active-border-color;
       border-radius: $calendar-border-radius;
       font-weight: bold;
+      background-color: $calendar-day-background-color;
     }
 
     &.disabled { 
@@ -50,32 +51,33 @@
     &.between, 
     &.end {
       border: none;
-      color: $colorN90;
+      color: $calendar-color;
       border-radius: $calendar-border-radius;
     }
 
     &.between { 
-      background-color: #00ff99;
+      background-color: $calendar-day-selected-background-color;
       border-left: none;
       border-right: none;
       border-radius: 0; 
     }
 
     &.start { 
-      background-color: darken(#00ff99, 5%);
       border-right: none;
       border-radius: $calendar-border-radius 0 0 $calendar-border-radius; 
+      background-color: $calendar-day-selected-ends-background-color;
     }
 
     &.end { 
-      background-color: darken(#00ff99, 5%);
       border-left: none;
       border-radius: 0 $calendar-border-radius $calendar-border-radius 0; 
+      background-color: $calendar-day-selected-ends-background-color;
     }
 
     &.start.end { 
       border-radius: $calendar-border-radius;
       font-weight: bold;
+      background-color: $calendar-day-selected-ends-background-color;
 
       &:before { display: none; }
     }
@@ -89,7 +91,7 @@
     left: 100%;
     width: 2px;
     height: 100%;
-    background-color: #00ff99;
+    background-color: $calendar-day-selected-background-color;
     box-sizing: border-box;
   }
 
