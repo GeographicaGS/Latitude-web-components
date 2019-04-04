@@ -5,5 +5,153 @@
 @import '~@/styles/main.scss';
 
 .ltd-tooltip-container {
-  color: red;
+  position: relative;
+  display: inline-flex;
+
+  .tooltip {
+    position: absolute;
+    width: auto;
+    height: auto;
+    padding: 6px 10px;
+    background-color: $tooltip-background-color;
+    border-radius: $tooltip-border-radius;
+    opacity: 0;
+    z-index: 999999;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+
+    &:after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+    
+    p {
+      margin: 0;
+      padding: 0;
+      font-family: $font-family; 
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      color: $tooltip-color;
+      font-size: $tooltip-font-size;
+      font-weight: $tooltip-font-weight;
+      letter-spacing: normal;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &.visible { opacity: 1; }
+
+    &.top {
+      top: 0;
+      left: 50%;
+      transform: translate3d(-50%, calc(-100% - #{ $tooltip-marging }), 0);
+
+      &:after {
+        left: calc(50% - #{ $tooltip-arrow-icon-size });
+        bottom: calc(#{ $tooltip-arrow-icon-size } * -1);
+        border-width: $tooltip-arrow-icon-size calc(#{ $tooltip-arrow-icon-size } - 1px) 0 calc(#{ $tooltip-arrow-icon-size } - 1px);
+        border-color: $colorN100 transparent transparent transparent;
+      }
+    }
+
+    &.bottom {
+      bottom: 0;
+      left: 50%;
+      transform: translate3d(-50%, calc(100% + #{ $tooltip-marging }), 0);
+
+      &:after {
+        left: 50%;
+        top: calc(#{ $tooltip-arrow-icon-size } * -1);
+        transform: translate3d(calc(#{ $tooltip-arrow-icon-size } / 2 * -1), 0, 0);
+        border-width: 0 calc(#{ $tooltip-arrow-icon-size } - 1px) $tooltip-arrow-icon-size calc(#{ $tooltip-arrow-icon-size } - 1px);
+        border-color: transparent transparent $colorN100 transparent;
+      }
+    }
+
+    &.left {
+      top: 50%;
+      right: calc(100% + #{ $tooltip-marging });
+      transform: translate3d(0, -50%, 0);
+
+      &:after {
+        top: 50%;
+        right: calc(#{ $tooltip-arrow-icon-size } * -1);
+        transform: translate3d(0, -50%, 0);
+        border-width: calc(#{ $tooltip-arrow-icon-size } - 1px) 0 calc(#{ $tooltip-arrow-icon-size } - 1px) $tooltip-arrow-icon-size;
+        border-color: transparent transparent transparent $colorN100;
+      }
+    }
+
+    &.right {
+      top: 50%;
+      left: calc(100% + #{ $tooltip-marging });
+      transform: translate3d(0, -50%, 0);
+
+      &:after {
+        left: calc(#{ $tooltip-arrow-icon-size } * -1);
+        top: 50%;
+        transform: translate3d(0, -50%, 0);
+        border-width: calc(#{ $tooltip-arrow-icon-size } - 1px) $tooltip-arrow-icon-size calc(#{ $tooltip-arrow-icon-size } - 1px) 0;
+        border-color: transparent $colorN100 transparent transparent;
+      }
+    }
+
+    &.top-left {
+      top: 0;
+      left: 0;
+      transform: translate3d(0, calc(-100% - #{ $tooltip-marging }), 0);
+
+      &:after {
+        left: $tooltip-arrow-icon-size;
+        bottom: calc(#{ $tooltip-arrow-icon-size } * -1);
+        border-width: $tooltip-arrow-icon-size calc(#{ $tooltip-arrow-icon-size } - 1px) 0 calc(#{ $tooltip-arrow-icon-size } - 1px);
+        border-color: $colorN100 transparent transparent transparent;
+      }
+    }
+
+    &.top-right {
+      top: 0;
+      right: 0;
+      transform: translate3d(0, calc(-100% - #{ $tooltip-marging }), 0);
+
+      &:after {
+        right: $tooltip-arrow-icon-size;
+        bottom: calc(#{ $tooltip-arrow-icon-size } * -1);
+        border-width: $tooltip-arrow-icon-size calc(#{ $tooltip-arrow-icon-size } - 1px) 0 calc(#{ $tooltip-arrow-icon-size } - 1px);
+        border-color: $colorN100 transparent transparent transparent;
+      }
+    }
+
+    &.bottom-left {
+      bottom: 0;
+      left: 0;
+      transform: translate3d(0, calc(100% + #{ $tooltip-marging }), 0);
+
+      &:after {
+        left: $tooltip-arrow-icon-size;
+        top: calc(#{ $tooltip-arrow-icon-size } * -1);
+        transform: translate3d(0, 0, 0);
+        border-width: 0 calc(#{ $tooltip-arrow-icon-size } - 1px) $tooltip-arrow-icon-size calc(#{ $tooltip-arrow-icon-size } - 1px);
+        border-color: transparent transparent $colorN100 transparent;
+      }
+    }
+
+    &.bottom-right {
+      bottom: 0;
+      right: 0;
+      transform: translate3d(0, calc(100% + #{ $tooltip-marging }), 0);
+
+      &:after {
+        right: $tooltip-arrow-icon-size;
+        top:calc(#{ $tooltip-arrow-icon-size } * -1);
+        transform: translate3d(0, 0, 0);
+        border-width: 0 calc(#{ $tooltip-arrow-icon-size } - 1px) $tooltip-arrow-icon-size calc(#{ $tooltip-arrow-icon-size } - 1px);
+        border-color: transparent transparent $colorN100 transparent;
+      }
+    }
+  }
 }

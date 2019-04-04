@@ -24,7 +24,8 @@ $colorWhite: var(--color-white, #FFF);
 $colorIncrement: var(--color-increment,#39b185);
 $colorDecrement: var(--color-decrement,#cf597e);
 
-// TODO: font
+// font
+$font-family: var(--font-family, 'Helvetica Nue', helvetica, sans-serif);
 
 
 // Calendar
@@ -40,6 +41,15 @@ $calendar-header-font-weight: var(--calendar-header-font-weight, 400);
 $calendar-arrow-icon: var(--calendar-arrow-icon, 'icon-arrow');
 $calendar-arrow-icon-fill: var(--calendar-arrow-icon-fill, $colorN80);
 $calendar-arrow-icon-fill-hover: var(--calendar-arrow-icon-fill-hover, $colorN50);
+
+// Tooltip
+$tooltip-font-size: var(--tooltip-font-size, 12px);
+$tooltip-font-weight: var(--tooltip-font-weight, 500);
+$tooltip-color: var(--tooltip-color, white);
+$tooltip-background-color: var(--tooltip-background-color, #222222);
+$tooltip-border-radius: var(--tooltip-border-radius, 3px);
+$tooltip-arrow-icon-size: var(--tooltip-arrow-icon-size, 8px);
+$tooltip-marging: var(--tooltip-marging, 10px);
 
 // Switch
 $switch-width: var(--switch-width, 44px);
@@ -81,3 +91,8 @@ $radio-border-color-checked: var(--radio-border-color-checked, $colorAccent);
 $radio-border-color-checked-hover: var(--radio-border-color-checked-hover, $colorIncrement);
 $radio-icon-size: var(--radio-icon-size, 6px);
 $radio-icon-color: var(--radio-icon-color, $colorWhite);
+
+// Geo logo
+$geo-font-size: var(--geo-font-size, 11px);
+$geo-color: var(--geo-color, $colorAccent);
+$geo-border-radius: var(--geo-border-radius, 3px);
