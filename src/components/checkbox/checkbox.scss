@@ -1,15 +1,25 @@
 /**
  *  Checkbox style file
-**/
-
-@import '~@/styles/main.scss';
+ **/
+$font-family: var(--font-family, 'Helvetica Nue', helvetica, sans-serif);
+$checkbox-size: var(--checkbox-size, 12px);
+$checkbox-font-size: var(--checkbox-font-size, 11px);
+$checkbox-color: var(--checkbox-color, white);
+$checkbox-border-color: var(--checkbox-border-color, #888B8D);
+$checkbox-border-color-hover: var(--checkbox-border-color-hover, #53565A);
+$checkbox-color-checked: var(--checkbox-color-checked, #15b750);
+$checkbox-border-color-checked: var(--checkbox-border-color-checked, #15b750);
+$checkbox-border-color-checked-hover: var(--checkbox-border-color-checked-hover, #39b185);
+$checkbox-icon-size: var(--checkbox-icon-size, 6px);
+$checkbox-icon-color: var(--checkbox-icon-color, white);
+$checkbox-label-margin: var(--checkbox-label-margin, 4px);
 
 .ltd-checkbox-container {
-  display: inline-flex;
-  font-family: 'Helvetica Nue', helvetica, sans-serif; 
+  display: flex;
+  align-items: center;
+  font-family: $font-family; 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  font-size: $checkbox-font-size;
   cursor: pointer;
 
   &:hover {
@@ -41,14 +51,14 @@
   .checkbox {
     outline: none;
     position: relative;
-    display: inline-block;
+    display: inline-flex;
     vertical-align: middle;
     white-space: nowrap;
     line-height: 1;
 
     .inner {
       position: relative;
-      display: inline-block;
+      display: inline-flex;
       width: $checkbox-size;
       height: $checkbox-size;
       position: relative;
@@ -75,7 +85,7 @@
           position: absolute;
           top: 50%;
           left: 50%;
-          display: inline-block;
+          display: inline-flex;
           width: calc(#{ $checkbox-icon-size } / 2);
           height: $checkbox-icon-size;
           border-bottom: 2px solid $checkbox-icon-color;
@@ -99,7 +109,16 @@
   }
 
   .label {
-    line-height: 16px;
-    padding-left: 4px;
+    display: inline-flex;
+    font-size: $checkbox-font-size;
+    line-height: $checkbox-font-size;
+    padding-left: $checkbox-label-margin;
+
+    p {
+      margin: 0;
+      padding: 0;
+    }
+
+    ltd-icon { display: flex; }
   }
 }

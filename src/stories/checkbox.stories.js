@@ -16,17 +16,17 @@ storiesOf('Checkbox', module)
         <br/>
         <p>Checkbox with label</p>
         <ltd-checkbox label="geo">
-          <span>Geographica</span>
+          <p>Geographica</p>
         </ltd-checkbox>
         <br/>
         <p>Checkbox with icon</p>
         <ltd-checkbox label="geo" state="true">
-          <ltd-icon :icon="getSource('icons/country.svg')" size="14px"></ltd-icon>
+          <ltd-icon :icon="getSource('icons/country.svg')" fill="#15b750" size="14px"></ltd-icon>
         </ltd-checkbox>
         <br/>
         <p>Checkbox disabled</p>
         <ltd-checkbox disabled="true">
-          <span>disabled</span>
+          <p>disabled</p>
         </ltd-checkbox>
       </div>
     `,

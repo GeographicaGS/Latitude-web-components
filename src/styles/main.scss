@@ -49,18 +49,6 @@ $switch-background-color: var(--switch-background-color, $colorN30);
 $switch-background-color-checked: var(--switch-background-color-checked, $colorAccent);
 $switch-label-margin: var(--switch-label-margin, 4px);
 
-// Checkbox
-$checkbox-size: var(--checkbox-size, 12px);
-$checkbox-font-size: var(--checkbox-font-size, 12px);
-$checkbox-color: var(--checkbox-color, $colorWhite);
-$checkbox-border-color: var(--checkbox-border-color, $colorN60);
-$checkbox-border-color-hover: var(--checkbox-border-color-hover, #53565A);
-$checkbox-color-checked: var(--checkbox-color-checked, $colorAccent);
-$checkbox-border-color-checked: var(--checkbox-border-color-checked, $colorAccent);
-$checkbox-border-color-checked-hover: var(--checkbox-border-color-checked-hover, $colorIncrement);
-$checkbox-icon-size: var(--checkbox-icon-size, 6px);
-$checkbox-icon-color: var(--checkbox-icon-color, $colorWhite);
-
 
 // Radio Group
 $horizontal-radio-margin: var(--horizontal-radio-margin, 10px);
