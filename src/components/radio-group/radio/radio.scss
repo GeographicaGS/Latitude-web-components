@@ -12,6 +12,7 @@ $radio-border-color-checked: var(--radio-border-color-checked, #15b750);
 $radio-border-color-checked-hover: var(--radio-border-color-checked-hover, #39b185);
 $radio-icon-size: var(--radio-icon-size, 6px);
 $radio-icon-color: var(--radio-icon-color, white);
+$radio-label-width: var(--radio-label-width, auto);
 
 .ltd-radio-container {
   position: relative;
@@ -86,6 +87,9 @@ $radio-icon-color: var(--radio-icon-color, white);
     .label {
       line-height: calc(#{ $radio-size } + 2px);
       padding-left: 4px;
+      width: $radio-label-width;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     
     // Checked
