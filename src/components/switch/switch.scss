@@ -86,12 +86,6 @@ $switch-label-margin: var(--switch-label-margin, 4px);
       left: calc(#{ $switch-width } - #{ $switch-dragger-size } - 4px);
     }
 
-    .fade-enter-active, .fade-leave-active {
-      transition: opacity 0.15s ease;
-    }
-    .fade-enter, .fade-leave-to {
-      opacity: 0;
-    }
   }
 
   .label {
@@ -100,4 +94,8 @@ $switch-label-margin: var(--switch-label-margin, 4px);
     font-size: $switch-label-font-size;
     color: $switch-label-color;
   }
+
+  .fade-enter-active, .fade-leave-active { transition: opacity 0.25s ease; }
+
+  .fade-enter, .fade-leave-to { opacity: 0; }
 }
