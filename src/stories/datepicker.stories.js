@@ -28,7 +28,7 @@ storiesOf('Datepicker', module)
       `
       <div style="width: 260px;">
         <ltd-datepicker
-          selected-date="2019-04-04"
+
           date-format="DD MMMM YYYY"
           month-format="MMMM"
           day-format="ddd"
@@ -40,7 +40,7 @@ storiesOf('Datepicker', module)
     `,
     mounted () {
       [this.el] = document.getElementsByTagName('ltd-datepicker')
-      // this.el.addEventListener('dateChanged', this.onSetCalendarDate, false)
+      this.el.addEventListener('dateChanged', this.onSetCalendarDate, false)
       // const today = new Date()
       // const to = today.toISOString().slice(0, 10)
       // const from = new Date(today.setDate(today.getDate() - 6)).toISOString().slice(0, 10)

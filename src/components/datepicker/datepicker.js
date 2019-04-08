@@ -112,32 +112,65 @@ export default {
       default: undefined,
       required: false
     },
+    /**
+     * Source for a calendar icon
+     * */
     iconSource: {
-      type: String
+      type: String,
+      required: false
     },
+    /**
+     * Calendar icon fill
+     * */
     iconFill: {
       type: String,
-      default: '#000000'
+      default: '#000000',
+      required: false
     },
+    /**
+     * Calendar icon size
+     * */
     iconSize: {
       type: String,
-      default: '20px'
+      default: '20px',
+      required: false
     },
+    /**
+     * Source for an arrow icon
+     * */
     arrowIconSource: {
       type: String
     },
+    /**
+     * Arrow icon fill
+     * */
     arrowIconFill: {
       type: String,
-      default: '#000000'
+      default: '#000000',
+      required: false
     },
+    /**
+     * Arrow icon size
+     * */
     arrowIconSize: {
       type: String,
-      default: '12px'
+      default: '12px',
+      required: false
+    },
+    /**
+     * Trigger placeholder
+     * */
+    placeholder: {
+      type: String,
+      default: 'Select a date',
+      required: false
     }
   },
   data () {
     return {
-      selected: moment(this.selectedDate).locale(this.locale).format(this.dateFormat) || 'Select a date',
+      selected: this.selectedDate
+        ? moment(this.selectedDate).locale(this.locale).format(this.dateFormat)
+        : this.placeholder,
       expanded: false
     }
   },
@@ -147,7 +180,6 @@ export default {
       if (Object.keys(obj).length === 1) {
         this.selected = moment(obj.date).locale(this.locale).format(this.dateFormat)
       } else {
-        console.log('range')
         const start = moment(obj.start).locale(this.locale).format(this.dateFormat)
         const end = moment(obj.end).locale(this.locale).format(this.dateFormat)
         this.selected = `${start} - ${end}`
@@ -155,8 +187,6 @@ export default {
     },
 
     close () {
-      console.log('close')
-
       this.expanded = false
     },
 

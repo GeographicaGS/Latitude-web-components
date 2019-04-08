@@ -1,7 +1,6 @@
 <!-- Datepicker template file -->
 <div class="ltd-datepicker-container" v-click-outside="close">
   <div class="trigger" :class="{ expanded: expanded }" @click="expanded = !expanded">
-    <!-- TODO: set default icon -->
     <div class="date">
       <div class="icon-wrapper">
         <ltd-icon v-if="iconSource" :icon="iconSource" :fill="iconFill" :size="iconSize"></ltd-icon>
@@ -15,13 +14,13 @@
       <p>{{ selected }}</p>
     </div>
     <span class="arrow">
-      <!-- TODO: set default icon -->
       <ltd-icon v-if="arrowIconSource" :icon="arrowIconSource" :fill="arrowIconFill" :size="arrowIconSize"></ltd-icon>
       <svg v-else xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
         <path fill="arrowIconFill" fill-rule="evenodd" d="M10 5V4H2v1l4 4z"/>
       </svg>
     </span>
   </div>
+  
   <transition name="expand" @enter="enter" @after-enter="afterEnter" @leave="leave">
     <div class="calendar-wrapper" v-show="expanded">
       <ltd-calendar
