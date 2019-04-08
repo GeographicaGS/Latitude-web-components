@@ -22,21 +22,30 @@
     align-items: center;
     height: $calendar-heading-height;
     margin-bottom: $calendar-padding;
-    padding: $calendar-padding $calendar-padding 0 $calendar-padding;
+    padding: 0 $calendar-padding 0 $calendar-padding;
 
-    button.prev app-icon { transform: rotate(180deg); }
+    button {
+      outline: none;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    button.prev { transform: rotate(180deg); }
     button.prev,
     button.next {
       display: inline-flex;
 
-      &:hover app-icon {
+      svg,
+      .ltd-icon-container {
+        fill: $calendar-arrow-icon-fill;
+        transition: fill 0.25s ease;
+      }
+  
+      &:hover svg,
+      &:hover .ltd-icon-container {
         fill: $calendar-arrow-icon-fill-hover;
       }
-    }
-
-    app-icon { 
-      fill: $calendar-arrow-icon-fill; 
-      transition: fill 0.25s ease;
     }
   }
 

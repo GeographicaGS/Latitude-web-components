@@ -120,14 +120,6 @@ export default {
       required: false
     },
     /**
-     * Calendar icon fill
-     * */
-    iconFill: {
-      type: String,
-      default: '#000000',
-      required: false
-    },
-    /**
      * Calendar icon size
      * */
     iconSize: {
@@ -138,23 +130,29 @@ export default {
     /**
      * Source for an arrow icon
      * */
-    arrowIconSource: {
+    triggerArrowIconSource: {
       type: String
-    },
-    /**
-     * Arrow icon fill
-     * */
-    arrowIconFill: {
-      type: String,
-      default: '#000000',
-      required: false
     },
     /**
      * Arrow icon size
      * */
-    arrowIconSize: {
+    triggerArrowIconSize: {
       type: String,
       default: '12px',
+      required: false
+    },
+    /**
+     * Source for an arrow icon (calendar heading)
+     * */
+    arrowIconSource: {
+      type: String
+    },
+    /**
+     * Arrow icon size (calendar heading)
+     * */
+    arrowIconSize: {
+      type: String,
+      default: '20px',
       required: false
     },
     /**

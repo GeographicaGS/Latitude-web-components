@@ -1,4 +1,5 @@
 import moment from 'moment'
+import Icon from '@/components/icon/index'
 
 /**
  *  MonthSelector script file
@@ -6,7 +7,9 @@ import moment from 'moment'
 export default {
   name: 'LtdMonthSelector', // web-component: ltd-monthSelector
   mixins: [],
-  components: {},
+  components: {
+    'ltd-icon': Icon
+  },
   props: {
     date: {
       type: Object,
@@ -21,6 +24,15 @@ export default {
     buttonText: {
       type: String,
       default: 'Today',
+      required: false
+    },
+    arrowIconSource: {
+      type: String,
+      required: false
+    },
+    arrowIconSize: {
+      type: String,
+      default: '20px',
       required: false
     }
   },

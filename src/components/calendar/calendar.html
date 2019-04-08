@@ -1,6 +1,8 @@
 <!-- Calendar template file -->
 <div class="ltd-calendar-container">
   <ltd-heading 
+    :arrow-icon-source="arrowIconSource"
+    :arrow-icon-size="arrowIconSize"
     :date="current"
     :locale="locale"
     @changeMonth="changeMonth"
@@ -19,7 +21,10 @@
     @change="changeDate">  
   </ltd-days>
 
-  <ltd-monthSelector v-show="isMonthSelectorOpen"
+  <ltd-monthSelector 
+    v-show="isMonthSelectorOpen"
+    :arrow-icon-source="arrowIconSource"
+    :arrow-icon-size="arrowIconSize"
     :date="current"
     :locale="locale"
     @year="setYear"

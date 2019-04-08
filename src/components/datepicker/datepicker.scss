@@ -14,6 +14,8 @@ $datepicker-trigger-border: var(--datepicker-trigger-border, 1px solid #FAF9F8);
 $datepicker-trigger-border-radius: var(--datepicker-trigger-border-radius, 4px);
 $datepicker-trigger-vr-width: var(--datepicker-trigger-vr-width, 1px);
 $datepicker-trigger-vr-color: var(--datepicker-trigger-vr-color, #FAF9F8);
+$datepicker-trigger-calendar-icon-fill: var(--datepicker-trigger-calendar-icon-fill, #53565A);
+$datepicker-trigger-arrow-icon-fill: var(--datepicker-trigger-arrow-icon-fill, #53565A);
 $datepicker-marging: var(--datepicker-marging, 6px);
 
 .ltd-datepicker-container {
@@ -55,6 +57,8 @@ $datepicker-marging: var(--datepicker-marging, 6px);
           right: calc(#{ $datepicker-trigger-label-marging } * -1);
           background-color: $datepicker-trigger-vr-color;
         }
+
+        svg { fill: $datepicker-trigger-calendar-icon-fill; }
       }
       
       p {
@@ -70,7 +74,11 @@ $datepicker-marging: var(--datepicker-marging, 6px);
       }
     }
 
-    .arrow { transition: transform 0.25s ease; }
+    .arrow { 
+      transition: transform 0.25s ease; 
+      
+      svg { fill: $datepicker-trigger-arrow-icon-fill; }
+    }
   }
 
   * {

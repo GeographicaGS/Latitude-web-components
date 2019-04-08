@@ -3,11 +3,11 @@ import { storiesOf } from '@storybook/vue'
 
 /* <ltd-datepicker
   icon-source="https://simpleicons.org/icons/node-dot-js.svg"
-  icon-fill="#00475d"
   icon-size="20px"
+  trigger-arrow-icon-source="https://simpleicons.org/icons/node-dot-js.svg"
+  trigger-arrow-icon-size="12px"
   arrow-icon-source="https://simpleicons.org/icons/node-dot-js.svg"
-  arrow-icon-fill="#cccccc"
-  arrow-icon-size="12px"
+  arrow-icon-size="30px"
   selected-date="2019-04-04"
   date-format="DD MMMM YYYY"
   month-format="MMMM"
@@ -28,7 +28,6 @@ storiesOf('Datepicker', module)
       `
       <div style="width: 260px;">
         <ltd-datepicker
-
           date-format="DD MMMM YYYY"
           month-format="MMMM"
           day-format="ddd"
