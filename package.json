@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "build": "vue-cli-service build --target wc --name latitud-component './src/components/**/*.vue'",
+    "build": "SHADOW_CSS=true vue-cli-service build --target wc --name ltd './src/components/**/*.vue'",
     "lint": "vue-cli-service lint",
     "plop": "plop --plopfile plop/plopfile.js",
     "start": "SHADOW_CSS=true vue-cli-service storybook:serve -p 6006 -c config/storybook",
