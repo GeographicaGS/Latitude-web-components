@@ -166,21 +166,30 @@ export default {
   },
   data () {
     return {
-      selected: this.selectedDate
-        ? moment(this.selectedDate).locale(this.locale).format(this.dateFormat)
-        : this.placeholder,
+      selected: this.checkSelectedDate(),
       expanded: false
     }
   },
   computed: {},
   methods: {
-    drawSelectedDate (obj) {
-      if (Object.keys(obj).length === 1) {
-        this.selected = moment(obj.date).locale(this.locale).format(this.dateFormat)
-      } else {
+    setSelectedDate (obj) {
+      if (this.range) {
         const start = moment(obj.start).locale(this.locale).format(this.dateFormat)
         const end = moment(obj.end).locale(this.locale).format(this.dateFormat)
         this.selected = `${start} - ${end}`
+      } else {
+        this.selected = moment(obj.date).locale(this.locale).format(this.dateFormat)
+      }
+    },
+
+    checkSelectedDate () {
+      if (this.range) {
+        const start = moment(this.startDate).locale(this.locale).format(this.dateFormat)
+        const end = moment(this.endDate).locale(this.locale).format(this.dateFormat)
+        return (start && end) ? `${start} - ${end}` : this.placeholder
+      } else {
+        const obj = { date: this.selectedDate }
+        return this.selectedDate ? this.setSelectedDate(obj) : this.placeholder
       }
     },
 
@@ -247,7 +256,7 @@ export default {
     }
   },
   mounted () {
-    this.$refs.calendar.$on('dateChanged', this.drawSelectedDate)
+    this.$refs.calendar.$on('dateChanged', this.setSelectedDate)
   },
   watch: {
     customStyle () {

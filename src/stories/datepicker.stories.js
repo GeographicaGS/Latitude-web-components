@@ -28,6 +28,8 @@ storiesOf('Datepicker', module)
       `
       <div style="width: 260px;">
         <ltd-datepicker
+          start-date="2019-04-04"
+          end-date="2019-04-05"
           date-format="DD MMMM YYYY"
           month-format="MMMM"
           day-format="ddd"
