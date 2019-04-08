@@ -12,6 +12,7 @@ import Tooltip from '@/components/tooltip/index'
 import GeoLogo from '@/components/geo-logo/index'
 import RadioGroup from '@/components/radio-group/index'
 import Radio from '@/components/radio-group/radio/index'
+import Datepicker from '@/components/datepicker/index'
 
 const WrappedIcon = wrap(Vue, Icon)
 const WrappedCalendar = wrap(Vue, Calendar)
@@ -23,6 +24,7 @@ const WrappedRadioGroup = wrap(Vue, RadioGroup)
 const WrappedRadio = wrap(Vue, Radio)
 const WrappedTooltip = wrap(Vue, Tooltip)
 const WrappedGeoLogo = wrap(Vue, GeoLogo)
+const WrappedDatepicker = wrap(Vue, Datepicker)
 
 window.customElements.define('ltd-icon', WrappedIcon)
 window.customElements.define('ltd-calendar', WrappedCalendar)
@@ -34,3 +36,4 @@ window.customElements.define('ltd-radio', WrappedRadio)
 window.customElements.define('ltd-tooltip', WrappedTooltip)
 window.customElements.define('ltd-radio-group', WrappedRadioGroup)
 window.customElements.define('ltd-geo-logo', WrappedGeoLogo)
+window.customElements.define('ltd-datepicker', WrappedDatepicker)
