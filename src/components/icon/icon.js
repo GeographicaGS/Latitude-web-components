@@ -27,7 +27,7 @@ export default {
      * */
     fill: {
       type: String,
-      default: '#000000'
+      default: undefined
     }
   },
   data () {
@@ -70,7 +70,9 @@ export default {
     drawIcon (doc) {
       this.$el.appendChild(doc.documentElement)
       const svg = this.$el.querySelector('svg')
-      svg.style.fill = this.fill
+      if (this.fill) {
+        svg.style.fill = this.fill
+      }
     }
   }
 }
