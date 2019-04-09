@@ -214,6 +214,10 @@ export default {
       this.setItems()
     },
 
+    visibleColumns () {
+      this.setItems()
+    },
+
     customStyle () {
       this.getStyle()
     }
