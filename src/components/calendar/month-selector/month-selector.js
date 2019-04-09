@@ -42,10 +42,6 @@ export default {
   computed: {
   },
   methods: {
-    getActiveClass (i) {
-      return this.date.locale(this.locale).month() === i && moment().year() === this.getYear()
-    },
-
     getMonth (i) {
       return moment().locale(this.locale).month(i).format('MMM')
     },

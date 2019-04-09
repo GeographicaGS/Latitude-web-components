@@ -27,6 +27,10 @@ $calendar-day-active-background-color: var(--calendar-day-active-background-colo
 $calendar-day-active-border-color: var(--calendar-day-active-border-color, #00c6d7);
 $calendar-day-selected-background-color: var(--calendar-day-selected-background-color, #00ff99);
 $calendar-day-selected-ends-background-color: var(--calendar-day-selected-ends-background-color, darken(#00ff99, 5%));
+$calendar-month-selector-button-background: var(--calendar-month-selector-button-background, #FAF9F8);
+$calendar-month-selector-button-color: var(--calendar-month-selector-button-color, #53565A);
+$calendar-month-selector-button-font-size: var(--calendar-month-selector-button-font-size, 14px);
+$calendar-month-selector-button-font-weight: var(--calendar-month-selector-button-font-weight, 400);
 
 .ltd-calendar-container {
   box-sizing: border-box;

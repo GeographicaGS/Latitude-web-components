@@ -176,9 +176,11 @@ export default {
       if (this.range) {
         const start = moment(obj.start).locale(this.locale).format(this.dateFormat)
         const end = moment(obj.end).locale(this.locale).format(this.dateFormat)
-        this.selected = `${start} - ${end}`
+        this.$nextTick(() => { this.selected = `${start} - ${end}` })
       } else {
-        this.selected = moment(obj.date).locale(this.locale).format(this.dateFormat)
+        this.$nextTick(() => {
+          this.selected = moment(obj.date).locale(this.locale).format(this.dateFormat)
+        })
       }
     },
 
@@ -259,6 +261,21 @@ export default {
     this.$refs.calendar.$on('dateChanged', this.setSelectedDate)
   },
   watch: {
+    selectedDate (date) {
+      this.selectedDate = date
+      this.checkSelectedDate()
+    },
+
+    startDate (date) {
+      this.startDate = date
+      this.checkSelectedDate()
+    },
+
+    endDate (date) {
+      this.endDate = date
+      this.checkSelectedDate()
+    },
+
     customStyle () {
       this.getStyle()
     }

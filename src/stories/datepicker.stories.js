@@ -9,6 +9,8 @@ import { storiesOf } from '@storybook/vue'
   arrow-icon-source="https://simpleicons.org/icons/node-dot-js.svg"
   arrow-icon-size="30px"
   selected-date="2019-04-04"
+  start-date="2019-04-04"
+  end-date="2019-04-05"
   date-format="DD MMMM YYYY"
   month-format="MMMM"
   day-format="ddd"
@@ -28,13 +30,12 @@ storiesOf('Datepicker', module)
       `
       <div style="width: 260px;">
         <ltd-datepicker
-          start-date="2019-04-04"
-          end-date="2019-04-05"
+          selected-date="2019-04-04"
           date-format="DD MMMM YYYY"
           month-format="MMMM"
           day-format="ddd"
           locale="en"
-          range
+
           future-selection
         ></ltd-datepicker>
       </div>
@@ -42,12 +43,12 @@ storiesOf('Datepicker', module)
     mounted () {
       [this.el] = document.getElementsByTagName('ltd-datepicker')
       this.el.addEventListener('dateChanged', this.onSetCalendarDate, false)
-      // const today = new Date()
-      // const to = today.toISOString().slice(0, 10)
-      // const from = new Date(today.setDate(today.getDate() - 6)).toISOString().slice(0, 10)
-      // this.el.selectableRange = [from, to]
+      const today = new Date()
+      const to = today.toISOString().slice(0, 10)
+      const from = new Date(today.setDate(today.getDate() - 6)).toISOString().slice(0, 10)
+      this.el.selectableRange = [from, to]
 
-      // setTimeout(() => { this.el.selectedDate = to }, 2000)
+      setTimeout(() => { this.el.selectedDate = to }, 2000)
     },
     beforeDestroyed () { },
     methods: {

@@ -17,7 +17,7 @@
   </div>
   <div class="months">
     <div class="month" v-for="n in 12">
-      <button @click="setMonth(n)">{{ getMonth(n) }}</button>
+      <button @click="setMonth(n)" :key="getMonth(n)">{{ getMonth(n) }}</button>
     </div>
   </div>
   <div class="footer">
