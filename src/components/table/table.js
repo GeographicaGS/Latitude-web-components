@@ -66,6 +66,14 @@ export default {
       required: false
     },
     /**
+     * Pagination input placeholder
+     */
+    paginationInputPlaceholder: {
+      type: String,
+      default: 'go to',
+      required: false
+    },
+    /**
      * If specified, the table rows will be clickable
      */
     clickable: {

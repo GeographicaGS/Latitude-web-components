@@ -28,6 +28,7 @@
         <input type="text" 
           ref="inputElement"
           :class="{ 'visible': input }"
+          :placeholder="inputPlaceholder"
           @keyup.enter="setItem($event.target.value)"
           @blur="input = false">
       </div>

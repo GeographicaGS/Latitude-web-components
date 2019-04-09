@@ -38,6 +38,14 @@ export default {
       type: String,
       default: '<items>',
       required: false
+    },
+    /**
+     * Pagination input placeholder
+     */
+    inputPlaceholder: {
+      type: String,
+      default: 'go to',
+      required: false
     }
   },
   data () {

@@ -76,6 +76,7 @@ storiesOf('Table', module)
       <div>
         <ltd-table 
           pagination-placeholder="elements"
+          pagination-input-placeholder="go to element..."
           pagination
           items-per-page="4"
           filter
