@@ -47,8 +47,25 @@ export default {
       input: false
     }
   },
-  computed: {},
+  computed: {
+    totalPages () {
+      return Math.ceil(this.items.length / this.itemsPerPage)
+    }
+  },
   methods: {
+    /**
+     * Returns the Array of items to show
+     *
+     * @param {Number} item - the item we want
+     */
+    setItem (item) {
+      const page = Math.ceil(item / this.itemsPerPage)
+      this.pager = paginate(this.items.length, page, this.itemsPerPage)
+      const items = this.items.slice(this.pager.startIndex, this.pager.endIndex + 1)
+      this.$emit('change', items)
+      this.input = false
+    },
+
     /**
      * Returns the Array of items to show
      *

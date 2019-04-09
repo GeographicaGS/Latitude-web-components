@@ -1,8 +1,22 @@
 /**
  *  Pagination style file
  **/
+$font-family: var(--font-family, 'Helvetica Nue', helvetica, sans-serif);
+$pagination-width: var(--pagination-width, 100%);
+$pagination-height: var(--pagination-height, 60px);
+$pagination-border: var(--pagination-border, 1px solid #BBBCBC);
+$pagination-font-size: var(--pagination-font-size, 12px);
+$pagination-font-weight: var(--pagination-font-weight, 400);
+$pagination-input-size: var(--pagination-input-size, 120px);
+$pagination-buttons-margin: var(--pagination-buttons-margin, 0);
+$pagination-buttons-size: var(--pagination-buttons-size, 30px);
+$pagination-buttons-border-radius: var(--pagination-buttons-border-radius, 3px);
+$pagination-text-padding: var(--pagination-text-padding, 6px);
+$pagination-text-background-hover: var(--pagination-text-background-hover, #f9f9f9);
+$pagination-input-border: var(--pagination-input-border, 1px solid #cccccc);
 
 .ltd-pagination-container {
+  box-sizing: border-box;
   width: 100%;
   
   .pagination {
@@ -11,41 +25,68 @@
     justify-content: center;
     align-items: center;
     position: sticky;
-    width: 100%;
-    height: 60px;
+    width: $pagination-width;
+    height: $pagination-height;
     margin: 0;
     padding: 0;
-    border-top: 1px solid #BBBCBC;
+    border-top: $pagination-border;
     box-sizing: border-box;
       
     li {
-      font-size: 12px;
-      margin-right: 10px;
-      
-      p {
-        font-size: 12px;
-        margin: 0;
+      margin-right: $pagination-buttons-margin;
+        
+      .page {
+        width: $pagination-input-size;
+        
+        p {
+          box-sizing: border-box;
+          font-family: $font-family;
+          text-align: center;
+          font-size: $pagination-font-size;
+          font-weight: $pagination-font-weight;
+          margin: 0;
+          padding: $pagination-text-padding;
+          border-radius: $pagination-buttons-border-radius;
+          transition: background-color 0.25s ease;
+          cursor: pointer;
 
-        .page {
-          width: 20px;
+          &.hidden { display: none; }
 
-          span.hidden {
-            display: none;
-          }
+          &:hover { background-color: $pagination-text-background-hover; }
+        }
 
-          input {
-            width: 18px;
-            display: none;
 
-            &.visible { display: inline; }
-          }
+        input {
+          box-sizing: border-box;
+          outline: none;
+          border: $pagination-input-border;
+          width: 100%;
+          padding: $pagination-text-padding;
+          border-radius: $pagination-buttons-border-radius;
+          text-align: center;
+          display: none;
+
+          &.visible { display: inline; }
         }
       }
       
       button {
-        color: #53565A;
-        background-color: #EEEEEE;
+        outline: none;
+        border: none;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        width: $pagination-buttons-size;
+        height: $pagination-buttons-size;
+        background: none;
         cursor: pointer;
+
+        &.first,
+        &.prev {
+          transform-origin: center;
+          transform: rotate(180deg);
+        }
       }
 
       &.disabled button {
@@ -53,6 +94,5 @@
         pointer-events: none;
       }
     }
-    
   }
 }
