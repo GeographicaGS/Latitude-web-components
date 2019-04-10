@@ -76,11 +76,12 @@ storiesOf('Table', module)
       <div>
         <ltd-table 
           pagination-placeholder="elements"
+          pagination-input-placeholder="go to element..."
           pagination
           items-per-page="4"
           filter
           clickable
-          nodata-message="No hay datos">
+          nodata-message="There is no data for that search..">
         </ltd-table>
       </div>
     `,
@@ -158,7 +159,7 @@ storiesOf('Table', module)
             occupation: 'Senior Engineer'
           }
         ]
-
+        this.el.visibleColumns = this.columns
         this.el.items = tabledata2
       }, 2000)
     },
