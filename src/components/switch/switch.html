@@ -9,5 +9,5 @@
       <slot name="close" v-if="currentState === false"></slot>
     </transition>
   </span>
-  <span class="label" v-if="label">{{ label }}</span>
+  <span :class="getLabelClasses" v-if="label">{{ label }}</span>
 </div>
