@@ -101,6 +101,21 @@ export default {
       type: Array,
       default: undefined,
       required: false
+    },
+    /**
+     * Source for an arrow icon
+     * */
+    arrowIconSource: {
+      type: String,
+      required: false
+    },
+    /**
+     * Arrow icon size
+     * */
+    arrowIconSize: {
+      type: String,
+      default: '20px',
+      required: false
     }
   },
   data () {
