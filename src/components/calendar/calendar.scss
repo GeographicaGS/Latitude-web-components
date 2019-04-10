@@ -6,14 +6,19 @@ $calendar-color: var(--calendar-color, #53565A);
 $calendar-background-color: var(--calendar-background-color, white);
 $calendar-padding: var(--calendar-padding, 10px);
 $calendar-heading-height: var(--calendar-heading-height, 40px);
+$calendar-heading-font-size: var(--calendar-heading-font-size, 16px);
+$calendar-heading-font-weight: var(--calendar-heading-font-weight, 400);
+$calendar-heading-color: var(--calendar-heading-color, #53565A);
 $calendar-border: var(--calendar-border, 1px solid #FAF9F8);
 $calendar-border-radius: var(--calendar-border-radius, 4px);
 $calendar-header-height: var(--calendar-header-height, 20px);
 $calendar-header-font-size: var(--calendar-header-font-size, 12px);
 $calendar-header-font-weight: var(--calendar-header-font-weight, 400);
 $calendar-arrow-icon: var(--calendar-arrow-icon, 'icon-arrow');
-$calendar-arrow-icon-fill: var(--calendar-arrow-icon-fill, #999999);
-$calendar-arrow-icon-fill-hover: var(--calendar-arrow-icon-fill-hover, #53565A);
+$calendar-arrow-icon-fill: var(--calendar-arrow-icon-fill, #53565A);
+$calendar-arrow-icon-fill-hover: var(--calendar-arrow-icon-fill-hover, #696969);
+$calendar-days-header-color: var(--calendar-days-header-color, #53565A);
+$calendar-days-header-background-color: var(--calendar-days-header-background-color, transparent);
 $calendar-day-color: var(--calendar-day-color, #999999);
 $calendar-day-font-size: var(--calendar-day-font-size, 14px);
 $calendar-day-background-color: var(--calendar-day-background-color, #FAF9F8);
@@ -22,6 +27,10 @@ $calendar-day-active-background-color: var(--calendar-day-active-background-colo
 $calendar-day-active-border-color: var(--calendar-day-active-border-color, #00c6d7);
 $calendar-day-selected-background-color: var(--calendar-day-selected-background-color, #00ff99);
 $calendar-day-selected-ends-background-color: var(--calendar-day-selected-ends-background-color, darken(#00ff99, 5%));
+$calendar-month-selector-button-background: var(--calendar-month-selector-button-background, #FAF9F8);
+$calendar-month-selector-button-color: var(--calendar-month-selector-button-color, #53565A);
+$calendar-month-selector-button-font-size: var(--calendar-month-selector-button-font-size, 14px);
+$calendar-month-selector-button-font-weight: var(--calendar-month-selector-button-font-weight, 400);
 
 .ltd-calendar-container {
   box-sizing: border-box;
@@ -29,7 +38,6 @@ $calendar-day-selected-ends-background-color: var(--calendar-day-selected-ends-b
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   color: $calendar-color;
-  
   position: relative;
   width: 100%;
   height: auto;

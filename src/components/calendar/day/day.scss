@@ -5,14 +5,17 @@
  @import '../calendar.scss';
 
 .ltd-day-container {
+  display: flex;
+  flex-direction: column;
   padding: 1px;
   box-sizing: border-box;
 
-  div {
+  .day {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1 1 auto;
     width: 100%;
     height: 100%;
     font-size: 14px;
