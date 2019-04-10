@@ -202,7 +202,13 @@ export default {
     this.setItems()
   },
   watch: {
-    items () {
+    items (value) {
+      this.items = value
+      this.setItems()
+    },
+
+    visibleColumns (value) {
+      this.visibleColumns = value
       this.setItems()
     },
 

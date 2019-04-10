@@ -61,6 +61,10 @@ export default {
     }
   },
   methods: {
+    onRadiosChange () {
+      this.$emit('change', this.selectedValue)
+    },
+
     /**
      * Gets custom styles
      */
@@ -90,6 +94,9 @@ export default {
         }).join(';')
       }`
     }
+  },
+  mounted () {
+    // this.$on('change', this.onRadiosChange)
   },
   watch: {
     model (model) {

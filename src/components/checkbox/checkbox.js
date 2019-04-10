@@ -22,12 +22,6 @@ export default {
       default: false
     },
     /**
-     * Label for the checkbox
-     */
-    label: {
-      type: [String, Number]
-    },
-    /**
      * If true, the switch is disabled
      */
     disabled: {
@@ -44,8 +38,7 @@ export default {
   data () {
     return {
       model: [],
-      currentState: this.state,
-      showSlot: true
+      currentState: this.state
     }
   },
   computed: {
@@ -66,20 +59,14 @@ export default {
     }
   },
   mounted () {
-    this.showSlot = this.$slots.default !== undefined
     this.updateState()
   },
   methods: {
     onChange (event) {
-      console.log('entra')
-
       if (this.disabled) { return false }
       const checked = event.target.checked
       this.currentState = checked
-      this.$emit('input', checked)
       this.$emit('change', checked)
-
-      // TODO: if group
     },
 
     updateState () {
