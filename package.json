@@ -11,6 +11,10 @@
     "styleguide": "vue-cli-service styleguidist",
     "styleguide:build": "vue-cli-service styleguidist:build"
   },
+  "peerDependencies": {
+    "moment": "^2.24.0",
+    "vue": "^2.6.6"
+  },
   "dependencies": {
     "moment": "^2.24.0",
     "vue": "^2.6.6"
