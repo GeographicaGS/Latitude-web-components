@@ -52,7 +52,7 @@ export default {
     getClasses () {
       return {
         'ltd-checkbox-container': true,
-        'checked': this.currentState === true,
+        'checked': this.currentState,
         'disabled': this.disabled
       }
     },
@@ -60,7 +60,7 @@ export default {
     getCheckboxClasses () {
       return {
         'checkbox': true,
-        'checked': this.currentState === true,
+        'checked': this.currentState,
         'disabled': this.disabled
       }
     }
@@ -71,8 +71,6 @@ export default {
   },
   methods: {
     onChange (event) {
-      console.log('entra')
-
       if (this.disabled) { return false }
       const checked = event.target.checked
       this.currentState = checked

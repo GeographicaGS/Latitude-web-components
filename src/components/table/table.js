@@ -1,4 +1,4 @@
-import Pagination from '../pagination/index'
+import Pagination from '@/components/pagination'
 
 /**
  *  Table script file

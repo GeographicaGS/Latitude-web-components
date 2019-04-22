@@ -1,7 +1,7 @@
 <!-- Days template file -->
 <div class="ltd-days-container">
   <div class="header">
-    <span v-for="n in 7" id="n" class="label">
+    <span v-for="n in 7" :key="n" id="n" class="label">
       {{ getLabel(n) }}
     </span>
   </div>

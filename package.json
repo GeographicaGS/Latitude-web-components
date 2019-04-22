@@ -16,6 +16,7 @@
     "package.json",
     "./**/*.md"
   ],
+  "license": "MIT",
   "peerDependencies": {
     "moment": "^2.24.0",
     "vue": "^2.6.6"
