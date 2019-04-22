@@ -2,20 +2,21 @@
  *  Days style file
 **/
 
-@import '~@/styles/main.scss';
+@import '../calendar.scss';
 
 .ltd-days-container {
   .header {
     height: $calendar-header-height;
     margin-bottom: $calendar-padding;
     padding: 0 $calendar-padding 0 $calendar-padding;
-    background-color: white;
+    background-color: $calendar-days-header-background-color;
 
     .label {
       position: relative;
       display: inline-block;
       width: calc(100% / 7);
       font-size: $calendar-header-font-size;
+      color: $calendar-days-header-color;
       font-weight: $calendar-header-font-weight;
       text-align: center;
     }

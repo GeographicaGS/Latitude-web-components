@@ -22,6 +22,15 @@ export default {
       type: String,
       default: 'en',
       required: false
+    },
+    arrowIconSource: {
+      type: String,
+      required: false
+    },
+    arrowIconSize: {
+      type: String,
+      default: '20px',
+      required: false
     }
   },
   data () {

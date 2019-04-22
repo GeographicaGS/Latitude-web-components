@@ -1,22 +1,53 @@
 /**
  *  Table style file
-**/
-
-@import '~@/styles/main.scss';
+ **/
+$font-family: var(--font-family, 'Helvetica Nue', helvetica, sans-serif);
+$table-background-color: var(--table-background-color, white);
+$table-border: var(--table-border, 1px);
+$table-border-color: var(--table-border-color, #F1F1F2);
+$table-header-height: var(--table-header-height, 40px);
+$table-header-padding: var(--table-header-padding, 20px);
+$table-header-border: var(--table-header-border, 1px);
+$table-header-border-color: var(--table-header-border-color, #BBBCBC);
+$table-header-color: var(--table-header-color, #999999);
+$table-header-font-size: var(--table-header-font-size, 12px);
+$table-header-font-weight: var(--table-header-font-weight, 600);
+$table-header-text-transform: var(--table-header-text-transform, capitalize);
+$table-header-selected-color: var(--table-header-selected-color, #333333);
+$table-header-arrow-icon-size: var(--table-header-arrow-icon-size, 4px);
+$table-header-arrow-icon-color: var(--table-header-arrow-icon-color, #333333);
+$table-body-background-color: var(--table-body-background-color, white);
+$table-body-row-height: var(--table-body-row-height, 60px);
+$table-body-row-background-color: var(--table-body-row-background-color, white);
+$table-body-row-background-color-hover: var(--table-body-row-background-color-hover, #FAF9F8);
+$table-body-row-border: var(--table-body-row-border, 1px);
+$table-body-row-border-color: var(--table-body-row-border-color, #EEEEEE);
+$table-body-cell-padding: var(--table-body-cell-padding, 22px 20px);
+$table-body-cell-font-size: var(--table-body-cell-font-size, 14px);
+$table-body-cell-color: var(--table-body-cell-color, #222222);
+$table-nodata-color: var(--table-nodata-color, #222222);
+$table-nodata-font-size: var(--table-nodata-font-size, 14px);
+$table-nodata-font-weight: var(--table-nodata-font-weight, 600);
+$table-nodata-padding: var(--table-nodata-padding, 0 20px);
+$table-filter-width: var(--table-filter-width, 100%);
+$table-filter-margin-bottom: var(--table-filter-margin-bottom, 20px);
+$table-filter-padding: var(--table-filter-padding, 0 6px);
+$table-filter-input-padding: var(--table-filter-input-padding, 2px 6px);
+$table-filter-font-size: var(--table-filter-font-size, 14px);
+$table-filter-color: var(--table-filter-color, #888B8D);
+$table-filter-border: var(--table-filter-border, 1px solid #EEEEEE);
 
 .ltd-table-container {
-  $arrow-icon-size: 4px;
-
-  font-family: 'Helvetica Nue', helvetica, sans-serif; 
+  font-family: $font-family; 
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 
   .table {
-    display: grid;  // NOTE: for table scroll
+    display: grid;
     grid-template-rows: auto 1fr;  // NOTE: for table scroll
     width: 100%;
-    background-color: $colorWhite;
-    border: 1px solid $colorN10;
+    background-color: $table-background-color;
+    border: $table-border solid $table-border-color;
 
     box-sizing: border-box;
   }
@@ -27,9 +58,8 @@
     grid-auto-rows: min-content;
     grid-auto-columns: min-content;
     grid-template-columns: repeat(auto-fit, minmax(1px, 1fr));
-    // grid-template-columns: repeat(var(--table-columns), 1fr);
-    grid-template-rows: 40px;
-    border-bottom: 1px solid $colorN30;
+    grid-template-rows: $table-header-height;
+    border-bottom: $table-header-border solid $table-header-border-color;
     
     .table-cell {
       box-sizing: border-box;
@@ -37,11 +67,11 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
-      padding: 0 20px;
-      font-size: 12px;
-      color: $colorN50;
-      font-weight: 600;
-      text-transform: capitalize;
+      padding: 0 $table-header-padding;
+      font-size: $table-header-font-size;
+      color: $table-header-color;
+      font-weight: $table-header-font-weight;
+      text-transform: $table-header-text-transform;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -51,29 +81,29 @@
       &:last-child { 
         flex-direction: row-reverse;
         
-        .arrow { margin-right: $arrow-icon-size; }
+        .arrow { margin-right: $table-header-arrow-icon-size; }
       }
 
       &.selected {
-        color: $colorN90; 
+        color: $table-header-selected-color; 
 
         .arrow { opacity: 1; }
 
         &.order .arrow {
           display: inline;
-          border-width: 0 calc(#{ $arrow-icon-size } - 1px) $arrow-icon-size calc(#{ $arrow-icon-size } - 1px);
-          border-color: transparent transparent $colorN90 transparent;    
+          border-width: 0 calc(#{ $table-header-arrow-icon-size } - 1px) $table-header-arrow-icon-size calc(#{ $table-header-arrow-icon-size } - 1px);
+          border-color: transparent transparent $table-header-arrow-icon-color transparent;    
         }
       }
 
       .arrow {
         position: relative;
-        margin-left: $arrow-icon-size;
+        margin-left: $table-header-arrow-icon-size;
         width: 0;
         height: 0;
         border-style: solid;
-        border-width: $arrow-icon-size calc(#{ $arrow-icon-size } - 1px) 0 calc(#{ $arrow-icon-size } - 1px);
-        border-color: $colorN90 transparent transparent transparent;
+        border-width: $table-header-arrow-icon-size calc(#{ $table-header-arrow-icon-size } - 1px) 0 calc(#{ $table-header-arrow-icon-size } - 1px);
+        border-color: $table-header-arrow-icon-color transparent transparent transparent;
         opacity: 0;
       }
     }
@@ -82,7 +112,7 @@
   .table-body {
     display: grid;
     grid-row-gap: 0;
-    background-color: $colorWhite;
+    background-color: $table-body-background-color;
     overflow: auto;
     
     .table-row {
@@ -90,22 +120,22 @@
       grid-auto-rows: min-content;
       grid-auto-columns: min-content;
       grid-template-columns: repeat(auto-fit, minmax(1px, 1fr));
-      // grid-template-columns: repeat(var(--table-columns), 1fr);
-      grid-template-rows: 60px;
+      grid-template-rows: $table-body-row-height;
       align-items: center;
-      background-color: $colorWhite;
-      border-bottom: 1px solid $colorN15;
+      background-color: $table-body-row-background-color;
+      border-bottom: $table-body-row-border solid $table-body-row-border-color;
       transition: background-color 0.25s ease;
   
-      &:hover { background-color: $colorN05; }
+      &:hover { background-color: $table-body-row-background-color-hover; }
 
       &.clickable { cursor: pointer; }
       
       .table-cell {
         box-sizing: border-box;
         height: 100%;
-        padding: 22px 20px;
-        font-size: 14px;
+        padding: $table-body-cell-padding;
+        color: $table-body-cell-color;
+        font-size: $table-body-cell-font-size;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;  
@@ -121,23 +151,27 @@
       grid-template-columns: 1fr;
       grid-template-rows: 60px;
       align-items: center;
-      padding: 0 20px;
-      font-size: 14px;
+      padding: $table-nodata-padding;
+      color: $table-nodata-color;
+      font-size: $table-nodata-font-size;
+      font-weight: $table-nodata-font-weight;
       white-space: nowrap;
     }
   }
 
   .filter {
-    width: 100%;
-    margin-bottom: 20px;
-    padding: 0 6px;
+    width: $table-filter-width;
+    margin-bottom: $table-filter-margin-bottom;
+    padding: $table-filter-padding;
     box-sizing: border-box;
 
     input {
-      padding: 2px 6px;
-      font-size: 14px;
-      color: $colorN60;
-      border-bottom: 1px solid $colorN15; 
+      outline: none;
+      border: none;
+      padding: $table-filter-input-padding;
+      font-size: $table-filter-font-size;
+      color: $table-filter-color;
+      border-bottom: $table-filter-border; 
     }
   }
 }

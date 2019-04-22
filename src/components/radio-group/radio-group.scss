@@ -1,0 +1,19 @@
+/**
+ *  RadioGroup style file
+ **/
+$horizontal-radio-margin: var(--horizontal-radio-margin, 10px);
+$vertical-radio-margin: var(--vertical-radio-margin, 10px);
+
+.ltd-radio-group-container {
+  display: flex;
+  flex-direction: row;
+  
+
+  .ltd-radio-container { margin-right: $horizontal-radio-margin; }
+  
+  &.vertical { 
+    flex-direction: column; 
+    
+    .ltd-radio-container { margin-bottom: $vertical-radio-margin; }
+  }
+}

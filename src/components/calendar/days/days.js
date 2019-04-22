@@ -100,7 +100,7 @@ export default {
     },
 
     getLabel (i) {
-      const day = this.locale === 'en' ? i + 1 : i // NOTE: ugly and inconsistent
+      const day = this.locale === 'en' ? i : i - 1 // NOTE: ugly and inconsistent
       return moment().locale(this.locale).weekday(day).format(this.dayFormat)
     },
 
@@ -161,9 +161,11 @@ export default {
     date () {
       this.setMonthDays()
     },
+
     startDate () {
       this.setMonthDays()
     },
+
     endDate () {
       this.setMonthDays()
     }

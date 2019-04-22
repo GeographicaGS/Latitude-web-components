@@ -1,0 +1,11 @@
+<!-- RadioGroup template file -->
+<div :class="getClasses">
+  <ltd-radio 
+    v-for="(option, id) in options" 
+    :key="id"
+    :name="name" 
+    :label="option.label" 
+    :rvalue="option.value"
+    :value="selectedValue"
+    :disabled="option.disabled" />
+</div>

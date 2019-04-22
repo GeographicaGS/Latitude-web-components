@@ -1,0 +1,103 @@
+/**
+ *  Datepicker style file
+ **/
+
+$font-family: var(--font-family, 'Helvetica Nue', helvetica, sans-serif);
+$datepicker-font-size: var(--datepicker-font-size, 13px);
+$datepicker-color: var(--datepicker-color, #53565A);
+$datepicker-font-weight: var(--datepicker-font-weight, 400);
+$datepicker-trigger-height: var(--datepicker-trigger-height, 30px);
+$datepicker-trigger-flex-direction: var(--datepicker-trigger-flex-direction, row);
+$datepicker-trigger-label-marging: var(--datepicker-trigger-label-marging, 8px);
+$datepicker-trigger-padding: var(--datepicker-trigger-padding, 6px);
+$datepicker-trigger-background-color: var(--datepicker-trigger-background-color, white);
+$datepicker-trigger-border: var(--datepicker-trigger-border, 1px solid #FAF9F8);
+$datepicker-trigger-border-radius: var(--datepicker-trigger-border-radius, 4px);
+$datepicker-trigger-vr-width: var(--datepicker-trigger-vr-width, 1px);
+$datepicker-trigger-vr-color: var(--datepicker-trigger-vr-color, #FAF9F8);
+$datepicker-trigger-calendar-icon-fill: var(--datepicker-trigger-calendar-icon-fill, #53565A);
+$datepicker-trigger-arrow-icon-fill: var(--datepicker-trigger-arrow-icon-fill, #53565A);
+$datepicker-marging: var(--datepicker-marging, 6px);
+
+.ltd-datepicker-container {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: auto;
+
+  .trigger {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: $datepicker-trigger-flex-direction;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: $datepicker-trigger-height;
+    margin-bottom: $datepicker-marging; 
+    padding: 0 $datepicker-trigger-padding;
+    background-color: $datepicker-trigger-background-color;
+    border: $datepicker-trigger-border;
+    border-radius: $datepicker-trigger-border-radius;
+    cursor: pointer;
+
+    &.expanded .arrow { transform: rotate(-180deg); }
+
+    .date {
+      display: flex;
+      align-items: center;
+      max-width: calc(100% - 20px);
+
+      .icon-wrapper {
+        display: flex;
+        
+        &:before {
+          content: '';
+          position: absolute;
+          width: $datepicker-trigger-vr-width;
+          height: 100%;
+          right: calc(#{ $datepicker-trigger-label-marging } * -1);
+          background-color: $datepicker-trigger-vr-color;
+        }
+
+        svg { fill: $datepicker-trigger-calendar-icon-fill; }
+      }
+      
+      p {
+        margin: 0;
+        margin-left: calc(#{ $datepicker-trigger-label-marging } * 2);
+        font-family: $font-family;
+        font-size: $datepicker-font-size;
+        color: $datepicker-color;
+        font-weight: $datepicker-font-weight;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+    }
+
+    .arrow { 
+      transition: transform 0.25s ease; 
+      
+      svg { fill: $datepicker-trigger-arrow-icon-fill; }
+    }
+  }
+
+  * {
+    will-change: height;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+  
+  .expand-enter-active,
+  .expand-leave-active {
+    transition: height 0.25s ease-in-out;
+    overflow: hidden;
+  }
+
+  .expand-enter,
+  .expand-leave-to {
+    height: 0;
+  }
+}

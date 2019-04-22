@@ -76,18 +76,18 @@ storiesOf('Table', module)
       <div>
         <ltd-table 
           pagination-placeholder="elements"
+          pagination-input-placeholder="go to element..."
           pagination
           items-per-page="4"
           filter
           clickable
-          nodata-message="No hay datos">
+          nodata-message="There is no data for that search..">
         </ltd-table>
       </div>
     `,
     mounted () {
       [this.el] = document.getElementsByTagName('ltd-table')
       this.el.items = this.tabledata
-      // this.el.visibleColumns = this.columns
       this.el.addEventListener('select', this.onTableItemClick, false)
 
       setTimeout(() => {
@@ -159,7 +159,7 @@ storiesOf('Table', module)
             occupation: 'Senior Engineer'
           }
         ]
-
+        this.el.visibleColumns = this.columns
         this.el.items = tabledata2
       }, 2000)
     },
