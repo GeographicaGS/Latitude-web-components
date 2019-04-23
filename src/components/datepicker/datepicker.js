@@ -182,6 +182,8 @@ export default {
           this.selected = moment(obj.date).locale(this.locale).format(this.dateFormat)
         })
       }
+
+      this.$emit('dateChanged', obj)
     },
 
     checkSelectedDate () {

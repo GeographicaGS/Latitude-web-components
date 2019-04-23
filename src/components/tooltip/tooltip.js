@@ -17,6 +17,7 @@ export default {
      */
     text: {
       type: String,
+      default: '',
       required: true
     },
     /**
@@ -61,7 +62,6 @@ export default {
   },
   data () {
     return {
-      sto: undefined,
       tooltip: undefined
     }
   },
@@ -133,6 +133,10 @@ export default {
     this.$el.removeEventListener('mouseout', this.hide)
   },
   watch: {
+    text (value) {
+      this.text = value
+    },
+
     customStyle () {
       this.getStyle()
     }

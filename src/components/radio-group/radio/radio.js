@@ -40,6 +40,7 @@ export default {
       },
       set (value) {
         this.$emit('change', value)
+        this.$parent.$emit('change', value)
       }
     },
 
