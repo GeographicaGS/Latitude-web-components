@@ -140,3 +140,8 @@ To execute it.
 ```
 npm run styleguide:build
 ```
+
+### Add external dependencies
+For development, it is possible use external libraries. For better performance, the external libraries can not be merged in production building, so it is neccesary add them into external webpack config in `vue.config.js` and add them like **dependences** and **peerdependeces** in `package.json`.
+
+![Config](./src/assets/img/config.png)

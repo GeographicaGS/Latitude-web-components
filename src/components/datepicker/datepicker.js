@@ -1,8 +1,8 @@
 import moment from 'moment'
-import Calendar from '../calendar/index'
-import Icon from '../icon/index'
+import Calendar from '@/components/calendar'
+import Icon from '@/components/icon'
 // eslint-disable-next-line
-import { ClickOutside } from '../../directives'
+import { ClickOutside } from '@/directives'
 
 /**
  * Datepicker script file

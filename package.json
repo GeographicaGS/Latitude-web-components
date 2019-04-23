@@ -1,7 +1,6 @@
 {
   "name": "latitud-components",
   "version": "0.0.1",
-  "private": true,
   "scripts": {
     "build": "SHADOW_CSS=true vue-cli-service build --target wc --name ltd './src/components/**/*.vue'",
     "lint": "vue-cli-service lint",
@@ -10,6 +9,17 @@
     "storybook:build": "SHADOW_CSS=true vue-cli-service storybook:build -c config/storybook",
     "styleguide": "vue-cli-service styleguidist",
     "styleguide:build": "vue-cli-service styleguidist:build"
+  },
+  "main": "./dist/ltd.min.js",
+  "files": [
+    "./dist/**/*.js",
+    "package.json",
+    "./**/*.md"
+  ],
+  "license": "MIT",
+  "peerDependencies": {
+    "moment": "^2.24.0",
+    "vue": "^2.6.6"
   },
   "dependencies": {
     "moment": "^2.24.0",

@@ -16,7 +16,7 @@
     </button>
   </div>
   <div class="months">
-    <div class="month" v-for="n in 12">
+    <div class="month" v-for="n in 12" :key="n">
       <button @click="setMonth(n)" :key="getMonth(n)">{{ getMonth(n) }}</button>
     </div>
   </div>
