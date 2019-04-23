@@ -7,14 +7,16 @@
     "plop": "plop --plopfile plop/plopfile.js",
     "start": "SHADOW_CSS=true vue-cli-service storybook:serve -p 6006 -c config/storybook",
     "storybook:build": "SHADOW_CSS=true vue-cli-service storybook:build -c config/storybook",
+    "prepublish": "npm run build",
     "styleguide": "vue-cli-service styleguidist",
     "styleguide:build": "vue-cli-service styleguidist:build"
   },
   "main": "./dist/ltd.min.js",
   "files": [
-    "./dist/**/*.js",
+    "dist/**/*.min.js",
+    "dist/**/*.min.js.map",
     "package.json",
-    "./**/*.md"
+    "readme.md"
   ],
   "license": "MIT",
   "peerDependencies": {
