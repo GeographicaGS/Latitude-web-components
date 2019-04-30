@@ -56,3 +56,87 @@ const someDay = new Date(today.setDate(today.getDate() - 10)).toISOString().slic
   ></ltd-datepicker>
 </div>
 ```
+
+### Custom style
+
+**NOTE:** To style the **Calendar** component 
+
+The font family
+```scss
+$font-family: var(--font-family, 'Helvetica Nue', helvetica, sans-serif);
+```
+
+Font size
+```scss
+$datepicker-font-size: var(--datepicker-font-size, 13px);
+```
+
+Text color
+```scss
+$datepicker-color: var(--datepicker-color, #53565A);
+```
+
+Font weight
+```scss
+$datepicker-font-weight: var(--datepicker-font-weight, 400);
+```
+
+Triger height
+```scss
+$datepicker-trigger-height: var(--datepicker-trigger-height, 30px);
+```
+
+Trigger flex direction
+```scss
+$datepicker-trigger-flex-direction: var(--datepicker-trigger-flex-direction, row);
+```
+
+Trigger label margin
+```scss
+$datepicker-trigger-label-margin: var(--datepicker-trigger-label-margin, 8px);
+```
+
+Trigger padding
+```scss
+$datepicker-trigger-padding: var(--datepicker-trigger-padding, 6px);
+```
+
+Trigger background color
+```scss
+$datepicker-trigger-background-color: var(--datepicker-trigger-background-color, white);
+```
+
+Border
+```scss
+$datepicker-trigger-border: var(--datepicker-trigger-border, 1px solid #FAF9F8);
+```
+
+Border radius
+```scss
+$datepicker-trigger-border-radius: var(--datepicker-trigger-border-radius, 4px);
+```
+
+Width for the line which separates the icon from the value
+```scss
+$datepicker-trigger-vr-width: var(--datepicker-trigger-vr-width, 1px);
+```
+
+Color for the line which separates the icon from the value
+```scss
+$datepicker-trigger-vr-color: var(--datepicker-trigger-vr-color, #FAF9F8);
+```
+
+Calendar icon color
+```scss
+$datepicker-trigger-calendar-icon-fill: var(--datepicker-trigger-calendar-icon-fill, #53565A);
+```
+
+Arrow icon color
+```scss
+$datepicker-trigger-arrow-icon-fill: var(--datepicker-trigger-arrow-icon-fill, #53565A);
+```
+
+Margin
+```scss
+$datepicker-margin: var(--datepicker-margin, 6px);
+```
