@@ -4,10 +4,10 @@
 $font-family: var(--font-family, 'Helvetica Nue', helvetica, sans-serif);
 $radio-size: var(--radio-size, 12px);
 $radio-font-size: var(--radio-font-size, 12px);
-$radio-color: var(--radio-color, white);
+$radio-background-color: var(--radio-background-color, white);
 $radio-border-color: var(--radio-border-color, #888B8D);
 $radio-border-color-hover: var(--radio-border-color-hover, #53565A);
-$radio-color-checked: var(--radio-color-checked, #15b750);
+$radio-background-color-checked: var(--radio-background-color-checked, #15b750);
 $radio-border-color-checked: var(--radio-border-color-checked, #15b750);
 $radio-border-color-checked-hover: var(--radio-border-color-checked-hover, #39b185);
 $radio-icon-size: var(--radio-icon-size, 6px);
@@ -53,7 +53,7 @@ $radio-label-width: var(--radio-label-width, auto);
       left: 0;
       border: 1px solid $radio-border-color;
       border-radius: 50%;
-      background-color: $radio-color;
+      background-color: $radio-background-color;
       transition: border-color 0.2s ease-in-out, 
                   background-color 0.2s ease-in-out, 
                   box-shadow 0.2s ease-in-out;
@@ -101,7 +101,7 @@ $radio-label-width: var(--radio-label-width, auto);
 
       & + .inner {
         border-color: $radio-border-color-checked;
-        background-color: $radio-color-checked;
+        background-color: $radio-background-color-checked;
     
         &:after { transform: translate3d(-50%, -50%, 0) scale(1); }
       }

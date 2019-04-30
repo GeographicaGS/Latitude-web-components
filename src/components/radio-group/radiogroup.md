@@ -55,3 +55,75 @@ let state2 = 'light'
   :vertical="true">
 </ltd-radioGroup>
 ```
+
+### Custom styles
+
+The font family
+```scss
+$font-family: var(--font-family, 'Helvetica Nue', helvetica, sans-serif);
+```
+
+The radio size
+```scss
+$radio-size: var(--radio-size, 12px);
+```
+
+Font size
+```scss
+$radio-font-size: var(--radio-font-size, 12px);
+```
+
+Background color
+```scss
+$radio-background-color: var(--radio-background-color, white);
+```
+
+Border color
+```scss
+$radio-border-color: var(--radio-border-color, #888B8D);
+```
+
+Border color on hover
+```scss
+$radio-border-color-hover: var(--radio-border-color-hover, #53565A);
+```
+
+Border color checked
+```scss
+$radio-background-color-checked: var(--radio-background-color-checked, #15b750);
+```
+
+Border color checked
+```scss
+$radio-border-color-checked: var(--radio-border-color-checked, #15b750);
+```
+
+Border color checked hover
+```scss
+$radio-border-color-checked-hover: var(--radio-border-color-checked-hover, #39b185);
+```
+
+Icon size
+```scss
+$radio-icon-size: var(--radio-icon-size, 6px);
+```
+
+Icon color
+```scss
+$radio-icon-color: var(--radio-icon-color, white);
+```
+
+Label width
+```scss
+$radio-label-width: var(--radio-label-width, auto);
+```
+
+Horizontal margin between radios
+```scss
+$horizontal-radio-margin: var(--horizontal-radio-margin, 10px);
+```
+
+Vertical margin between radios
+```scss
+$vertical-radio-margin: var(--vertical-radio-margin, 10px);
+```

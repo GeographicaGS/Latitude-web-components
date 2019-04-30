@@ -2,6 +2,9 @@
 import { storiesOf } from '@storybook/vue'
 
 storiesOf('Icon', module)
+  .addParameters({
+    backgrounds: [{ name: 'light', value: '#eeeeee' }, { name: 'dark', value: '#222222', default: true }]
+  })
   .add('Simple icon', () => ({
     data () {
       return {
@@ -23,7 +26,7 @@ storiesOf('Icon', module)
         </ltd-icon>
       </div>
   `,
-    mounted () { },
+    mounted () {},
     beforeDestroyed () { },
     methods: {
       getSource (data) {
