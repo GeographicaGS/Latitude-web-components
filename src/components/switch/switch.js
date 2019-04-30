@@ -1,10 +1,14 @@
+import Icon from '../icon/index'
+
 /**
  * @version 1.0.0
  **/
 export default {
   name: 'LtdSwitch', // web-component: ltd-switch
   mixins: [],
-  components: {},
+  components: {
+    'ltd-icon': Icon
+  },
   props: {
     /**
      * Sets style
@@ -43,6 +47,15 @@ export default {
       type: String,
       default: '',
       required: false
+    },
+    /**
+     * label position
+     * TODO: validate
+     */
+    labelPosition: {
+      type: String,
+      default: 'right',
+      required: false
     }
   },
   data () {
@@ -56,6 +69,14 @@ export default {
         'ltd-switch-container': true,
         'checked': this.currentState === true,
         'disabled': this.disabled
+      }
+    },
+
+    getLabelClasses () {
+      return {
+        'label': true,
+        'left': this.labelPosition === 'left',
+        'right': this.labelPosition === 'right'
       }
     }
   },
@@ -111,6 +132,10 @@ export default {
         throw new Error('[ltd-switch] Error: The value should be true or false.')
       }
       this.currentState = val
+    },
+
+    customStyle () {
+      this.getStyle()
     }
   }
 }

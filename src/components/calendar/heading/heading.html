@@ -1,10 +1,16 @@
 <!-- Heading template file -->
 <div class="ltd-heading-container">
   <button class="prev" @click="previusMonth">
-    <!-- <ltd-icon icon="@/assets/icons/country.svg" size="20px"></ltd-icon> -->
+    <ltd-icon v-if="arrowIconSource" :icon="arrowIconSource" :size="arrowIconSize"></ltd-icon>
+    <svg v-else xmlns="http://www.w3.org/2000/svg" :width="arrowIconSize" :height="arrowIconSize" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M8 4L6.588 5.414 11.171 10l-4.587 4.587L8 16 14 10z"/>
+    </svg>
   </button>
   <button class="controls" @click="openMonths">{{ getMonth() }} {{ getYear() }}</button>
   <button class="next" @click="nextMonth">
-    <!-- <ltd-icon icon="@/assets/icons/country.svg" size="20px"></ltd-icon> -->
+    <ltd-icon v-if="arrowIconSource" :icon="arrowIconSource" :size="arrowIconSize"></ltd-icon>
+    <svg v-else xmlns="http://www.w3.org/2000/svg" :width="arrowIconSize" :height="arrowIconSize" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M8 4L6.588 5.414 11.171 10l-4.587 4.587L8 16 14 10z"/>
+    </svg>
   </button>
 </div>

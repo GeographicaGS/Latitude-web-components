@@ -2,16 +2,22 @@
 <div class="ltd-month-selector-container">
   <div class="heading">
     <button class="prev" @click="previusYear">
-      <!-- <app-icon icon="assets/img/icon-arrow" size="20px"></app-icon> -->
+      <ltd-icon v-if="arrowIconSource" :icon="arrowIconSource" :size="arrowIconSize"></ltd-icon>
+      <svg v-else xmlns="http://www.w3.org/2000/svg" :width="arrowIconSize" :height="arrowIconSize" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M8 4L6.588 5.414 11.171 10l-4.587 4.587L8 16 14 10z"/>
+      </svg>
     </button>
     <span>{{ getYear() }}</span>
     <button class="next" @click="nextYear">
-      <!-- <app-icon icon="assets/img/icon-arrow" size="20px"></app-icon> -->
+      <ltd-icon v-if="arrowIconSource" :icon="arrowIconSource" :size="arrowIconSize"></ltd-icon>
+      <svg v-else xmlns="http://www.w3.org/2000/svg" :width="arrowIconSize" :height="arrowIconSize" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M8 4L6.588 5.414 11.171 10l-4.587 4.587L8 16 14 10z"/>
+      </svg>
     </button>
   </div>
   <div class="months">
-    <div class="month" v-for="n in 12">
-      <button @click="setMonth(n)">{{ getMonth(n) }}</button>
+    <div class="month" v-for="n in 12" :key="n">
+      <button @click="setMonth(n)" :key="getMonth(n)">{{ getMonth(n) }}</button>
     </div>
   </div>
   <div class="footer">

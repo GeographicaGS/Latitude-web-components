@@ -1,4 +1,3 @@
-
 /**
  *  Radio script file
  **/
@@ -41,6 +40,7 @@ export default {
       },
       set (value) {
         this.$emit('change', value)
+        this.$parent.$emit('change', value)
       }
     },
 
@@ -87,6 +87,11 @@ export default {
           return `${key}: ${value}`
         }).join(';')
       }`
+    }
+  },
+  watch: {
+    customStyle () {
+      this.getStyle()
     }
   }
 }

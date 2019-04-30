@@ -29,11 +29,13 @@
       <div class="nodata" v-if="nodata">{{ nodataMessage }}</div>
     </div>
 
-    <ltd-pagination v-if="pagination"
+    <!-- V-SHOW instead V-IF to have the reference available  -->
+    <ltd-pagination v-show="pagination"
       ref="paginationComponent"
       :items="cached" 
       :items-per-page="itemsPerPage" 
       :placeholder="paginationPlaceholder"
+      :input-placeholder="paginationInputPlaceholder"
       @change="onChangePage">
     </ltd-pagination>
   </div>

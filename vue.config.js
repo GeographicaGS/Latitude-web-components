@@ -39,6 +39,11 @@ function enableShadowCss (config) {
 
 module.exports = {
   lintOnSave: false,
+  configureWebpack: {
+    externals: {
+      moment: 'moment'
+    }
+  },
   // https://cli.vuejs.org/guide/webpack.html#chaining-advanced
   chainWebpack: (config) => {
     enableShadowCss(config)

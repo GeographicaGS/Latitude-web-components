@@ -1,21 +1,9 @@
-import Pagination from '../pagination/index'
+import Pagination from '@/components/pagination'
 
 /**
  *  Table script file
  *
  *  @version 1.0.0
- *
- * <ltd-table
- *  items="array"
- *  visible-colummns="array"
- *  filter
- *  pagination
- *  items-per-page="number"
- *  pagination-placeholder="string"
- *  clickable
- *  @select="function"
- *  nodata-message="string">
- * </ltd-table>
  */
 
 export default {
@@ -75,6 +63,14 @@ export default {
     paginationPlaceholder: {
       type: String,
       default: 'elements',
+      required: false
+    },
+    /**
+     * Pagination input placeholder
+     */
+    paginationInputPlaceholder: {
+      type: String,
+      default: 'go to',
       required: false
     },
     /**
@@ -214,8 +210,18 @@ export default {
     this.setItems()
   },
   watch: {
-    items () {
+    items (value) {
+      this.items = value
       this.setItems()
+    },
+
+    visibleColumns (value) {
+      this.visibleColumns = value
+      this.setItems()
+    },
+
+    customStyle () {
+      this.getStyle()
     }
   }
 }

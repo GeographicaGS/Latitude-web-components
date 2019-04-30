@@ -1,10 +1,24 @@
 /**
  *  Pagination style file
  **/
-
-@import '~@/styles/main.scss';
+$font-family: var(--font-family, 'Helvetica Nue', helvetica, sans-serif);
+$pagination-width: var(--pagination-width, 100%);
+$pagination-height: var(--pagination-height, 60px);
+$pagination-border: var(--pagination-border, 1px solid #BBBCBC);
+$pagination-font-size: var(--pagination-font-size, 12px);
+$pagination-font-weight: var(--pagination-font-weight, 400);
+$pagination-input-size: var(--pagination-input-size, 120px);
+$pagination-buttons-margin: var(--pagination-buttons-margin, 4px);
+$pagination-buttons-size: var(--pagination-buttons-size, 30px);
+$pagination-button-background: var(--pagination-button-background, transparent);
+$pagination-button-background-hover: var(--pagination-button-background-hover, #f9f9f9);
+$pagination-buttons-border-radius: var(--pagination-buttons-border-radius, 3px);
+$pagination-text-padding: var(--pagination-text-padding, 6px);
+$pagination-text-background-hover: var(--pagination-text-background-hover, #f9f9f9);
+$pagination-input-border: var(--pagination-input-border, 1px solid #cccccc);
 
 .ltd-pagination-container {
+  box-sizing: border-box;
   width: 100%;
   
   .pagination {
@@ -13,41 +27,79 @@
     justify-content: center;
     align-items: center;
     position: sticky;
-    width: 100%;
-    height: 60px;
+    width: $pagination-width;
+    height: $pagination-height;
     margin: 0;
     padding: 0;
-    border-top: 1px solid $colorN30;
+    border-top: $pagination-border;
     box-sizing: border-box;
       
     li {
-      font-size: 12px;
-      margin-right: 10px;
-      
-      p {
-        font-size: 12px;
-        margin: 0;
+      margin-right: $pagination-buttons-margin;
+        
+      .page {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: $pagination-input-size;
+        height: $pagination-buttons-size;
+        border-radius: $pagination-buttons-border-radius;
+        transition: background-color 0.25s ease;
 
-        .page {
-          width: 20px;
+        &:hover { background-color: $pagination-text-background-hover; }
+        
+        p {
+          box-sizing: border-box;
+          display: flex;
+          font-family: $font-family;
+          text-align: center;
+          font-size: $pagination-font-size;
+          font-weight: $pagination-font-weight;
+          margin: 0;
+          padding: 0 $pagination-text-padding;
+          cursor: pointer;
 
-          span.hidden {
-            display: none;
-          }
+          &.hidden { display: none; }
+        }
 
-          input {
-            width: 18px;
-            display: none;
 
-            &.visible { display: inline; }
-          }
+        input {
+          box-sizing: border-box;
+          outline: none;
+          border: $pagination-input-border;
+          width: 100%;
+          height: 100%;
+          padding: $pagination-text-padding;
+          border-radius: $pagination-buttons-border-radius;
+          text-align: center;
+          display: none;
+
+          &.visible { display: inline; }
         }
       }
       
       button {
-        color: $colorN80;
-        background-color: $colorN15;
+        outline: none;
+        border: none;
+        display: flex;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        width: $pagination-buttons-size;
+        height: $pagination-buttons-size;
+        background: $pagination-button-background;
+        border-radius: $pagination-buttons-border-radius;
+        transition: background-color 0.25s ease;
         cursor: pointer;
+        
+        &:hover { background-color: $pagination-button-background-hover; }
+
+        &.first,
+        &.prev {
+          transform-origin: center;
+          transform: rotate(180deg);
+        }
       }
 
       &.disabled button {
@@ -55,6 +107,5 @@
         pointer-events: none;
       }
     }
-    
   }
 }

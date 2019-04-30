@@ -12,23 +12,29 @@ storiesOf('Switch', module)
       `
       <div>
         <p>Simple switch</p>
-        <ltd-switch name="simple" @change="onSwitchChange" label="label"></ltd-switch>
+        <ltd-switch name="simple" @change="onSwitchChange"></ltd-switch>
         <br/>
         <p>Switch with text</p>
         <ltd-switch name="text" @change="onSwitchChange">
           <span slot="open">O</span>
-          <span slot="close">C</span>
+          <span slot="close">O</span>
         </ltd-switch>
         <br/>
         <p>Switch with icons</p>
         <ltd-switch name="icons" @change="onSwitchChange">
           <i slot="open">
-            <ltd-icon :icon="getSource('icons/country.svg')" size="16px"></ltd-icon>
+            <ltd-icon icon="https://simpleicons.org/icons/node-dot-js.svg" fill="#ff0000" size="14px"></ltd-icon>
           </i>
           <i slot="close">
-            <ltd-icon :icon="getSource('icons/notification.svg')" size="16px"></ltd-icon>
+            <ltd-icon icon="https://simpleicons.org/icons/node-dot-js.svg" fill="#006666" size="14px"></ltd-icon>
           </i>
         </ltd-switch>
+        <br/>
+        <p>Switch with labels</p>
+        <ltd-switch name="simple" @change="onSwitchChange" label="label"></ltd-switch>
+        <div style="margin-left: 50px;">
+          <ltd-switch name="simple" @change="onSwitchChange" label="label" label-position="left"></ltd-switch>
+        </div>
         <br/>
         <p>Disabled switchs</p>
         <ltd-switch disabled></ltd-switch>
@@ -45,6 +51,11 @@ storiesOf('Switch', module)
         console.log(value.detail[0])
       },
 
+      /**
+       * @param {*} data
+       *
+       * @use getSource('icons/country.svg')
+       */
       getSource (data) {
         const context = require.context('@/assets/', true, /.svg/)
         const icon = context(`./${data}`)

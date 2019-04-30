@@ -4,15 +4,6 @@ import Radio from './radio/index'
  *  RadioGroup script file
  *
  * @version 1.0.0
- *
- * @usage
- *
- * <ltd-radio-group
- *  options="Array"
- *  model="String, Boolean, Number"
- *  @change="Funtion"
- *  vertical="Boolean">
- * </ltd-radio-group>
  **/
 export default {
   name: 'LtdRadioGroup', // web-component: ltd-radioGroup
@@ -70,6 +61,10 @@ export default {
     }
   },
   methods: {
+    onRadiosChange () {
+      this.$emit('change', this.selectedValue)
+    },
+
     /**
      * Gets custom styles
      */
@@ -100,9 +95,16 @@ export default {
       }`
     }
   },
+  mounted () {
+    // this.$on('change', this.onRadiosChange)
+  },
   watch: {
     model (model) {
       this.selectedValue = model
+    },
+
+    customStyle () {
+      this.getStyle()
     }
   }
 }

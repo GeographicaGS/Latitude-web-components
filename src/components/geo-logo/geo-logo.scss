@@ -1,8 +1,10 @@
 /**
  *  GeoLogo style file
-**/
-
-@import '~@/styles/main.scss';
+ **/
+$font-family: var(--font-family, 'Helvetica Nue', helvetica, sans-serif);
+$geo-font-size: var(--geo-font-size, 11px);
+$geo-color: var(--geo-color, #15b750);
+$geo-border-radius: var(--geo-border-radius, 3px);
 
 .ltd-geo-logo-container {
   box-sizing: border-box;
@@ -13,20 +15,19 @@
   font-size: $geo-font-size;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  // width: 400px;
   padding: 0 0 0 10px;
   border-radius: $geo-border-radius $geo-border-radius 0 0;
 
   &.light {
     background-color: rgba(0, 0, 0, 0.3);
 
-    a { color: $colorN05; }
+    a { color: #FAF9F8; }
   }
   
   &.dark {
     background-color: rgba(255, 255, 255, 0.4);
     
-    a { color: $colorN80; }
+    a { color: #53565A; }
   }
   
   a {
@@ -38,14 +39,11 @@
 
   .carto-logo {
     display: flex;
-    width: auto;
-    height: 22px;
     margin: 0 12px 0 6px;
 
-    img {
-      width: auto;
+    svg {
       height: 90%;
-      margin-top: 1px;
+      width: auto;
     }
   }
 

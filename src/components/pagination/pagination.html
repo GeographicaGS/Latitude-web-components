@@ -2,30 +2,53 @@
 <div class="ltd-pagination-container">
   <ul class="pagination">
     <li :class="{ 'disabled': pager.currentPage === 1 }">
-      <button @click="setPage(1, $event)">first</button>
+      <button class="first" @click="setPage(1, $event)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 20 20">
+          <g id="icons/n40/arrow-end" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <polygon fill="#000000" points="5.005 3.9999 3.591 5.4139 8.177 9.9999 3.59 14.5869 5.004 16.0009 11.004 9.9999"></polygon>
+            <rect fill="#000000" x="14" y="4" width="2" height="12"></rect>
+          </g>
+        </svg>
+      </button>
     </li>
     <li :class="{ 'disabled': pager.currentPage === 1 }">
-      <button @click="setPage(pager.currentPage - 1, $event)">previous</button>
+      <button class="prev" @click="setPage(pager.currentPage - 1, $event)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M8 4L6.588 5.414 11.171 10l-4.587 4.587L8 16 14 10z"/>
+        </svg>
+      </button>
     </li>
     <li>
-      <p>
-        <span class="page">
-          <span @click="showInput" :class="{ 'hidden': input }">{{ getInputValue() }}</span>
-          <input type="text" 
-            ref="inputElement"
-            :class="{ 'visible': input }"
-            @keyup.enter="setPage($event.target.value)"
-            @blur="input = false">
-        </span>
-        /
-        <span class="total-items">{{ pager.totalItems }} {{ placeholder }}</span>
-      </p>
+      <div class="page" @click="showInput">
+        <p :class="{ 'hidden': input }">
+          <span>{{ getInputValue() }}</span>
+          &nbsp;/&nbsp;
+          <span class="total-items">{{ pager.totalItems }} {{ placeholder }}</span>
+        </p>
+        <input type="text" 
+          ref="inputElement"
+          :class="{ 'visible': input }"
+          :placeholder="inputPlaceholder"
+          @keyup.enter="setItem($event.target.value)"
+          @blur="input = false">
+      </div>
     </li>
     <li :class="{ 'disabled': pager.currentPage === pager.totalPages }">
-      <button @click="setPage(pager.currentPage + 1, $event)">next</button>
+      <button class="next" @click="setPage(pager.currentPage + 1, $event)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M8 4L6.588 5.414 11.171 10l-4.587 4.587L8 16 14 10z"/>
+        </svg>
+      </button>
     </li>
     <li :class="{ 'disabled': pager.currentPage === pager.totalPages }">
-      <button @click="setPage(pager.totalPages, $event)">last</button>
+      <button class="last" @click="setPage(pager.totalPages, $event)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" viewBox="0 0 20 20">
+          <g id="icons/n40/arrow-end" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <polygon fill="#000000" points="5.005 3.9999 3.591 5.4139 8.177 9.9999 3.59 14.5869 5.004 16.0009 11.004 9.9999"></polygon>
+            <rect fill="#000000" x="14" y="4" width="2" height="12"></rect>
+          </g>
+        </svg>
+      </button>
     </li>
   </ul>
 </div>

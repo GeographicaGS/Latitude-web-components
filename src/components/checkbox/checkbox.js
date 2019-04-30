@@ -22,12 +22,6 @@ export default {
       default: false
     },
     /**
-     * Label for the checkbox
-     */
-    label: {
-      type: [String, Number]
-    },
-    /**
      * If true, the switch is disabled
      */
     disabled: {
@@ -38,21 +32,21 @@ export default {
      * Name for input
      */
     name: {
-      type: String
+      type: String,
+      default: Math.random().toString(36).substring(2) + (new Date()).getTime().toString(36)
     }
   },
   data () {
     return {
       model: [],
-      currentState: this.state,
-      showSlot: true
+      currentState: this.state
     }
   },
   computed: {
     getClasses () {
       return {
         'ltd-checkbox-container': true,
-        'checked': this.currentState === true,
+        'checked': this.currentState,
         'disabled': this.disabled
       }
     },
@@ -60,26 +54,20 @@ export default {
     getCheckboxClasses () {
       return {
         'checkbox': true,
-        'checked': this.currentState === true,
+        'checked': this.currentState,
         'disabled': this.disabled
       }
     }
   },
   mounted () {
-    this.showSlot = this.$slots.default !== undefined
     this.updateState()
   },
   methods: {
     onChange (event) {
-      console.log('entra')
-
       if (this.disabled) { return false }
       const checked = event.target.checked
       this.currentState = checked
-      this.$emit('input', checked)
-      this.$emit('change', checked)
-
-      // TODO: if group
+      this.$emit('change', { name: this.name, state: checked })
     },
 
     updateState () {
@@ -119,6 +107,10 @@ export default {
   watch: {
     state (val) {
       this.updateState()
+    },
+
+    customStyle () {
+      this.getStyle()
     }
   }
 }

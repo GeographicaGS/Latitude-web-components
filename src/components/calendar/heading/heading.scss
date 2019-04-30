@@ -1,8 +1,8 @@
 /**
  *  Heading style file
-**/
+ **/
 
-@import '~@/styles/main.scss';
+@import '../calendar.scss';
 
 .ltd-heading-container {
   display: flex;
@@ -13,20 +13,35 @@
   margin-bottom: $calendar-padding;
   padding: $calendar-padding $calendar-padding 0 $calendar-padding;
 
-  button.prev app-icon { transform: rotate(180deg); }
+  button {
+    outline: none;
+    border: none;
+    background: none;
+    cursor: pointer;
+  }
+
+  button.prev { transform: rotate(180deg); }
+
   button.prev,
   button.next {
     display: inline-flex;
 
-    &:hover app-icon {
+    svg,
+    .ltd-icon-container {
       fill: $calendar-arrow-icon-fill;
+      transition: fill 0.25s ease;
+    }
+
+    &:hover svg,
+    &:hover .ltd-icon-container {
+      fill: $calendar-arrow-icon-fill-hover;
     }
   }
 
-  button.controls {  margin: 0 2px; }
-
-  app-icon { 
-    fill: $calendar-arrow-icon-fill-hover; 
-    transition: fill 0.25s ease;
+  button.controls {  
+    font-size: $calendar-heading-font-size;
+    font-weight: $calendar-heading-font-weight;
+    color: $calendar-heading-color;
+    margin: 0 2px; 
   }
 }
